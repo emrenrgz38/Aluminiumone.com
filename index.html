@@ -8,7 +8,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('world.jpg') no-repeat center center fixed;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('world.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
@@ -19,47 +19,89 @@
         }
         header {
             background: rgba(0, 0, 0, 0.95);
-            height: 75px;
-            padding: 0 40px;
+            height: 80px;
+            padding: 0 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid #333;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
         }
-        .header-left { display: flex; align-items: center; gap: 40px; }
-        .header-logo img { height: 45px; width: auto; display: block; }
-        nav { display: flex; gap: 20px; }
+        .header-left { display: flex; align-items: center; gap: 50px; }
+        .header-logo img { height: 50px; width: auto; display: block; }
+        nav { display: flex; gap: 25px; }
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             transition: 0.3s;
         }
         nav a:hover { color: #00aaff; }
-        .header-right { display: flex; align-items: center; gap: 20px; }
-        .header-right a { color: white; text-decoration: none; font-size: 0.85rem; }
-        .social-icons { display: flex; gap: 15px; font-size: 1.1rem; }
-        .social-icons a { color: white; }
+        .header-right { display: flex; align-items: center; gap: 25px; }
+        .header-right a { color: white; text-decoration: none; font-size: 0.9rem; }
+        .social-icons { display: flex; gap: 15px; font-size: 1.2rem; }
         .container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 75px;
+            padding-top: 80px;
         }
         .main-box {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 800px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 50px;
+            border-radius: 20px;
+            max-width: 850px;
             text-align: center;
             border: 1px solid #444;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+        }
+        h1 { font-size: 2.8rem; letter-spacing: 6px; margin-bottom: 15px; font-weight: 700; }
+        .status { color: #00aaff; font-weight: bold; margin-bottom: 25px; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; }
+        .description { font-size: 1.1rem; line-height: 1.8; margin-bottom: 35px; color: #ccc; }
+        .contact-link { color: #00aaff; text-decoration: none; font-weight: bold; border-bottom: 1px solid #00aaff; padding-bottom: 2px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html"><img src="aluminium_one_logo_2.png" alt="Logo"></a>
+            <nav>
+                <a href="about.html">ABOUT US</a>
+                <a href="products.html">PRODUCTS</a>
+                <a href="services.html">SERVICES</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <a href="tel:+905433838060"><i class="fas fa-phone"></i> +905433838060</a>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main-box">
+            <h1>ALUMINIUM ONE</h1>
+            <div class="status">WE ARE REVAMPING OUR WEB DESIGN. FOLLOW US!</div>
+            <p class="description">
+                The focus constantly changes with increasing technological advances, ensuring customer needs 
+                are met and synthesizing expectations into engineering solutions for optimal aluminum extrusion 
+                and after-sales service. Our story starts from Turkey to be known throughout the world.
+            </p>
+            <div class="contact-info">
+                Contact: <a href="mailto:one@aluminiumone.com" class="contact-link">one@aluminiumone.com</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
         h1 { font-size: 2.2rem; letter-spacing: 5px; margin-bottom: 10px; }
