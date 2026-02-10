@@ -18,8 +18,8 @@
             overflow: hidden;
         }
         header {
-            background: rgba(0, 0, 0, 0.9);
-            height: 70px;
+            background: rgba(0, 0, 0, 0.95);
+            height: 75px;
             padding: 0 40px;
             display: flex;
             justify-content: space-between;
@@ -45,21 +45,64 @@
         .header-right { display: flex; align-items: center; gap: 20px; }
         .header-right a { color: white; text-decoration: none; font-size: 0.85rem; }
         .social-icons { display: flex; gap: 15px; font-size: 1.1rem; }
+        .social-icons a { color: white; }
         .container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 70px;
+            margin-top: 75px;
         }
         .main-box {
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.8);
             padding: 40px;
             border-radius: 15px;
             max-width: 800px;
             text-align: center;
             border: 1px solid #444;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
         }
+        h1 { font-size: 2.2rem; letter-spacing: 5px; margin-bottom: 10px; }
+        .status { color: #00aaff; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-size: 0.85rem; }
+        .description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; color: #ddd; }
+        .contact-link { color: #00aaff; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="index.html"><img src="aluminium_one_logo_2.png" alt="Logo"></a>
+            <nav>
+                <a href="about.html">ABOUT US</a>
+                <a href="products.html">PRODUCTS</a>
+                <a href="services.html">SERVICES</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+        <div class="header-right">
+            <a href="tel:+905000000000"><i class="fas fa-phone"></i> +90 500 000 00 00</a>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="main-box">
+            <h1>ALUMINIUM ONE</h1>
+            <div class="status">WE ARE REVAMPING OUR WEB DESIGN. FOLLOW US!</div>
+            <p class="description">
+                The focus constantly changes with increasing technological advances, ensuring customer needs 
+                are met and synthesizing expectations into engineering solutions for optimal aluminum extrusion 
+                and after-sales service. Our story starts from Turkey to be known throughout the world.
+            </p>
+            <div class="contact-info">
+                Contact: <a href="mailto:one@aluminiumone.com" class="contact-link">one@aluminiumone.com</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
         h1 { font-size: 2.2rem; letter-spacing: 5px; margin-bottom: 10px; }
         .status { color: #00aaff; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-size: 0.85rem; }
         .description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; color: #ddd; }
