@@ -15,6 +15,7 @@
             color: white;
             font-family: 'Segoe UI', sans-serif;
             overflow: hidden;
+            user-select: none;
         }
         header {
             background: rgba(0, 0, 0, 0.95);
@@ -43,13 +44,15 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            cursor: grab;
         }
+        .slider-container:active { cursor: grabbing; }
         .slide {
             position: absolute;
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transition: opacity 0.8s ease-in-out;
             background-size: cover;
             background-position: center;
         }
@@ -62,6 +65,7 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
             z-index: 2;
+            pointer-events: none;
         }
 
         .slider-btn {
@@ -73,12 +77,12 @@
             border: 2px solid rgba(255, 255, 255, 0.3);
             padding: 25px 20px;
             cursor: pointer;
-            z-index: 5000 !important;
+            z-index: 5000;
             font-size: 2.5rem;
             transition: 0.4s;
             border-radius: 5px;
         }
-        .slider-btn:hover { background: rgba(0, 170, 255, 0.6); border-color: white; }
+        .slider-btn:hover { background: rgba(0, 170, 255, 0.6); }
         .prev-btn { left: 30px; }
         .next-btn { right: 30px; }
 
@@ -109,9 +113,7 @@
 <body>
     <header>
         <div class="header-left">
-            <div class="header-logo">
-                <a href="index.html"><img src="aluminium_one_logo_2.png" alt="Logo"></a>
-            </div>
+            <div class="header-logo"><a href="index.html"><img src="aluminium_one_logo_2.png" alt="Logo"></a></div>
             <nav>
                 <a href="about.html">ABOUT US</a>
                 <a href="products.html">PRODUCTS</a>
@@ -120,12 +122,10 @@
                 <a href="contact.html">CONTACT</a>
             </nav>
         </div>
-        <div class="header-right">
-            <a href="tel:+905433838060"><i class="fas fa-phone"></i> +90 543 38 38 060</a>
-        </div>
+        <div class="header-right"><a href="tel:+905433838060"><i class="fas fa-phone"></i> +90 543 38 38 060</a></div>
     </header>
 
-    <div class="slider-container">
+    <div class="slider-container" id="slider">
         <div class="slide active" style="background-image: url('prees.jpg');"></div>
         <div class="slide" style="background-image: url('Stackeeer.jpg');"></div>
         <div class="slide" style="background-image: url('germee.jpg');"></div>
@@ -152,8 +152,10 @@
 
     <script>
         const slides = document.querySelectorAll('.slide');
+        const slider = document.getElementById('slider');
         let currentSlide = 0;
         let slideInterval = setInterval(nextSlide, 5000);
+        let startX = 0;
 
         function showSlide(index) {
             slides[currentSlide].classList.remove('active');
@@ -163,13 +165,22 @@
             slideInterval = setInterval(nextSlide, 5000);
         }
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
+        slider.addEventListener('mousedown', (e) => { startX = e.pageX; });
+        slider.addEventListener('mouseup', (e) => {
+            let endX = e.pageX;
+            if (startX - endX > 100) nextSlide();
+            else if (startX - endX < -100) prevSlide();
+        });
+
+        slider.addEventListener('touchstart', (e) => { startX = e.touches[0].pageX; });
+        slider.addEventListener('touchend', (e) => {
+            let endX = e.changedTouches[0].pageX;
+            if (startX - endX > 50) nextSlide();
+            else if (startX - endX < -50) prevSlide();
+        });
     </script>
 </body>
 </html>
