@@ -34,13 +34,10 @@
         .header-logo img { height: 70px !important; width: auto !important; transition: 0.3s; }
         header.scrolled .header-logo img { height: 55px !important; }
 
-        nav { 
-            display: flex; 
-            gap: 5px; 
-            flex: 1; 
-            justify-content: center; 
-            align-items: center;
-        }
+        nav { display: flex; gap: 5px; flex: 1; justify-content: center; align-items: center; }
+        
+        /* DROPDOWN NİZAMI */
+        .dropdown { position: relative; display: inline-block; }
         nav a { 
             color: #ffffff; 
             text-decoration: none; 
@@ -49,12 +46,38 @@
             letter-spacing: 0.5px; 
             transition: 0.3s; 
             text-transform: uppercase; 
-            padding: 8px 12px; 
+            padding: 15px 12px; 
             border-radius: 8px; 
             white-space: nowrap;
         }
         header.scrolled nav a { color: #000000; font-size: 1rem; }
         nav a:hover { background-color: #00aaff; color: #ffffff !important; }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #111;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+            z-index: 2001;
+            top: 100%;
+            left: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        header.scrolled .dropdown-content { background-color: #ffffff; border: 1px solid #ddd; }
+        .dropdown-content a {
+            color: #ffffff !important;
+            padding: 12px 16px;
+            display: block;
+            font-size: 0.9rem;
+            text-align: left;
+            border-bottom: 1px solid #222;
+        }
+        header.scrolled .dropdown-content a { color: #333333 !important; border-bottom: 1px solid #eee; }
+        .dropdown-content a:hover { background-color: #00aaff !important; color: #ffffff !important; }
+        .dropdown:hover .dropdown-content { display: block; }
 
         .header-right { display: flex; justify-content: flex-end; flex: 0 0 auto; }
         .info-bar { display: flex; align-items: center; gap: 20px; }
@@ -65,7 +88,6 @@
             font-weight: bold; 
             display: flex; 
             align-items: center; 
-            transition: 0.3s; 
         }
         header.scrolled .info-bar a { color: #000000; }
         .info-bar a i { color: #00aaff; margin-right: 10px; font-size: 1.6rem; }
@@ -73,7 +95,6 @@
         .social-icons { display: flex; gap: 15px; border-left: 1px solid #333; padding-left: 15px; }
         header.scrolled .social-icons { border-left-color: #ddd; }
         .social-icons a i { font-size: 2.2rem; transition: 0.4s; }
-        
         .fa-linkedin { color: #0077b5 !important; }
         .fa-instagram { color: #e4405f !important; }
         .fa-youtube { color: #ff0000 !important; }
@@ -95,21 +116,10 @@
             z-index: 3000;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             transition: 0.4s;
-            font-size: 1.1rem;
         }
         .whatsapp-btn:hover { transform: scale(1.1); background-color: #128C7E; }
 
-        section {
-            min-height: 100vh;
-            padding: 160px 50px 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-        }
-
+        section { min-height: 100vh; padding: 160px 50px 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; }
         #home { padding: 0; overflow: hidden; }
         .slider-container { position: absolute; width: 100%; height: 100%; z-index: 1; }
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s; background-size: cover; background-position: center; }
@@ -117,16 +127,8 @@
         .home-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 2; }
         .hero-content { position: relative; z-index: 10; background: rgba(0,0,0,0.6); padding: 50px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); max-width: 900px; }
         
-        /* ABOUT US GÖRSEL AYARI */
-        #about { 
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('aboutus.jpg') no-repeat center center; 
-            background-size: cover; 
-            background-attachment: fixed; 
-        }
-
+        #about { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('aboutus.jpg') no-repeat center center; background-size: cover; background-attachment: fixed; }
         h2 { font-size: 3.5rem; margin-bottom: 40px; letter-spacing: 5px; color: #00aaff; text-transform: uppercase; }
-        .content-box { max-width: 1100px; line-height: 2; color: #ccc; font-size: 1.3rem; }
-
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; width: 100%; max-width: 1300px; margin-top: 60px; }
         .card { background: #0a0a0a; padding: 50px; border-radius: 20px; border: 1px solid #222; transition: 0.4s; }
         .card:hover { border-color: #00aaff; transform: translateY(-15px); }
@@ -138,8 +140,7 @@
 <body>
 
     <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span>WhatsApp</span>
+        <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
     </a>
 
     <header id="mainHeader">
@@ -147,7 +148,14 @@
             <div class="header-logo"><a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a></div>
         </div>
         <nav>
-            <a href="#about">About Us</a>
+            <div class="dropdown">
+                <a href="#about">About Us</a>
+                <div class="dropdown-content">
+                    <a href="#vision">Our Vision</a>
+                    <a href="#mission">Our Mission</a>
+                    <a href="#hr">HR</a>
+                </div>
+            </div>
             <a href="#products">Products</a>
             <a href="#projects">Projects</a>
             <a href="#services">Services</a>
@@ -176,15 +184,14 @@
             <div class="home-overlay"></div>
         </div>
         <div class="hero-content">
-            <h1>ALUMINIUM ONE</h1>
+            <h1 style="font-size: 4rem;">ALUMINIUM ONE</h1>
             <p style="color:#00aaff; font-weight:bold; margin: 20px 0; letter-spacing: 4px; font-size: 1.5rem;">ADVANCED EXTRUSION SOLUTIONS</p>
-            <p class="content-box">Synthesizing expectations into engineering solutions.</p>
         </div>
     </section>
 
     <section id="about">
         <h2>About Us</h2>
-        <div class="content-box">
+        <div style="max-width: 1100px; line-height: 2; color: #ccc; font-size: 1.3rem;">
             <p>Our story starts from Turkey to be known throughout the world. We combine decades of industrial experience with engineering excellence.</p>
         </div>
     </section>
@@ -192,38 +199,35 @@
     <section id="products">
         <h2>Our Products</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Advanced facade systems.</p></div>
-            <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Precision-engineered profiles.</p></div>
-            <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>Solar energy structures.</p></div>
+            <div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Advanced facade and window systems.</p></div>
+            <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Precision-engineered profiles for industries.</p></div>
+            <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>Aluminum solutions for solar energy.</p></div>
         </div>
     </section>
 
     <section id="contact">
         <h2>Contact Us</h2>
-        <div class="content-box">
+        <div style="font-size: 1.5rem; color: #ccc;">
             <p>Istanbul, Turkey | one@aluminiumone.com | +90 543 38 38 060</p>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved.</p>
-    </footer>
+    <footer><p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved.</p></footer>
 
     <script>
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) { header.classList.add('scrolled'); } 
-            else { header.classList.remove('scrolled'); }
+            if (window.scrollY > 80) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
-        function nextSlide() {
+        setInterval(() => {
             slides[currentSlide].classList.remove('active');
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
-        }
-        setInterval(nextSlide, 5000);
+        }, 5000);
     </script>
 </body>
 </html>
