@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluminium One | Advanced Extrusion</title>
+    <title>Aluminium One | Aluminium Extrusion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* TEMEL AYARLAR VE SIFIRLAMA */
@@ -103,7 +103,7 @@
         .fa-facebook { color: #1877f2 !important; }
         .social-icons a:hover { transform: scale(1.2); }
 
-        /* WHATSAPP BUTONU - GÜNCELLENDİ */
+        /* WHATSAPP BUTONU */
         .whatsapp-btn {
             position: fixed;
             bottom: 30px;
@@ -123,7 +123,7 @@
         }
         .whatsapp-btn:hover { transform: scale(1.1); background-color: #128C7E; }
 
-        /* SLIDER (HOME) BÖLÜMÜ */
+        /* SLIDER BÖLÜMÜ */
         #home { padding: 0; overflow: hidden; position: relative; min-height: 100vh; cursor: grab; }
         #home:active { cursor: grabbing; }
         .slider-container { position: absolute; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
@@ -186,12 +186,6 @@
         .card h3 { font-size: 1.6rem; margin-bottom: 15px; color: #00aaff; letter-spacing: 1px; }
         .card p { color: #aaa; line-height: 1.5; font-size: 1.05rem; }
 
-        /* ARKA PLANLAR */
-        #about { background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('about-bg.jpg') no-repeat center center; background-size: cover; background-attachment: fixed; }
-        #projects { background: #080808; }
-        #news { background: #030303; }
-        #services { background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('services-bg.jpg') no-repeat center center; background-size: cover; }
-
         /* MOBİL UYUM */
         @media (max-width: 1024px) {
             header { padding: 0 20px; height: 110px; flex-direction: column; justify-content: center; gap: 10px; }
@@ -200,9 +194,12 @@
             .hero-content h1 { font-size: 2.5rem; }
             h2 { font-size: 2.5rem; }
             .slider-arrow { width: 50px; height: 50px; font-size: 1.2rem; }
+            .arrow-left { left: 10px; }
+            .arrow-right { right: 10px; }
         }
 
         footer { background: #000; padding: 80px 20px; text-align: center; border-top: 1px solid #222; }
+        footer p { color: #555; font-size: 1rem; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -255,38 +252,78 @@
         </div>
         <div class="hero-content">
             <h1>ALUMINIUM ONE</h1>
-            <p>Advanced Extrusion Solutions</p>
+            <p>Aluminium Extrusion Solutions</p>
         </div>
     </section>
 
     <section id="about">
         <h2>About Us</h2>
+        <p class="section-desc">Leading the industry with precision engineering and global standards.</p>
         <div class="grid">
-            <div class="card">
+            <div id="vision" class="card">
                 <div class="card-img"><img src="vision_resmi.jpg" alt="Vision"></div>
                 <h3>Our Vision</h3>
-                <p>Global standartları belirleyen lider olmak.</p>
+                <p>Global alüminyum teknolojilerinde standartları belirleyen lider olmak.</p>
             </div>
-            <div class="card">
+            <div id="mission" class="card">
                 <div class="card-img"><img src="mission_resmi.jpg" alt="Mission"></div>
                 <h3>Our Mission</h3>
-                <p>Sürdürülebilir ve kaliteli çözümler sunmak.</p>
+                <p>Yüksek kaliteli ve sürdürülebilir mühendislik çözümleri sunmak.</p>
             </div>
-            <div class="card">
+            <div id="hr" class="card">
                 <div class="card-img"><img src="hr_resmi.jpg" alt="HR"></div>
                 <h3>HR</h3>
-                <p>İnsan kaynağına ve gelişimine yatırım yapmak.</p>
+                <p>Yetenekli insan gücüne yatırım yaparak sürekli gelişimi sağlamak.</p>
             </div>
         </div>
     </section>
 
-    <section id="products"><h2>Our Products</h2><div class="grid"><div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Modern facade systems.</p></div><div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>High-precision profiles.</p></div><div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>Solar solutions.</p></div></div></section>
-    <section id="projects"><h2>Projects</h2><div class="grid"><div class="card"><h3>Project Alpha</h3><p>Global facility solutions.</p></div><div class="card"><h3>Project Beta</h3><p>Architectural excellence.</p></div></div></section>
-    <section id="services"><h2>Services</h2><div class="grid"><div class="card"><i class="fas fa-drafting-compass"></i><h3>R&D</h3><p>Design support.</p></div><div class="card"><i class="fas fa-microchip"></i><h3>CNC</h3><p>Precision machining.</p></div></div></section>
-    <section id="news"><h2>News</h2><div class="grid"><div class="card"><h3>Capacity Increase</h3><p>New production line ready.</p></div></div></section>
-    <section id="contact"><h2>Contact Us</h2><div class="card" style="max-width: 600px;"><p>Istanbul, Turkey</p><p>one@aluminiumone.com</p></div></section>
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="grid">
+            <div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Facade and window systems for modern structures.</p></div>
+            <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Precision-engineered aluminum profiles.</p></div>
+            <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>Solutions for renewable energy solar panels.</p></div>
+        </div>
+    </section>
 
-    <footer><p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved.</p></footer>
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+            <div class="card"><h3>Industrial Site X</h3><p>Supplying specialized profiles for global facilities.</p></div>
+            <div class="card"><h3>Modern Facade Y</h3><p>High-end architectural aluminum solutions.</p></div>
+            <div class="card"><h3>Energy Park Z</h3><p>Custom-engineered solar rack systems.</p></div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Services</h2>
+        <div class="grid">
+            <div class="card"><i class="fas fa-drafting-compass"></i><h3>R&D & Design</h3><p>Expert support for custom profile engineering.</p></div>
+            <div class="card"><i class="fas fa-microchip"></i><h3>CNC Machining</h3><p>High-precision drilling and cutting services.</p></div>
+            <div class="card"><i class="fas fa-paint-roller"></i><h3>Surface Treatment</h3><p>Premium anodizing and powder coating solutions.</p></div>
+        </div>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <div class="grid">
+            <div class="card"><h3>Expansion</h3><p>Our 3rd extrusion line is officially operational in 2026.</p></div>
+            <div class="card"><h3>Sustainability</h3><p>Awarded for eco-friendly production methods.</p></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="card" style="max-width: 800px; width: 100%;">
+            <p>Industrial Zone, Istanbul, Turkey</p>
+            <p>one@aluminiumone.com | +90 543 38 38 060</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p>
+    </footer>
 
     <script>
         const header = document.getElementById('mainHeader');
