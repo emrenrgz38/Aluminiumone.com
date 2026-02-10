@@ -36,7 +36,7 @@
 
         nav { display: flex; gap: 5px; flex: 1; justify-content: center; align-items: center; }
         
-        /* ZARİF DROPDOWN NİZAMI */
+        /* ZARİF VE KÜÇÜK DROPDOWN */
         .dropdown { position: relative; display: inline-block; }
         nav a { 
             color: #ffffff; 
@@ -57,13 +57,12 @@
             display: none;
             position: absolute;
             background-color: rgba(17, 17, 17, 0.95);
-            min-width: 160px;
-            box-shadow: 0px 4px 12px rgba(0,0,0,0.4);
+            min-width: 150px; /* Daha küçük ve zarif */
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.5);
             z-index: 2001;
             top: 85%;
             left: 0;
             border-radius: 4px;
-            overflow: hidden;
             border: 1px solid #333;
             backdrop-filter: blur(5px);
         }
@@ -71,12 +70,12 @@
         
         .dropdown-content a {
             color: #ffffff !important;
-            padding: 10px 15px;
+            padding: 8px 15px; /* Daha zarif padding */
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.8rem; /* Daha küçük font */
             text-align: left;
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-weight: 500;
+            font-weight: 600;
         }
         header.scrolled .dropdown-content a { color: #333333 !important; border-bottom: 1px solid #eee; }
         .dropdown-content a:hover { background-color: #00aaff !important; color: #ffffff !important; }
@@ -131,21 +130,8 @@
         .card { background: rgba(15, 15, 15, 0.8); padding: 40px; border-radius: 15px; border: 1px solid #222; transition: 0.4s; }
         .card:hover { border-color: #00aaff; transform: translateY(-10px); background: #000; }
         
-        /* RESİM KUTUSU AYARI */
-        .card-img {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 2px solid #00aaff;
-        }
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        .card-img { width: 100px; height: 100px; margin: 0 auto 20px; border-radius: 50%; overflow: hidden; border: 2px solid #00aaff; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
         .card h3 { margin-bottom: 15px; letter-spacing: 2px; color: #00aaff; }
 
         footer { background: #000; padding: 60px; text-align: center; border-top: 1px solid #222; color: #777; font-size: 1.1rem; }
@@ -209,22 +195,19 @@
         
         <div class="grid">
             <div id="vision" class="card">
-                <div class="card-img">
-                    <img src="vision_resmi.jpg" alt="Our Vision"> </div>
+                <div class="card-img"><img src="vision_resmi.jpg" alt="Our Vision"></div>
                 <h3>Our Vision</h3>
                 <p>To be the world's most reliable and innovative partner in advanced aluminum extrusion technology.</p>
             </div>
             <div id="mission" class="card">
-                <div class="card-img">
-                    <img src="mission_resmi.jpg" alt="Our Mission"> </div>
+                <div class="card-img"><img src="mission_resmi.jpg" alt="Our Mission"></div>
                 <h3>Our Mission</h3>
                 <p>Providing high-quality, sustainable engineering solutions that exceed industry expectations.</p>
             </div>
             <div id="hr" class="card">
-                <div class="card-img">
-                    <img src="hr_resmi.jpg" alt="Human Resources"> </div>
+                <div class="card-img"><img src="hr_resmi.jpg" alt="HR"></div>
                 <h3>HR</h3>
-                <p>Investing in human talent and fostering a culture of precision, safety, and continuous growth.</p>
+                <p>Investing in human talent and fostering a culture of precision and growth.</p>
             </div>
         </div>
     </section>
@@ -236,6 +219,27 @@
             <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Precision-engineered profiles.</p></div>
             <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>Solutions for solar structures.</p></div>
         </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+            <div class="card"><h3>Project Alpha</h3><p>Industrial facility solutions.</p></div>
+            <div class="card"><h3>Project Beta</h3><p>Commercial complex facades.</p></div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Services</h2>
+        <div class="grid">
+            <div class="card"><h3>Consultancy</h3><p>Expert engineering advice.</p></div>
+            <div class="card"><h3>Fabrication</h3><p>Custom aluminum processing.</p></div>
+        </div>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <div class="card" style="width: 100%; max-width: 800px;"><h3>Expansion</h3><p>New production line launching soon.</p></div>
     </section>
 
     <section id="contact">
