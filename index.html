@@ -31,8 +31,9 @@
         }
         .header-left { display: flex; align-items: center; flex-grow: 1; }
         .header-logo img { height: 35px !important; width: auto !important; display: block !important; }
-        nav { display: flex; gap: 30px; margin-left: auto; margin-right: 50px; }
-        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; }
+        nav { display: flex; gap: 25px; margin-left: auto; margin-right: 40px; }
+        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover { color: #00aaff; }
         .header-right a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
 
         .slider-container {
@@ -63,6 +64,23 @@
             z-index: 2;
         }
 
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 20px 15px;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+        .slider-btn:hover { background: rgba(0, 170, 255, 0.5); }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+
         .container {
             position: relative;
             flex: 1;
@@ -73,12 +91,13 @@
             margin-top: 70px;
         }
         .main-box {
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             padding: 40px;
             border-radius: 15px;
             max-width: 800px;
             text-align: center;
             border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
         h1 { font-size: 2.2rem; letter-spacing: 5px; margin-bottom: 10px; }
         .status { color: #00aaff; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; }
@@ -94,8 +113,8 @@
             <nav>
                 <a href="about.html">ABOUT US</a>
                 <a href="products.html">PRODUCTS</a>
-                <a href="products.html">PROJECTS</a>
                 <a href="services.html">SERVICES</a>
+                <a href="projects.html">PROJECTS</a>
                 <a href="contact.html">CONTACT</a>
             </nav>
         </div>
@@ -105,10 +124,12 @@
     </header>
 
     <div class="slider-container">
-        <div class="slide active" style="background-image: url('world.jpg');"></div>
-        <div class="slide" style="background-image: url('prees.jpg');"></div>
+        <div class="slide active" style="background-image: url('prees.jpg');"></div>
         <div class="slide" style="background-image: url('Stackeeer.jpg');"></div>
+        <div class="slide" style="background-image: url('germee.jpg');"></div>
         <div class="overlay"></div>
+        <button class="slider-btn prev-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <div class="container">
@@ -129,12 +150,27 @@
     <script>
         let slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
-        function nextSlide() {
+        let slideInterval = setInterval(nextSlide, 5000);
+
+        function showSlide(index) {
             slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
+            currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
+            resetInterval();
         }
-        setInterval(nextSlide, 5000);
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
     </script>
 </body>
 </html>
