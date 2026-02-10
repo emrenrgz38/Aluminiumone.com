@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aluminium One</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('world.jpg') no-repeat center center fixed;
@@ -11,11 +12,61 @@
             margin: 0;
             height: 100vh;
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
+
+        /* Üst Şerit Tasarımı */
+        header {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 10px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #444;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .header-logo img {
+            height: 50px; /* Şerit içindeki logo boyutu */
+            width: auto;
+        }
+
+        .header-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .header-info a:hover { color: #00aaff; }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Orta Kutu Ayarı */
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 80px; /* Şeridin altında kalmaması için pay verdik */
+        }
+
         .main-box {
             background: rgba(0, 0, 0, 0.75);
             padding: 40px;
@@ -24,37 +75,41 @@
             text-align: center;
             border: 1px solid #444;
         }
-        .logo-img { 
-            max-width: 280px; 
-            height: auto; 
-            margin-bottom: 25px; 
-            display: block; 
-            margin-left: auto; 
-            margin-right: auto;
-        }
+
         h1 { font-size: 2.5rem; letter-spacing: 5px; margin-bottom: 10px; }
         .status { color: #00aaff; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
         .description { font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
-        a { color: #00aaff; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="main-box">
-        <img src="aluminium_one_logo_2.png" alt="Aluminium One Logo" class="logo-img">
-        
-        <h1>ALUMINIUM ONE</h1>
-        
-        <div class="status">We are revamping our web design. Follow us!</div>
-        
-        <p class="description">
-            The focus constantly changes with increasing technological advances, ensuring customer needs 
-            are met and synthesizing expectations into engineering solutions for optimal aluminum extrusion 
-            and after-sales service. Our story starts from Turkey to be known throughout the world.
-        </p>
+    <header>
+        <div class="header-logo">
+            <img src="aluminium_one_logo_2.png" alt="Logo">
+        </div>
+        <div class="header-info">
+            <a href="tel:+905000000000"><i class="fas fa-phone"></i> +90 500 000 00 00</a>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+    </header>
 
-        <div class="contact">
-            Contact: <a href="mailto:one@aluminiumone.com">one@aluminiumone.com</a>
+    <div class="container">
+        <div class="main-box">
+            <h1>ALUMINIUM ONE</h1>
+            <div class="status">We are revamping our web design. Follow us!</div>
+            <p class="description">
+                The focus constantly changes with increasing technological advances, ensuring customer needs 
+                are met and synthesizing expectations into engineering solutions for optimal aluminum extrusion 
+                and after-sales service. Our story starts from Turkey to be known throughout the world.
+            </p>
+            <div class="contact">
+                Contact: <a href="mailto:one@aluminiumone.com" style="color: #00aaff; text-decoration: none; font-weight: bold;">one@aluminiumone.com</a>
+            </div>
         </div>
     </div>
 
