@@ -128,8 +128,8 @@
         <div class="slide" style="background-image: url('Stackeeer.jpg');"></div>
         <div class="slide" style="background-image: url('germee.jpg');"></div>
         <div class="overlay"></div>
-        <button class="slider-btn prev-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-        <button class="slider-btn next-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        <button class="slider-btn prev-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <div class="container">
@@ -149,8 +149,6 @@
 
     <script>
         const slides = document.querySelectorAll('.slide');
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
         let currentSlide = 0;
         let slideInterval = setInterval(nextSlide, 5000);
 
@@ -169,9 +167,6 @@
         function prevSlide() {
             showSlide(currentSlide - 1);
         }
-
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
     </script>
 </body>
 </html>
