@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Aluminium One</title>
+    <title>Aluminium One</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('world.jpg') no-repeat center center fixed;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('world.jpg') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
             color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
-        /* Üst Şerit (Ana Sayfa ile Aynı) */
+        /* Yeni Üst Bant Düzeni */
         header {
             background: rgba(0, 0, 0, 0.9);
-            padding: 10px 50px;
+            padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -29,37 +32,86 @@
             z-index: 1000;
         }
 
-        .header-logo img { height: 45px; }
+        .header-left { display: flex; align-items: center; gap: 30px; }
+        .header-left img { height: 45px; cursor: pointer; }
 
+        /* Senin İstediğin Sıralı Menü */
+        nav { display: flex; gap: 25px; }
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 0.9rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
         nav a:hover { color: #00aaff; }
 
-        /* İçerik Alanı */
-        .content-container {
-            padding: 120px 10% 50px; /* Üstten pay verdik */
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .header-right { display: flex; align-items: center; gap: 20px; }
+        .header-right a { color: white; text-decoration: none; font-size: 0.9rem; }
+        .social-icons { display: flex; gap: 15px; font-size: 1.1rem; }
+        .social-icons a:hover { color: #00aaff; }
 
-        .about-section {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 50px;
-            border-radius: 20px;
-            border: 1px solid #333;
-            line-height: 1.8;
+        /* Orta Kutu */
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 80px;
         }
+        .main-box {
+            background: rgba(0, 0, 0, 0.75);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+            text-align: center;
+            border: 1px solid #444;
+        }
+        h1 { font-size: 2.5rem; letter-spacing: 5px; margin-bottom: 10px; }
+        .status { color: #00aaff; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; }
+        .description { font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
 
-        h2 {
-            color: #00aaff;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #00aaff;
+    <header>
+        <div class="header-left">
+            <a href="index.html"><img src="aluminium_one_logo_2.png" alt="Logo"></a>
+            <nav>
+                <a href="about.html">ABOUT US</a>
+                <a href="products.html">PRODUCTS</a>
+                <a href="services.html">SERVICES</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+        
+        <div class="header-right">
+            <a href="tel:+905000000000"><i class="fas fa-phone"></i> +90 500 000 00 00</a>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-box">
+            <h1>ALUMINIUM ONE</h1>
+            <div class="status">We are revamping our web design. Follow us!</div>
+            <p class="description">
+                The focus constantly changes with increasing technological advances, ensuring customer needs 
+                are met and synthesizing expectations into engineering solutions for optimal aluminum extrusion 
+                and after-sales service. Our story starts from Turkey to be known throughout the world.
+            </p>
+            <div class="contact">
+                Contact: <a href="mailto:one@aluminiumone.com" style="color: #00aaff; text-decoration: none; font-weight: bold;">one@aluminiumone.com</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
             display: inline-block;
         }
 
