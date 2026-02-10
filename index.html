@@ -8,8 +8,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('world.jpg') no-repeat center center fixed;
-            background-size: cover;
+            background: #000;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -31,48 +30,59 @@
             z-index: 1000;
         }
         .header-left { display: flex; align-items: center; flex-grow: 1; }
-        .header-logo img { 
-            height: 35px !important; 
-            width: auto !important; 
-            display: block !important;
-        }
-        nav { 
-            display: flex; 
-            gap: 30px; 
-            margin-left: auto; 
-            margin-right: 50px;
-        }
-        nav a { 
-            color: white; 
-            text-decoration: none; 
-            font-weight: 600; 
-            font-size: 0.85rem; 
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-        nav a:hover { color: #00aaff; }
-        .header-right { display: flex; align-items: center; gap: 20px; }
+        .header-logo img { height: 35px !important; width: auto !important; display: block !important; }
+        nav { display: flex; gap: 30px; margin-left: auto; margin-right: 50px; }
+        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.85rem; letter-spacing: 1px; }
         .header-right a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
+
+        .slider-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        .slide.active { opacity: 1; }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
         .container {
+            position: relative;
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 3;
             margin-top: 70px;
         }
         .main-box {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7);
             padding: 40px;
             border-radius: 15px;
             max-width: 800px;
             text-align: center;
-            border: 1px solid #444;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
         }
         h1 { font-size: 2.2rem; letter-spacing: 5px; margin-bottom: 10px; }
         .status { color: #00aaff; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; }
-        .description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; color: #ccc; }
-        .contact-link { color: #00aaff; text-decoration: none; font-weight: bold; }
+        .description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; color: #ddd; }
     </style>
 </head>
 <body>
@@ -84,7 +94,6 @@
             <nav>
                 <a href="about.html">ABOUT US</a>
                 <a href="products.html">PRODUCTS</a>
-                <a href="products.html">PROJECTS</a>
                 <a href="services.html">SERVICES</a>
                 <a href="contact.html">CONTACT</a>
             </nav>
@@ -93,6 +102,14 @@
             <a href="tel:+905433838060"><i class="fas fa-phone"></i> +90 543 38 38 060</a>
         </div>
     </header>
+
+    <div class="slider-container">
+        <div class="slide active" style="background-image: url('world.jpg');"></div>
+        <div class="slide" style="background-image: url('slide2.jpg');"></div>
+        <div class="slide" style="background-image: url('slide3.jpg');"></div>
+        <div class="overlay"></div>
+    </div>
+
     <div class="container">
         <div class="main-box">
             <h1>ALUMINIUM ONE</h1>
@@ -103,9 +120,20 @@
                 and after-sales service. Our story starts from Turkey to be known throughout the world.
             </p>
             <div class="contact-info">
-                Contact: <a href="mailto:one@aluminiumone.com" class="contact-link">one@aluminiumone.com</a>
+                Contact: <a href="mailto:one@aluminiumone.com" style="color:#00aaff; text-decoration:none; font-weight:bold;">one@aluminiumone.com</a>
             </div>
         </div>
     </div>
+
+    <script>
+        let slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(nextSlide, 5000);
+    </script>
 </body>
 </html>
