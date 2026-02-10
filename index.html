@@ -20,7 +20,7 @@
         header {
             background: rgba(0, 0, 0, 0.95);
             height: 70px;
-            padding: 0 40px;
+            padding: 0 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -30,18 +30,29 @@
             width: 100%;
             z-index: 1000;
         }
-        .header-left { display: flex; align-items: center; gap: 40px; }
+        .header-left { display: flex; align-items: center; flex-grow: 1; }
         .header-logo img { 
-            height: 40px !important; 
+            height: 35px !important; 
             width: auto !important; 
             display: block !important;
-            max-width: 220px !important;
         }
-        nav { display: flex; gap: 20px; }
-        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 1px; }
+        nav { 
+            display: flex; 
+            gap: 30px; 
+            margin-left: auto; 
+            margin-right: 50px;
+        }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 0.85rem; 
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
         nav a:hover { color: #00aaff; }
         .header-right { display: flex; align-items: center; gap: 20px; }
-        .header-right a { color: white; text-decoration: none; font-size: 0.85rem; }
+        .header-right a { color: white; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
         .container {
             flex: 1;
             display: flex;
@@ -50,7 +61,7 @@
             margin-top: 70px;
         }
         .main-box {
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.8);
             padding: 40px;
             border-radius: 15px;
             max-width: 800px;
@@ -59,8 +70,8 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         }
         h1 { font-size: 2.2rem; letter-spacing: 5px; margin-bottom: 10px; }
-        .status { color: #00aaff; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-size: 0.85rem; }
-        .description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; color: #ddd; }
+        .status { color: #00aaff; font-weight: bold; margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; }
+        .description { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; color: #ccc; }
         .contact-link { color: #00aaff; text-decoration: none; font-weight: bold; }
     </style>
 </head>
@@ -82,14 +93,18 @@
         </div>
     </header>
     <div class="container">
-        <div class="main-
-
-
-
-
-
-
-
-
-
-            
+        <div class="main-box">
+            <h1>ALUMINIUM ONE</h1>
+            <div class="status">WE ARE REVAMPING OUR WEB DESIGN. FOLLOW US!</div>
+            <p class="description">
+                The focus constantly changes with increasing technological advances, ensuring customer needs 
+                are met and synthesizing expectations into engineering solutions for optimal aluminum extrusion 
+                and after-sales service. Our story starts from Turkey to be known throughout the world.
+            </p>
+            <div class="contact-info">
+                Contact: <a href="mailto:one@aluminiumone.com" class="contact-link">one@aluminiumone.com</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
