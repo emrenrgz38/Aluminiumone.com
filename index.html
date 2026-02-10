@@ -22,19 +22,35 @@
             width: 100%;
             z-index: 2000;
         }
-        .header-left { display: flex; align-items: center; }
+        
+        .header-left { 
+            display: flex; 
+            align-items: center; 
+            flex: 0 0 auto;
+        }
         .header-logo img { height: 45px !important; width: auto !important; }
-        nav { display: flex; gap: 15px; margin-left: 25px; }
-        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.75rem; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
+
+        /* MENÜYÜ ORTALAMA AYARI */
+        nav { 
+            display: flex; 
+            gap: 25px; 
+            flex: 1; 
+            justify-content: center; /* Logo ile iletişim arasını ortalar */
+        }
+        nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; white-space: nowrap; }
         nav a:hover { color: #00aaff; }
 
-        .header-right { flex-grow: 1; display: flex; justify-content: flex-end; }
+        .header-right { 
+            display: flex; 
+            justify-content: flex-end; 
+            flex: 0 0 auto;
+        }
         .info-bar { display: flex; align-items: center; gap: 25px; }
         .info-bar a { color: white; text-decoration: none; font-size: 0.9rem; font-weight: bold; display: flex; align-items: center; transition: 0.3s; }
         .info-bar a i { color: #00aaff; margin-right: 10px; font-size: 1.3rem; }
         .info-bar a:hover { color: #00aaff; }
 
-        .social-icons { display: flex; gap: 20px; border-left: 1px solid #333; padding-left: 20px; }
+        .social-icons { display: flex; gap: 15px; border-left: 1px solid #333; padding-left: 15px; }
         .social-icons a i { font-size: 1.6rem; color: #00aaff; transition: 0.4s; }
         .social-icons a:hover i { color: white; transform: scale(1.3) translateY(-2px); }
 
@@ -93,15 +109,17 @@
     <header>
         <div class="header-left">
             <div class="header-logo"><a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a></div>
-            <nav>
-                <a href="#about">About Us</a>
-                <a href="#products">Products</a>
-                <a href="#projects">Projects</a>
-                <a href="#services">Services</a>
-                <a href="#news">News</a>
-                <a href="#contact">Contact</a>
-            </nav>
         </div>
+        
+        <nav>
+            <a href="#about">About Us</a>
+            <a href="#products">Products</a>
+            <a href="#projects">Projects</a>
+            <a href="#services">Services</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
         <div class="header-right">
             <div class="info-bar">
                 <a href="tel:+905433838060"><i class="fas fa-phone"></i> +90 543 38 38 060</a>
