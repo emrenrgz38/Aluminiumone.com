@@ -47,7 +47,6 @@
             border-radius: 8px; 
         }
         header.scrolled nav a { color: #000000; font-size: 1.1rem; }
-        
         nav a:hover { background-color: #00aaff; color: #ffffff !important; }
 
         .header-right { display: flex; justify-content: flex-end; flex: 0 0 auto; }
@@ -66,14 +65,31 @@
 
         .social-icons { display: flex; gap: 15px; border-left: 1px solid #333; padding-left: 15px; }
         header.scrolled .social-icons { border-left-color: #ddd; }
-        
         .social-icons a i { font-size: 2rem; transition: 0.4s; }
-        .social-icons a:hover { transform: scale(1.2); }
-
         .fa-linkedin { color: #0077b5; }
         .fa-instagram { color: #e4405f; }
         .fa-youtube { color: #ff0000; }
         .fa-facebook { color: #1877f2; }
+
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 3000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: 0.4s;
+            font-size: 1.1rem;
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); background-color: #128C7E; }
 
         section {
             min-height: 100vh;
@@ -94,27 +110,34 @@
         .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,170,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 30px 25px; cursor: pointer; z-index: 100; font-size: 3rem; transition: 0.4s; border-radius: 8px; }
         .slider-btn:hover { background: rgba(0, 170, 255, 0.6); }
         .prev-btn { left: 30px; } .next-btn { right: 30px; }
+
         h2 { font-size: 3.5rem; margin-bottom: 40px; letter-spacing: 5px; color: #00aaff; text-transform: uppercase; }
         .content-box { max-width: 1100px; line-height: 2; color: #ccc; font-size: 1.3rem; }
-        #about { 
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('aboutus.jpg') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
-        }
+
+        #about { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('aboutus.jpg') no-repeat center center; background-size: cover; background-attachment: fixed; }
+
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; width: 100%; max-width: 1300px; margin-top: 60px; }
         .card { background: #0a0a0a; padding: 50px; border-radius: 20px; border: 1px solid #222; transition: 0.4s; }
         .card:hover { border-color: #00aaff; transform: translateY(-15px); }
         .card i { font-size: 4rem; color: #00aaff; margin-bottom: 30px; }
+
         .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; width: 100%; max-width: 1300px; margin-top: 60px; }
         .project-item { height: 400px; background: #111; border-radius: 15px; overflow: hidden; position: relative; border: 1px solid #333; }
         .project-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.7s; }
         .project-item:hover img { transform: scale(1.1); }
         .project-label { position: absolute; bottom: 0; width: 100%; background: rgba(0,170,255,0.9); padding: 25px; font-weight: bold; transform: translateY(100%); transition: 0.4s; text-transform: uppercase; font-size: 1.2rem; }
         .project-item:hover .project-label { transform: translateY(0); }
+
         footer { background: #000; padding: 60px; text-align: center; border-top: 1px solid #222; color: #777; font-size: 1.1rem; }
     </style>
 </head>
 <body>
+
+    <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp</span>
+    </a>
+
     <header id="mainHeader">
         <div class="header-left">
             <div class="header-logo"><a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a></div>
@@ -153,23 +176,23 @@
         <div class="hero-content">
             <h1 style="font-size: 4rem;">ALUMINIUM ONE</h1>
             <p style="color:#00aaff; font-weight:bold; margin: 20px 0; letter-spacing: 4px; font-size: 1.5rem;">ADVANCED EXTRUSION SOLUTIONS</p>
-            <p class="content-box">Providing world-class engineering solutions for optimal aluminum extrusion and global after-sales service.</p>
+            <p class="content-box">Synthesizing expectations into engineering solutions for optimal aluminum extrusion and global after-sales service.</p>
         </div>
     </section>
 
     <section id="about">
         <h2>About Us</h2>
         <div class="content-box">
-            <p>Our story starts from Turkey to be known throughout the world. We combine decades of industrial experience with engineering excellence.</p>
+            <p>Our story starts from Turkey to be known throughout the world. We combine decades of industrial experience with engineering excellence to deliver high-quality aluminum solutions.</p>
         </div>
     </section>
 
     <section id="products">
         <h2>Our Products</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Advanced facade systems for modern architecture.</p></div>
-            <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Precision-engineered profiles for industries.</p></div>
-            <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>Aluminum solutions for solar energy structures.</p></div>
+            <div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Advanced facade and window systems designed for modern architecture.</p></div>
+            <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Precision-engineered profiles for automotive and mechanical industries.</p></div>
+            <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>High-strength aluminum solutions for sustainable solar energy structures.</p></div>
         </div>
     </section>
 
@@ -183,18 +206,18 @@
     </section>
 
     <section id="services">
-        <h2>Services</h2>
+        <h2>Our Services</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-drafting-pencil"></i><h3>Design</h3><p>In-house mold design and technical consultancy.</p></div>
-            <div class="card"><i class="fas fa-check-double"></i><h3>Quality</h3><p>Comprehensive testing protocols.</p></div>
-            <div class="card"><i class="fas fa-globe-europe"></i><h3>Export</h3><p>Reliable global logistics.</p></div>
+            <div class="card"><i class="fas fa-drafting-pencil"></i><h3>Design</h3><p>In-house mold design and technical consultancy for complex profiles.</p></div>
+            <div class="card"><i class="fas fa-check-double"></i><h3>Quality</h3><p>Comprehensive testing protocols following international quality standards.</p></div>
+            <div class="card"><i class="fas fa-globe-europe"></i><h3>Export</h3><p>Reliable global logistics ensuring on-time delivery.</p></div>
         </div>
     </section>
 
     <section id="news">
-        <h2>News</h2>
+        <h2>Latest News</h2>
         <div class="content-box">
-            <div class="card" style="width: 100%; max-width: 800px; margin: 0 auto;"><h3>Production Capacity Expansion</h3><p>Investing in a new press line to double efficiency.</p></div>
+            <div class="card" style="width: 100%; max-width: 800px; margin: 0 auto;"><h3>Production Capacity Expansion</h3><p>We are investing in a new state-of-the-art press line to double our efficiency.</p></div>
         </div>
     </section>
 
@@ -202,53 +225,34 @@
         <h2>Contact Us</h2>
         <div class="content-box">
             <div class="contact-details">
-                <span><i class="fas fa-envelope"></i> one@aluminiumone.com</span>
-                <span><i class="fas fa-phone"></i> +90 543 38 38 060</span>
-                <span><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
+                <p style="font-size: 1.5rem; margin-bottom: 20px;"><i class="fas fa-envelope" style="color:#00aaff;"></i> one@aluminiumone.com</p>
+                <p style="font-size: 1.5rem; margin-bottom: 20px;"><i class="fas fa-phone" style="color:#00aaff;"></i> +90 543 38 38 060</p>
+                <p style="font-size: 1.5rem;"><i class="fas fa-map-marker-alt" style="color:#00aaff;"></i> Istanbul, Turkey</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved.</p>
+        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Precision</p>
     </footer>
 
     <script>
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            if (window.scrollY > 80) { header.classList.add('scrolled'); } 
+            else { header.classList.remove('scrolled'); }
         });
 
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
-        let slideInterval = setInterval(nextSlide, 5000);
         function showSlide(index) {
             slides[currentSlide].classList.remove('active');
             currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, 5000);
         }
         function nextSlide() { showSlide(currentSlide + 1); }
         function prevSlide() { showSlide(currentSlide - 1); }
-        const slider = document.getElementById('slider');
-        let startX = 0;
-        slider.addEventListener('mousedown', (e) => { startX = e.pageX; });
-        slider.addEventListener('mouseup', (e) => {
-            let endX = e.pageX;
-            if (startX - endX > 100) nextSlide();
-            else if (startX - endX < -100) prevSlide();
-        });
-        slider.addEventListener('touchstart', (e) => { startX = e.touches[0].pageX; });
-        slider.addEventListener('touchend', (e) => {
-            let endX = e.changedTouches[0].pageX;
-            if (startX - endX > 50) nextSlide();
-            else if (startX - endX < -50) prevSlide();
-        });
+        setInterval(nextSlide, 5000);
     </script>
 </body>
 </html>
