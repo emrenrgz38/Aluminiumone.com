@@ -11,7 +11,7 @@
         
         header {
             background: rgba(0, 0, 0, 0.95);
-            height: 75px; /* Mail sığsın diye 5px genişlettik reis */
+            height: 80px;
             padding: 0 50px;
             display: flex;
             justify-content: space-between;
@@ -28,21 +28,8 @@
         nav a { color: white; text-decoration: none; font-weight: 600; font-size: 0.8rem; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
         nav a:hover { color: #00aaff; }
 
-        /* İLETİŞİM BANTI AYARI */
-        .header-right { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: flex-end; 
-            justify-content: center;
-            gap: 2px;
-        }
-        .header-right a { 
-            color: white; 
-            text-decoration: none; 
-            font-size: 0.75rem; /* Biraz küçülttük ki sırıtmasın */
-            font-weight: bold; 
-            transition: 0.3s;
-        }
+        .header-right { display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 2px; }
+        .header-right a { color: white; text-decoration: none; font-size: 0.75rem; font-weight: bold; transition: 0.3s; }
         .header-right a:hover { color: #00aaff; }
         .header-right i { color: #00aaff; margin-right: 5px; width: 15px; text-align: center; }
 
@@ -63,33 +50,44 @@
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s; background-size: cover; background-position: center; }
         .slide.active { opacity: 1; }
         .home-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2; }
-        .hero-content { position: relative; z-index: 10; background: rgba(0,0,0,0.7); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); max-width: 800px; }
+        .hero-content { position: relative; z-index: 10; background: rgba(0,0,0,0.7); padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); max-width: 800px; pointer-events: auto; }
         
-        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,170,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 20px 15px; cursor: pointer; z-index: 100; font-size: 2rem; }
+        .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,170,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 25px 20px; cursor: pointer; z-index: 100; font-size: 2.5rem; transition: 0.4s; }
+        .slider-btn:hover { background: rgba(0, 170, 255, 0.6); }
         .prev-btn { left: 20px; } .next-btn { right: 20px; }
 
+        /* Typography */
         h2 { font-size: 2.5rem; margin-bottom: 30px; letter-spacing: 3px; color: #00aaff; text-transform: uppercase; }
         .content-box { max-width: 1000px; line-height: 1.8; color: #ccc; font-size: 1.1rem; }
 
+        /* About Us with Background Image */
         #about { 
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('about_bg.jpg') no-repeat center center;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('about_bg.jpg') no-repeat center center;
             background-size: cover;
             background-attachment: fixed;
         }
 
+        /* Grid System for Products & Services */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; max-width: 1200px; margin-top: 40px; }
         .card { background: #111; padding: 40px; border-radius: 15px; border: 1px solid #222; transition: 0.4s; }
-        .card:hover { border-color: #00aaff; transform: translateY(-10px); }
+        .card:hover { border-color: #00aaff; transform: translateY(-10px); background: #050505; }
         .card i { font-size: 3rem; color: #00aaff; margin-bottom: 25px; }
 
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; width: 100%; max-width: 1200px; margin-top: 40px; }
-        .project-item { height: 250px; background: #222; border-radius: 8px; overflow: hidden; position: relative; cursor: pointer; }
-        .project-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .project-item:hover img { transform: scale(1.1); }
-        .project-label { position: absolute; bottom: 0; width: 100%; background: rgba(0,170,255,0.8); padding: 10px; font-weight: bold; transform: translateY(100%); transition: 0.3s; }
+        /* Projects Gallery */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; width: 100%; max-width: 1200px; margin-top: 40px; }
+        .project-item { height: 300px; background: #222; border-radius: 10px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid #333; }
+        .project-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .project-item:hover img { transform: scale(1.15); }
+        .project-label { position: absolute; bottom: 0; width: 100%; background: rgba(0,170,255,0.9); padding: 15px; font-weight: bold; transform: translateY(100%); transition: 0.4s; text-transform: uppercase; }
         .project-item:hover .project-label { transform: translateY(0); }
 
-        footer { background: #050505; padding: 30px; text-align: center; border-top: 1px solid #222; color: #555; font-size: 0.8rem; }
+        /* Contact Section Specific */
+        #contact { background: #050505; }
+        .contact-details { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+        .contact-details span { font-size: 1.2rem; color: #ddd; }
+        .contact-details i { color: #00aaff; margin-right: 10px; }
+
+        footer { background: #000; padding: 40px; text-align: center; border-top: 1px solid #222; color: #666; font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -124,12 +122,66 @@
         <div class="hero-content">
             <h1>ALUMINIUM ONE</h1>
             <p style="color:#00aaff; font-weight:bold; margin: 15px 0; letter-spacing: 2px;">ADVANCED EXTRUSION SOLUTIONS</p>
-            <p style="line-height: 1.6; color: #ccc;">Meeting customer needs through technological advances and engineering excellence in aluminum extrusion.</p>
+            <p class="content-box">Synthesizing expectations into engineering solutions for optimal aluminum extrusion and after-sales service. Our story starts from Turkey to be known throughout the world.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <div class="content-box">
+            <p>Our story starts from Turkey to be known throughout the world. With years of experience in the aluminum industry, we combine engineering excellence with customer-centric service.</p>
+            <p style="margin-top: 25px;">The focus constantly changes with increasing technological advances, ensuring customer needs are met through high-quality precision manufacturing.</p>
+        </div>
+    </section>
+
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="grid">
+            <div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Innovative systems for modern building envelopes and interior design.</p></div>
+            <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Customized profiles for automotive, transportation, and engineering applications.</p></div>
+            <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy Systems</h3><p>High-durability frames and structures for solar energy installations.</p></div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Latest Projects</h2>
+        <div class="project-grid">
+            <div class="project-item"><img src="project1.jpg" alt="P1"><div class="project-label">Factory Expansion</div></div>
+            <div class="project-item"><img src="project2.jpg" alt="P2"><div class="project-label">Facade Installation</div></div>
+            <div class="project-item"><img src="project3.jpg" alt="P3"><div class="project-label">Custom Extrusion</div></div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Services</h2>
+        <div class="grid">
+            <div class="card"><i class="fas fa-drafting-pencil"></i><h3>Die Design</h3><p>Advanced CAD/CAM solutions for precise mold production.</p></div>
+            <div class="card"><i class="fas fa-vial"></i><h3>Testing</h3><p>Mechanical and chemical testing to ensure international standards.</p></div>
+            <div class="card"><i class="fas fa-shipping-fast"></i><h3>Logistics</h3><p>Global supply chain management and secure delivery solutions.</p></div>
+        </div>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <div class="content-box">
+            <p>Stay tuned for our upcoming technological investments and global exhibitions.</p>
+            <div class="card" style="margin-top: 30px; width: 100%;"><h3>New Press Line Coming Soon</h3><p>We are expanding our capacity to serve you better.</p></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="content-box">
+            <div class="contact-details">
+                <span><i class="fas fa-envelope"></i> one@aluminiumone.com</span>
+                <span><i class="fas fa-phone"></i> +90 543 38 38 060</span>
+                <span><i class="fas fa-map-marker-alt"></i> Istanbul, Turkey</span>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved.</p>
+        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. Engineered by Quality.</p>
     </footer>
 
     <script>
@@ -147,6 +199,7 @@
         function nextSlide() { showSlide(currentSlide + 1); }
         function prevSlide() { showSlide(currentSlide - 1); }
 
+        // Swipe & Drag Support
         const slider = document.getElementById('slider');
         let startX = 0;
         slider.addEventListener('mousedown', (e) => { startX = e.pageX; });
@@ -154,6 +207,12 @@
             let endX = e.pageX;
             if (startX - endX > 100) nextSlide();
             else if (startX - endX < -100) prevSlide();
+        });
+        slider.addEventListener('touchstart', (e) => { startX = e.touches[0].pageX; });
+        slider.addEventListener('touchend', (e) => {
+            let endX = e.changedTouches[0].pageX;
+            if (startX - endX > 50) nextSlide();
+            else if (startX - endX < -50) prevSlide();
         });
     </script>
 </body>
