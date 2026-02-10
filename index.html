@@ -113,12 +113,13 @@
         }
         .whatsapp-btn:hover { transform: scale(1.1); background-color: #128C7E; }
 
-        /* SLIDER VE OKLARIN NİZAMI */
-        #home { padding: 0; overflow: hidden; position: relative; min-height: 100vh; }
-        .slider-container { position: absolute; width: 100%; height: 100%; z-index: 1; }
+        /* SLIDER VE MOUSE ETKİLEŞİMİ */
+        #home { padding: 0; overflow: hidden; position: relative; min-height: 100vh; cursor: grab; }
+        #home:active { cursor: grabbing; }
+        .slider-container { position: absolute; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease-in-out; background-size: cover; background-position: center; }
         .slide.active { opacity: 1; }
-        .home-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 2; }
+        .home-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.4); z-index: 2; pointer-events: none; }
         
         .slider-arrow {
             position: absolute;
@@ -143,7 +144,7 @@
         .arrow-left { left: 30px; }
         .arrow-right { right: 30px; }
 
-        .hero-content { position: relative; z-index: 10; background: rgba(0,0,0,0.6); padding: 50px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); max-width: 900px; margin-top: 130px; }
+        .hero-content { position: relative; z-index: 10; background: rgba(0,0,0,0.6); padding: 50px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1); max-width: 900px; margin-top: 130px; pointer-events: none; }
         
         section { min-height: 100vh; padding: 140px 50px 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; }
         #about { background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('aboutus.jpg') no-repeat center center; background-size: cover; background-attachment: fixed; }
@@ -291,21 +292,55 @@
             slides[currentSlide].classList.add('active');
         }
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
+        function nextSlide() { showSlide(currentSlide + 1); }
+        function prevSlide() { showSlide(currentSlide - 1); }
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // Otomatik geçiş (5 saniyede bir)
         let slideInterval = setInterval(nextSlide, 5000);
 
-        // Okun üzerine gelince durması için (İstersen ekleyebilirsin)
-        const sliderSection = document.getElementById('home');
-        sliderSection.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        sliderSection.addEventListener('mouseleave', () => slideInterval = setInterval(nextSlide, 5000));
+        // MOUSE İLE KAYDIRMA (DRAG) MANTIĞI
+        const homeSection = document.getElementById('home');
+        let startX = 0;
+        let isDragging = false;
+
+        homeSection.addEventListener('mousedown', (e) => {
+            startX = e.pageX;
+            isDragging = true;
+            clearInterval(slideInterval);
+        });
+
+        homeSection.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+
+        homeSection.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+            let endX = e.pageX;
+            let diff = startX - endX;
+
+            if (Math.abs(diff) > 50) { // 50 piksellik hareket yeterli
+                if (diff > 0) nextSlide();
+                else prevSlide();
+            }
+            isDragging = false;
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // MOBİL İÇİN DOKUNMATİK DESTEĞİ
+        homeSection.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].pageX;
+            clearInterval(slideInterval);
+        });
+
+        homeSection.addEventListener('touchend', (e) => {
+            let endX = e.changedTouches[0].pageX;
+            let diff = startX - endX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextSlide();
+                else prevSlide();
+            }
+            slideInterval = setInterval(nextSlide, 5000);
+        });
     </script>
 </body>
 </html>
