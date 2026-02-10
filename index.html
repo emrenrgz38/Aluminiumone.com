@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluminium One</title>
+    <title>About Us | Aluminium One</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('world.jpg') no-repeat center center fixed;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('world.jpg') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Üst Şerit Tasarımı */
+        /* Üst Şerit (Ana Sayfa ile Aynı) */
         header {
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             padding: 10px 50px;
             display: flex;
             justify-content: space-between;
@@ -32,8 +29,100 @@
             z-index: 1000;
         }
 
-        .header-logo img {
-            height: 50px; /* Şerit içindeki logo boyutu */
+        .header-logo img { height: 45px; }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        nav a:hover { color: #00aaff; }
+
+        /* İçerik Alanı */
+        .content-container {
+            padding: 120px 10% 50px; /* Üstten pay verdik */
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 50px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            line-height: 1.8;
+        }
+
+        h2 {
+            color: #00aaff;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #00aaff;
+            display: inline-block;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #00aaff;
+        }
+
+        .card h3 { color: #00aaff; margin-top: 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-logo">
+            <a href="index.html"><img src="aluminium_one_logo_2.png" alt="Logo"></a>
+        </div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="about.html" style="color: #00aaff;">ABOUT US</a>
+            <a href="#">PRODUCTS</a>
+            <a href="#">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="content-container">
+        <div class="about-section">
+            <h2>ABOUT US</h2>
+            <div class="about-text">
+                <p>Aluminium One is a global solution partner specializing in high-quality aluminum extrusion and engineering services. Our journey, which started from the industrial heart of Turkey, has expanded across borders with a commitment to excellence and innovation.</p>
+                
+                <p>We combine advanced technology with years of expertise to provide optimal solutions for architectural, industrial, and custom aluminum projects. Our focus is not just production, but creating long-term value for our clients through precision and reliability.</p>
+            </div>
+
+            <div class="mission-vision">
+                <div class="card">
+                    <h3>Our Mission</h3>
+                    <p>To provide sustainable, high-tech engineering solutions that meet the evolving needs of the global aluminum market.</p>
+                </div>
+                <div class="card">
+                    <h3>Our Vision</h3>
+                    <p>To be the world’s most trusted and innovative aluminum solution provider, representing Turkish engineering excellence globally.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
             width: auto;
         }
 
@@ -88,7 +177,7 @@
             <img src="aluminium_one_logo_2.png" alt="Logo">
         </div>
         <div class="header-info">
-            <a href="tel:+905000000000"><i class="fas fa-phone"></i> +90 500 000 00 00</a>
+            <a href="tel:+90543 38 38 060"><i class="fas fa-phone"></i> +90 500 000 00 00</a>
             
             <div class="social-icons">
                 <a href="#"><i class="fab fa-instagram"></i></a>
