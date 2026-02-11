@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aluminium One | Aluminium Extrusion</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* TEMEL AYARLAR */
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
@@ -36,15 +36,38 @@
         .header-left img { height: 75px; transition: 0.4s ease; }
         header.scrolled .header-left img { height: 55px; }
 
-        .header-middle { display: flex; align-items: center; gap: 30px; margin-left: 50px; flex: 1; }
-        .contact-group { display: flex; gap: 20px; }
-        .contact-group a { color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
-        header.scrolled .contact-group a { color: #000000; }
-        .contact-group a i { color: #00aaff; }
+        .header-middle { display: flex; align-items: center; gap: 40px; margin-left: 50px; flex: 1; }
+        
+        /* MODERNİZE EDİLMİŞ İKONLAR VE İLETİŞİM GRUBU */
+        .contact-group { display: flex; gap: 30px; }
+        .contact-group a { 
+            color: #ffffff; 
+            text-decoration: none; 
+            font-size: 1rem; 
+            font-weight: 600; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            transition: 0.3s; 
+        }
+        
+        header.scrolled .contact-group a { color: #333; }
+        
+        /* Yeni Gri İkon Stili */
+        .contact-group a i { 
+            font-size: 1.4rem; /* İkonlar büyütüldü */
+            color: #b0b0b0; /* Metalik Gri Tonu */
+            transition: 0.3s;
+        }
 
-        .social-group { display: flex; gap: 15px; border-left: 1px solid #444; padding-left: 20px; }
+        .contact-group a:hover i { 
+            color: #00aaff; 
+            transform: scale(1.1); 
+        }
+
+        .social-group { display: flex; gap: 20px; border-left: 1px solid #444; padding-left: 25px; }
         header.scrolled .social-group { border-left-color: #ddd; }
-        .social-group a i { font-size: 1.4rem; transition: 0.3s; }
+        .social-group a i { font-size: 1.5rem; transition: 0.3s; }
         .fa-linkedin { color: #0077b5 !important; }
         .fa-instagram { color: #e4405f !important; }
         .fa-youtube { color: #ff0000 !important; }
@@ -118,8 +141,8 @@
         <div class="header-left"><a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a></div>
         <div class="header-middle">
             <div class="contact-group">
-                <a href="tel:+905433838060"><i class="fas fa-phone"></i> +90 543 38 38 060</a>
-                <a href="mailto:one@aluminiumone.com"><i class="fas fa-envelope"></i> one@aluminiumone.com</a>
+                <a href="tel:+905433838060"><i class="fa-solid fa-square-phone-flip"></i> +90 543 38 38 060</a>
+                <a href="mailto:one@aluminiumone.com"><i class="fa-solid fa-envelope-open-text"></i> one@aluminiumone.com</a>
             </div>
             <div class="social-group">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
