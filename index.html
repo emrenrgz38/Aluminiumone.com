@@ -6,7 +6,6 @@
     <title>Aluminium One | Aluminium Extrusion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* TEMEL AYARLAR */
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
         html { scroll-padding-top: 100px; }
         body { background: #000; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden; }
@@ -33,11 +32,13 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header-left img { height: 75px !important; transition: 0.4s ease; }
-        header.scrolled .header-left img { height: 55px !important; }
+        .header-left { flex: 0; }
+        .header-left img { height: 75px; transition: 0.4s ease; }
+        header.scrolled .header-left img { height: 55px; }
 
         .header-middle { display: flex; align-items: center; gap: 30px; margin-left: 50px; flex: 1; }
-        .contact-group a { color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        .contact-group { display: flex; gap: 20px; }
+        .contact-group a { color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
         header.scrolled .contact-group a { color: #000000; }
         .contact-group a i { color: #00aaff; }
 
@@ -50,8 +51,10 @@
         .fa-facebook { color: #1877f2 !important; }
         .social-group a:hover { transform: scale(1.2); }
 
-        .header-right .menu-btn { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; display: flex; align-items: center; gap: 12px; }
+        .header-right { flex: 0; }
+        .menu-btn { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; display: flex; align-items: center; gap: 12px; }
         header.scrolled .menu-btn { color: #000; }
+        .menu-btn span { font-size: 0.85rem; font-weight: 800; letter-spacing: 1.5px; }
 
         /* SIDE MENU */
         .side-menu {
@@ -69,16 +72,19 @@
 
         /* HERO SLIDER */
         #home { height: 100vh; position: relative; overflow: hidden; cursor: grab; }
+        .slider { position: absolute; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
         .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 1.2s; background-size: cover; background-position: center; }
         .slide.active { opacity: 1; }
-        .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 15; background: rgba(0,0,0,0.4); color: white; border: 1px solid rgba(255,255,255,0.2); width: 60px; height: 60px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 15; background: rgba(0,0,0,0.4); color: white; border: 1px solid rgba(255,255,255,0.2); width: 60px; height: 60px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; transition: 0.3s; }
+        .slider-arrow:hover { background: #00aaff; }
         .arrow-left { left: 30px; } .arrow-right { right: 30px; }
         .hero-content { position: relative; z-index: 10; background: rgba(0,0,0,0.6); padding: 50px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); max-width: 800px; margin: 15% auto 0; text-align: center; pointer-events: none; }
+        .hero-content h1 { font-size: 4rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 900; }
 
-        /* ABOUT US - BACKGROUND IMAGE */
+        /* ABOUT US - ARKA PLAN RESMİ */
         #about {
             position: relative;
-            background-image: url('about_bg.jpg'); 
+            background-image: url('about_bg.jpg'); /* BURAYI RESİM ADIYLA DEĞİŞTİR */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -87,12 +93,11 @@
         }
         #about::before {
             content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.75);
-            z-index: -1;
+            background: rgba(0, 0, 0, 0.75); z-index: -1;
         }
 
-        /* SECTION & GRID SETTINGS */
-        section { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 120px 50px; }
+        /* GENEL BÖLÜM VE KART YAPISI */
+        section { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 120px 50px; border-bottom: 1px solid #111; }
         h2 { font-size: 3.5rem; color: #00aaff; margin-bottom: 50px; letter-spacing: 5px; font-weight: 900; text-transform: uppercase; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; width: 100%; max-width: 1400px; }
         .card { background: rgba(20, 20, 20, 0.7); padding: 50px 30px; border-radius: 20px; border: 1px solid #333; transition: 0.5s; backdrop-filter: blur(5px); }
@@ -101,10 +106,18 @@
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
         .card i { font-size: 3.5rem; color: #00aaff; margin-bottom: 25px; display: block; }
         .card h3 { color: #00aaff; margin-bottom: 15px; font-size: 1.6rem; }
+        .card p { color: #ccc; line-height: 1.6; }
 
         .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 3000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        @media (max-width: 1024px) { .header-middle { display: none; } .side-menu { width: 100%; } h2 { font-size: 2.5rem; } }
+        footer { padding: 50px; text-align: center; color: #666; border-top: 1px solid #111; }
+
+        @media (max-width: 1024px) {
+            .header-middle { display: none; }
+            .side-menu { width: 100%; right: -100%; }
+            .hero-content h1 { font-size: 2.5rem; }
+            h2 { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -112,7 +125,10 @@
     <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
     <header id="mainHeader">
-        <div class="header-left"><a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a></div>
+        <div class="header-left">
+            <a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a>
+        </div>
+
         <div class="header-middle">
             <div class="contact-group">
                 <a href="tel:+905433838060"><i class="fas fa-phone"></i> +90 543 38 38 060</a>
@@ -125,8 +141,11 @@
                 <a href="#"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
+
         <div class="header-right">
-            <button class="menu-btn" onclick="toggleMenu()"><span>MENU</span> <i class="fas fa-bars-staggered"></i></button>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <span>MENU</span> <i class="fas fa-bars-staggered"></i>
+            </button>
         </div>
     </header>
 
@@ -153,7 +172,7 @@
         </div>
         <div class="hero-content">
             <h1>ALUMINIUM ONE</h1>
-            <p>Aluminium Extrusion Solutions</p>
+            <p style="color: #00aaff; letter-spacing: 5px; font-weight: bold;">PREMIUM EXTRUSION SOLUTIONS</p>
         </div>
     </section>
 
@@ -181,35 +200,35 @@
     <section id="products">
         <h2>Our Products</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Facade and window systems for modern structures.</p></div>
-            <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Precision-engineered aluminum profiles.</p></div>
-            <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>Solutions for renewable energy solar panels.</p></div>
+            <div class="card"><i class="fas fa-building"></i><h3>Architectural</h3><p>Modern facade and window systems.</p></div>
+            <div class="card"><i class="fas fa-industry"></i><h3>Industrial</h3><p>Precision profiles for various industries.</p></div>
+            <div class="card"><i class="fas fa-solar-panel"></i><h3>Energy</h3><p>Solar mounting and energy solutions.</p></div>
         </div>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
         <div class="grid">
-            <div class="card"><h3>Industrial Site X</h3><p>Supplying specialized profiles for global facilities.</p></div>
-            <div class="card"><h3>Modern Facade Y</h3><p>High-end architectural aluminum solutions.</p></div>
-            <div class="card"><h3>Energy Park Z</h3><p>Custom-engineered solar rack systems.</p></div>
+            <div class="card"><h3>Project A</h3><p>High-scale industrial development.</p></div>
+            <div class="card"><h3>Project B</h3><p>Architectural facade masterpiece.</p></div>
+            <div class="card"><h3>Project C</h3><p>Global infrastructure supply.</p></div>
         </div>
     </section>
 
     <section id="services">
         <h2>Services</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-drafting-compass"></i><h3>R&D & Design</h3><p>Expert support for custom profile engineering.</p></div>
-            <div class="card"><i class="fas fa-microchip"></i><h3>CNC Machining</h3><p>High-precision drilling and cutting services.</p></div>
-            <div class="card"><i class="fas fa-paint-roller"></i><h3>Surface Treatment</h3><p>Premium anodizing and powder coating solutions.</p></div>
+            <div class="card"><i class="fas fa-drafting-compass"></i><h3>R&D</h3><p>Custom profile design.</p></div>
+            <div class="card"><i class="fas fa-microchip"></i><h3>CNC</h3><p>High precision machining.</p></div>
+            <div class="card"><i class="fas fa-paint-roller"></i><h3>Surface</h3><p>Anodizing and coating.</p></div>
         </div>
     </section>
 
     <section id="news">
-        <h2>News</h2>
+        <h2>Latest News</h2>
         <div class="grid">
-            <div class="card"><h3>Expansion</h3><p>Our 3rd extrusion line is officially operational in 2026.</p></div>
-            <div class="card"><h3>Sustainability</h3><p>Awarded for eco-friendly production methods.</p></div>
+            <div class="card"><h3>New Line</h3><p>Third production line is active.</p></div>
+            <div class="card"><h3>Global Award</h3><p>Excellence in sustainability.</p></div>
         </div>
     </section>
 
@@ -224,7 +243,7 @@
     <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 
     <footer>
-        <p style="text-align: center; padding: 40px; color: #666;">&copy; 2026 ALUMINIUM ONE. All Rights Reserved.</p>
+        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p>
     </footer>
 
     <script>
