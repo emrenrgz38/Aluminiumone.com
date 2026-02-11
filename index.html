@@ -503,7 +503,52 @@
         .gallery-main .slider-arrow:hover { background: #00aaff; }
         .gallery-main .arrow-left { left: 20px; }
         .gallery-main .arrow-right { right: 20px; }
+/* REFERENCES SECTION - Otomatik Akış Altyapısı */
+        #references {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
 
+        .logo-slider {
+            display: flex;
+            width: calc(250px * 14); /* 7 logo x 2 kopya */
+            animation: scroll 30s linear infinite;
+        }
+
+        .logo-slider:hover {
+            animation-play-state: paused;
+        }
+
+        .logo-item {
+            width: 250px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+        }
+
+        .logo-item img {
+            max-width: 180px;
+            max-height: 80px;
+            filter: grayscale(100%) brightness(1.2);
+            opacity: 0.6;
+            transition: 0.5s;
+        }
+
+        .logo-item img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 7)); }
+        }
         .gallery-thumbs {
             display: flex;
             gap: 10px;
@@ -668,10 +713,28 @@
             <div class="card"><h3>Australia Project</h3><p>New aluminum extrusion line successfully installed and commissioned.</p></div>
         </div>
     </section>
+    <section id="references">
+        <div class="logo-slider">
+            <div class="logo-item"><img src="ref1.png" alt="Logo 1"></div>
+            <div class="logo-item"><img src="ref2.png" alt="Logo 2"></div>
+            <div class="logo-item"><img src="ref3.png" alt="Logo 3"></div>
+            <div class="logo-item"><img src="ref4.png" alt="Logo 4"></div>
+            <div class="logo-item"><img src="ref5.png" alt="Logo 5"></div>
+            <div class="logo-item"><img src="ref6.png" alt="Logo 6"></div>
+            <div class="logo-item"><img src="ref7.png" alt="Logo 7"></div>
+            <div class="logo-item"><img src="ref1.png" alt="Logo 1"></div>
+            <div class="logo-item"><img src="ref2.png" alt="Logo 2"></div>
+            <div class="logo-item"><img src="ref3.png" alt="Logo 3"></div>
+            <div class="logo-item"><img src="ref4.png" alt="Logo 4"></div>
+            <div class="logo-item"><img src="ref5.png" alt="Logo 5"></div>
+            <div class="logo-item"><img src="ref6.png" alt="Logo 6"></div>
+            <div class="logo-item"><img src="ref7.png" alt="Logo 7"></div>
+        </div>
+    </section>
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="card" style="max-width: 800px; width: 100%;">
-            <p>Istasyon Mah. Şehitler Cad. Eska Mare Sitesi A107 Blok No:20 Tuzla / ISTANBUL</p>
+            <p>Istasyon Mah. Şehitler Cad. Eska Mare Sitesi A107 Blok No:20 Tuzla / ISTANBUL / TÜRKİYE</p>
             <p>one@aluminiumone.com | +90 543 38 38 060</p>
         </div>
     </section>
