@@ -23,132 +23,88 @@
             top: 0;
             width: 100%;
             z-index: 2000;
-            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: 0.5s ease;
             border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         header.scrolled {
             background: #ffffff;
             height: 90px;
-            border-bottom: 1px solid #ddd;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header-left img { height: 75px !important; width: auto !important; transition: 0.4s ease; }
+        .header-left img { height: 75px !important; transition: 0.4s ease; }
         header.scrolled .header-left img { height: 55px !important; }
 
         .header-middle { display: flex; align-items: center; gap: 30px; margin-left: 50px; flex: 1; }
-        .contact-group { display: flex; gap: 20px; }
-        .contact-group a { 
-            color: #ffffff; 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            font-weight: 700; 
-            display: flex; 
-            align-items: center; 
-            gap: 8px; 
-            transition: 0.3s; 
-        }
+        .contact-group a { color: #ffffff; text-decoration: none; font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
         header.scrolled .contact-group a { color: #000000; }
-        .contact-group a i { color: #00aaff; font-size: 1.1rem; }
-        .contact-group a:hover { color: #00aaff !important; }
+        .contact-group a i { color: #00aaff; }
 
         .social-group { display: flex; gap: 15px; border-left: 1px solid #333; padding-left: 20px; }
         header.scrolled .social-group { border-left-color: #ddd; }
-        .social-group a i { font-size: 1.5rem; transition: 0.4s; }
+        .social-group a i { font-size: 1.4rem; transition: 0.3s; }
         .fa-linkedin { color: #0077b5 !important; }
         .fa-instagram { color: #e4405f !important; }
         .fa-youtube { color: #ff0000 !important; }
         .fa-facebook { color: #1877f2 !important; }
         .social-group a:hover { transform: scale(1.2); }
 
-        .header-right { display: flex; align-items: center; }
-        .menu-btn { 
-            background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; 
-            display: flex; align-items: center; gap: 12px; transition: 0.3s;
-        }
+        .header-right .menu-btn { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; display: flex; align-items: center; gap: 12px; }
         header.scrolled .menu-btn { color: #000; }
-        .menu-btn span { font-size: 0.85rem; font-weight: 800; letter-spacing: 1.5px; }
 
-        /* SIDE MENU (YANDAN AÇILAN) */
+        /* SIDE MENU */
         .side-menu {
             position: fixed; top: 0; right: -380px; width: 380px; height: 100vh;
             background: rgba(10, 10, 10, 0.98); z-index: 3000; transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
             padding: 100px 50px; border-left: 1px solid #333; backdrop-filter: blur(15px);
         }
         .side-menu.active { right: 0; }
-        .close-menu { position: absolute; top: 35px; right: 40px; color: #fff; font-size: 2.5rem; cursor: pointer; transition: 0.3s; }
-        .close-menu:hover { color: #00aaff; }
-        
+        .close-menu { position: absolute; top: 35px; right: 40px; color: #fff; font-size: 2.5rem; cursor: pointer; }
         .nav-links { list-style: none; }
-        .nav-links li { margin: 25px 0; overflow: hidden; }
-        .nav-links a { 
-            color: #fff; text-decoration: none; font-size: 1.4rem; font-weight: 800; 
-            text-transform: uppercase; letter-spacing: 3px; transition: 0.4s; display: block;
-        }
-        .nav-links a:hover { color: #00aaff; transform: translateX(15px); }
-
+        .nav-links a { color: #fff; text-decoration: none; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; display: block; margin: 25px 0; transition: 0.3s; }
+        .nav-links a:hover { color: #00aaff; transform: translateX(10px); }
         .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2999; display: none; }
         .menu-overlay.active { display: block; }
 
-        /* SLIDER & INTERACTION */
+        /* HERO SLIDER */
         #home { height: 100vh; position: relative; overflow: hidden; cursor: grab; }
-        #home:active { cursor: grabbing; }
-        .slider { position: absolute; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
-        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease-in-out; background-size: cover; background-position: center; }
+        .slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: 1.2s; background-size: cover; background-position: center; }
         .slide.active { opacity: 1; }
-        .home-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.45); z-index: 2; pointer-events: none; }
-        
-        .slider-arrow {
-            position: absolute; top: 50%; transform: translateY(-50%); z-index: 15;
-            background: rgba(0, 0, 0, 0.4); color: white; border: 1px solid rgba(255,255,255,0.2);
-            width: 65px; height: 65px; border-radius: 50%; cursor: pointer; transition: 0.3s;
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
-        }
-        .slider-arrow:hover { background: #00aaff; border-color: #00aaff; }
-        .arrow-left { left: 30px; }
-        .arrow-right { right: 30px; }
+        .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 15; background: rgba(0,0,0,0.4); color: white; border: 1px solid rgba(255,255,255,0.2); width: 60px; height: 60px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+        .arrow-left { left: 30px; } .arrow-right { right: 30px; }
+        .hero-content { position: relative; z-index: 10; background: rgba(0,0,0,0.6); padding: 50px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); max-width: 800px; margin: 15% auto 0; text-align: center; pointer-events: none; }
 
-        .hero-content { 
-            position: relative; z-index: 10; background: rgba(0,0,0,0.65); 
-            padding: 60px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); 
-            max-width: 900px; margin: 15% auto 0; text-align: center; pointer-events: none;
+        /* ABOUT US - BACKGROUND IMAGE */
+        #about {
+            position: relative;
+            background-image: url('about_bg.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 150px 50px;
+            z-index: 1;
         }
-        .hero-content h1 { font-size: 4rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 900; }
-        .hero-content p { color: #00aaff; font-weight: 800; letter-spacing: 5px; text-transform: uppercase; }
+        #about::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: -1;
+        }
 
-        /* GENEL SECTION & KARTLAR (ORİJİNAL TASARIM) */
-        section { padding: 150px 50px 100px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        h2 { font-size: 3.5rem; margin-bottom: 30px; letter-spacing: 6px; color: #00aaff; text-transform: uppercase; font-weight: 900; }
-        
+        /* SECTION & GRID SETTINGS */
+        section { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 120px 50px; }
+        h2 { font-size: 3.5rem; color: #00aaff; margin-bottom: 50px; letter-spacing: 5px; font-weight: 900; text-transform: uppercase; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; width: 100%; max-width: 1400px; }
-        
-        /* Orijinal Kart Tasarımı */
-        .card { background: rgba(20, 20, 20, 0.7); padding: 50px 30px; border-radius: 20px; border: 1px solid #222; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .card:hover { border-color: #00aaff; transform: translateY(-15px); background: #050505; box-shadow: 0 10px 30px rgba(0,170,255,0.1); }
-        
-        .card-img { width: 110px; height: 110px; margin: 0 auto 25px; border-radius: 50%; overflow: hidden; border: 3px solid #00aaff; transition: 0.4s; }
+        .card { background: rgba(20, 20, 20, 0.7); padding: 50px 30px; border-radius: 20px; border: 1px solid #333; transition: 0.5s; backdrop-filter: blur(5px); }
+        .card:hover { border-color: #00aaff; transform: translateY(-15px); background: rgba(0,0,0,0.9); }
+        .card-img { width: 110px; height: 110px; margin: 0 auto 25px; border-radius: 50%; overflow: hidden; border: 3px solid #00aaff; }
         .card-img img { width: 100%; height: 100%; object-fit: cover; }
-        
         .card i { font-size: 3.5rem; color: #00aaff; margin-bottom: 25px; display: block; }
-        .card h3 { font-size: 1.6rem; margin-bottom: 15px; color: #00aaff; letter-spacing: 1px; }
-        .card p { color: #aaa; line-height: 1.6; font-size: 1.05rem; }
+        .card h3 { color: #00aaff; margin-bottom: 15px; font-size: 1.6rem; }
 
-        /* WHATSAPP */
-        .whatsapp-btn {
-            position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white;
-            padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold;
-            display: flex; align-items: center; gap: 10px; z-index: 3000; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.4s;
-        }
-        .whatsapp-btn:hover { transform: scale(1.1); background-color: #128C7E; }
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 3000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
-        @media (max-width: 1024px) {
-            header { padding: 0 20px; height: 100px; }
-            .header-middle { display: none; }
-            .side-menu { width: 100%; right: -100%; }
-            .hero-content h1 { font-size: 2.5rem; }
-            h2 { font-size: 2.5rem; }
-        }
+        @media (max-width: 1024px) { .header-middle { display: none; } .side-menu { width: 100%; } h2 { font-size: 2.5rem; } }
     </style>
 </head>
 <body>
@@ -156,10 +112,7 @@
     <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
     <header id="mainHeader">
-        <div class="header-left">
-            <a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a>
-        </div>
-
+        <div class="header-left"><a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a></div>
         <div class="header-middle">
             <div class="contact-group">
                 <a href="tel:+905433838060"><i class="fas fa-phone"></i> +90 543 38 38 060</a>
@@ -172,11 +125,8 @@
                 <a href="#"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
-
         <div class="header-right">
-            <button class="menu-btn" onclick="toggleMenu()">
-                <span>MENU</span> <i class="fas fa-bars-staggered"></i>
-            </button>
+            <button class="menu-btn" onclick="toggleMenu()"><span>MENU</span> <i class="fas fa-bars-staggered"></i></button>
         </div>
     </header>
 
@@ -201,7 +151,6 @@
             <div class="slide" style="background-image: url('Stackeeer.jpg');"></div>
             <div class="slide" style="background-image: url('germee.jpg');"></div>
         </div>
-        <div class="home-overlay"></div>
         <div class="hero-content">
             <h1>ALUMINIUM ONE</h1>
             <p>Aluminium Extrusion Solutions</p>
@@ -211,19 +160,19 @@
     <section id="about">
         <h2>About Us</h2>
         <div class="grid">
-            <div id="vision" class="card">
+            <div class="card">
                 <div class="card-img"><img src="vision_resmi.jpg" alt="Vision"></div>
-                <h3>Our Vision</h3>
+                <h3>Vision</h3>
                 <p>Global alüminyum teknolojilerinde standartları belirleyen lider olmak.</p>
             </div>
-            <div id="mission" class="card">
+            <div class="card">
                 <div class="card-img"><img src="mission_resmi.jpg" alt="Mission"></div>
-                <h3>Our Mission</h3>
+                <h3>Mission</h3>
                 <p>Yüksek kaliteli ve sürdürülebilir mühendislik çözümleri sunmak.</p>
             </div>
-            <div id="hr" class="card">
+            <div class="card">
                 <div class="card-img"><img src="hr_resmi.jpg" alt="HR"></div>
-                <h3>Human Resources</h3>
+                <h3>HR</h3>
                 <p>Yetenekli insan gücüne yatırım yaparak sürekli gelişimi sağlamak.</p>
             </div>
         </div>
@@ -272,20 +221,16 @@
         </div>
     </section>
 
-    <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
+    <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 
     <footer>
-        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p>
+        <p style="text-align: center; padding: 40px; color: #666;">&copy; 2026 ALUMINIUM ONE. All Rights Reserved.</p>
     </footer>
 
     <script>
-        // Header ve Menü Yönetimi
         const header = document.getElementById('mainHeader');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
+            header.classList.toggle('scrolled', window.scrollY > 80);
         });
 
         function toggleMenu() {
@@ -293,7 +238,6 @@
             document.getElementById('menuOverlay').classList.toggle('active');
         }
 
-        // SLIDER - Oklar, Otomatik Geçiş ve Drag (Sürükle-Bırak)
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
         let slideInterval;
@@ -303,34 +247,18 @@
             currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
         }
-
         function nextSlide() { showSlide(currentSlide + 1); }
         function prevSlide() { showSlide(currentSlide - 1); }
+        
+        slideInterval = setInterval(nextSlide, 5000);
 
-        function startInterval() { slideInterval = setInterval(nextSlide, 5000); }
-        startInterval();
-
-        // Drag & Touch Logic
-        const home = document.getElementById('home');
         let startX = 0;
-        let isDragging = false;
-
-        home.addEventListener('mousedown', (e) => { startX = e.pageX; isDragging = true; clearInterval(slideInterval); });
+        const home = document.getElementById('home');
+        home.addEventListener('mousedown', (e) => { startX = e.pageX; clearInterval(slideInterval); });
         home.addEventListener('mouseup', (e) => {
-            if (!isDragging) return;
-            if (Math.abs(startX - e.pageX) > 100) {
-                if (startX - e.pageX > 0) nextSlide(); else prevSlide();
-            }
-            isDragging = false; startInterval();
-        });
-
-        home.addEventListener('touchstart', (e) => { startX = e.touches[0].pageX; clearInterval(slideInterval); });
-        home.addEventListener('touchend', (e) => {
-            let endX = e.changedTouches[0].pageX;
-            if (Math.abs(startX - endX) > 50) {
-                if (startX - endX > 0) nextSlide(); else prevSlide();
-            }
-            startInterval();
+            if (startX - e.pageX > 100) nextSlide();
+            else if (e.pageX - startX > 100) prevSlide();
+            slideInterval = setInterval(nextSlide, 5000);
         });
     </script>
 </body>
