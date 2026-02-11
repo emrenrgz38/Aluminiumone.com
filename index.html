@@ -121,7 +121,7 @@
             transform: scale(1.2);
         }
 
-        /* GLOW EFFECT: HAMBURGER */
+        /* WHATSAPP GREEN HAMBURGER */
         .menu-btn {
             background: none;
             border: none;
@@ -139,8 +139,8 @@
         }
 
         .menu-btn:hover {
-            color: #00aaff;
-            filter: drop-shadow(0 0 12px #00aaff);
+            color: #25D366;
+            filter: drop-shadow(0 0 12px #25D366);
         }
 
         .menu-btn span {
@@ -149,7 +149,7 @@
             letter-spacing: 1.5px;
         }
 
-        /* SIDE MENU */
+        /* SIDE MENU BUTTON STYLE */
         .side-menu {
             position: fixed;
             top: 0;
@@ -160,7 +160,7 @@
             background: rgba(10, 10, 10, 0.98);
             z-index: 3000;
             transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-            padding: 100px 50px;
+            padding: 100px 30px;
             border-left: 1px solid #333;
             backdrop-filter: blur(15px);
         }
@@ -182,21 +182,30 @@
             list-style: none;
         }
 
+        .nav-links li {
+            margin: 15px 0;
+        }
+
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.2rem;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             display: block;
-            margin: 25px 0;
-            transition: 0.3s;
+            padding: 15px 25px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: 0.4s;
         }
 
         .nav-links a:hover {
+            background: rgba(0, 170, 255, 0.1);
+            border-color: #00aaff;
             color: #00aaff;
-            transform: translateX(10px);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
         }
 
         .menu-overlay {
