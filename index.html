@@ -425,6 +425,33 @@
             line-height: 1.6;
             font-size: 0.95rem;
         }
+        /* PRODUCTS SECTION - Arka Plan Güncellemesi */
+        #products {
+            position: relative;
+            background-image: url('products_bg.jpg'); /* Buraya GitHub'daki resim adını yaz */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Tam ekran ve sabit durması için */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 20px 80px;
+            z-index: 1;
+        }
+
+        /* Yazıların okunabilirliği için About'taki gibi karartma katmanı */
+        #products::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85); /* Arka planı %85 karartır */
+            z-index: -1;
+        }
 
         /* --- GALERİ EKSTRA STİLLER (YAPININ SONUNA EKLENDİ) --- */
         #productGallery {
