@@ -482,7 +482,27 @@
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
+        } /* GALERİ OKLARI STİLİ */
+        .gallery-main .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
         }
+        .gallery-main .slider-arrow:hover { background: #00aaff; }
+        .gallery-main .arrow-left { left: 20px; }
+        .gallery-main .arrow-right { right: 20px; }
 
         .gallery-thumbs {
             display: flex;
@@ -615,7 +635,12 @@
         </div>
 
         <div id="productGallery">
-            <div class="gallery-main">
+           <div class="gallery-main" style="position: relative;">
+            <button class="slider-arrow arrow-left" id="galleryPrev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow arrow-right" id="galleryNext"><i class="fas fa-chevron-right"></i></button>
+            
+            <img id="mainGalleryImg" src="" alt="Product View">
+        </div>
                 <img id="mainGalleryImg" src="" alt="Product View">
             </div>
             <div id="thumbContainer" class="gallery-thumbs"></div>
@@ -696,33 +721,61 @@
             'furnace': ['furnace1.jpg', 'furnace2.jpg', 'furnace3.jpg', 'furnace4.jpg', 'furnace5.jpg', 'furnace6.jpg', 'furnace7.jpg', 'furnace8.jpg']
         };
 
+    let currentGalleryImages = [];
+        let currentImgIndex = 0;
+
         function openProductGallery(productType) {
             const gallerySection = document.getElementById('productGallery');
             const mainImg = document.getElementById('mainGalleryImg');
             const thumbBox = document.getElementById('thumbContainer');
             
-            gallerySection.style.display = 'block';
-            thumbBox.innerHTML = ''; // Temizle
-            
-            const images = galleryData[productType];
-            mainImg.src = images[0];
+            // Aynı başlığa tıklanırsa kapatma mantığı
+            if (gallerySection.style.display === 'block' && gallerySection.dataset.current === productType) {
+                gallerySection.style.display = 'none';
+                return;
+            }
 
-            images.forEach((imgSrc, index) => {
+            gallerySection.style.display = 'block';
+            gallerySection.dataset.current = productType; 
+            thumbBox.innerHTML = ''; 
+            
+            currentGalleryImages = galleryData[productType];
+            currentImgIndex = 0;
+            mainImg.src = currentGalleryImages[0];
+
+            currentGalleryImages.forEach((imgSrc, index) => {
                 const thumb = document.createElement('img');
                 thumb.src = imgSrc;
                 if(index === 0) thumb.classList.add('active-thumb');
                 
                 thumb.onclick = function() {
-                    mainImg.src = imgSrc;
-                    document.querySelectorAll('.gallery-thumbs img').forEach(t => t.classList.remove('active-thumb'));
-                    thumb.classList.add('active-thumb');
+                    currentImgIndex = index;
+                    updateGalleryImage();
                 };
                 thumbBox.appendChild(thumb);
             });
 
-            // Galeriye yumuşak geçiş yap
             gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    </script>
+
+        function updateGalleryImage() {
+            const mainImg = document.getElementById('mainGalleryImg');
+            mainImg.src = currentGalleryImages[currentImgIndex];
+            
+            document.querySelectorAll('.gallery-thumbs img').forEach((t, i) => {
+                t.classList.toggle('active-thumb', i === currentImgIndex);
+            });
+        }
+
+        // GALERİ OKLARININ TIKLANMA OLAYLARI
+        document.getElementById('galleryNext').onclick = () => {
+            currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length;
+            updateGalleryImage();
+        };
+
+        document.getElementById('galleryPrev').onclick = () => {
+            currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+            updateGalleryImage();
+        };    </script>
 </body>
 </html>
