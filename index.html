@@ -259,7 +259,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.5);
         }
 
         .slide-content {
@@ -269,6 +269,7 @@
             opacity: 0;
             transform: translateY(50px);
             transition: 1s ease 0.5s;
+            max-width: 80%;
         }
 
         .slide.active .slide-content {
@@ -277,19 +278,22 @@
         }
 
         .slide-content h2 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             color: #fff;
-            text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
-            margin-bottom: 10px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.9);
+            margin-bottom: 20px;
         }
 
         .slide-content p {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #00aaff;
-            font-weight: 800;
-            letter-spacing: 3px;
+            font-weight: 600;
+            line-height: 1.6;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 10px;
         }
 
         .slider-arrow {
@@ -318,7 +322,7 @@
         .arrow-left { left: 15px; }
         .arrow-right { right: 15px; }
 
-        /* ABOUT SECTION */
+        /* SECTIONS */
         #about {
             position: relative;
             background-image: url('aboutus.jpg');
@@ -336,7 +340,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.75);
+            background: rgba(0, 0, 0, 0.85);
             z-index: -1;
         }
 
@@ -351,11 +355,11 @@
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #00aaff;
             margin-bottom: 40px;
-            letter-spacing: 3px;
-            font-weight: 900;
+            letter-spacing: 2px;
+            font-weight: 800;
             text-transform: uppercase;
         }
 
@@ -444,7 +448,8 @@
             .header-middle { display: none; }
             .header-left img { height: 50px; }
             .side-menu { width: 85%; }
-            .slide-content h2 { font-size: 2.5rem; }
+            .slide-content h2 { font-size: 2rem; }
+            .slide-content p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -456,12 +461,8 @@
         </div>
         <div class="header-middle">
             <div class="contact-group">
-                <a href="tel:+905433838060">
-                    <i class="fa-solid fa-square-phone-flip"></i> +90 543 38 38 060
-                </a>
-                <a href="mailto:one@aluminiumone.com">
-                    <i class="fa-solid fa-envelope-open-text"></i> one@aluminiumone.com
-                </a>
+                <a href="tel:+905433838060"><i class="fa-solid fa-square-phone-flip"></i> +90 543 38 38 060</a>
+                <a href="mailto:one@aluminiumone.com"><i class="fa-solid fa-envelope-open-text"></i> one@aluminiumone.com</a>
             </div>
             <div class="social-group">
                 <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -471,9 +472,7 @@
             </div>
         </div>
         <div class="header-right">
-            <button class="menu-btn" onclick="toggleMenu()">
-                <span>MENU</span> <i class="fas fa-bars-staggered"></i>
-            </button>
+            <button class="menu-btn" onclick="toggleMenu()"><span>MENU</span> <i class="fas fa-bars-staggered"></i></button>
         </div>
     </header>
     <div class="side-menu" id="sideMenu">
@@ -489,113 +488,87 @@
         </ul>
     </div>
     <section id="home">
-        <button class="slider-arrow arrow-left" onclick="prevSlide()">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="slider-arrow arrow-right" onclick="nextSlide()">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+        <button class="slider-arrow arrow-left" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-arrow arrow-right" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
         <div class="slider">
             <div class="slide active" style="background-image: url('prees.jpg');">
-                <div class="slide-content"><h2>ALUMINIUM EXTRUSION PRESS</h2><p>ALUMINIUM ONE, as a distributor of European and Far Eastern press and equipment manufacturers, carries out the production, installation, supply and maintenance services of their products according to customer demands.</p></div>
+                <div class="slide-content"><h2>ALUMINIUM EXTRUSION PRESS</h2><p>Distributor of European and Far Eastern press manufacturers; production, installation, and maintenance.</p></div>
             </div>
             <div class="slide" style="background-image: url('Stackeeer.jpg');">
-                <div class="slide-content"><h2>STACKER SYSTEMS</h2><p>ALUMINIUM ONE, manufactures automated storage systems specifically designed for extrusion lines.</p></div>
+                <div class="slide-content"><h2>STACKER SYSTEMS</h2><p>ALUMINIUM ONE manufactures automated storage systems specifically designed for extrusion lines.</p></div>
             </div>
             <div class="slide" style="background-image: url('germee.jpg');">
-                <div class="slide-content"><h2>COOLING TABLES</h2><p>ALUMINIUM ONE, provides services in the design and manufacture of its own conveyor lines and the supply of spare parts.</p></div>
+                <div class="slide-content"><h2>COOLING TABLES</h2><p>Design and manufacture of proprietary conveyor lines and high-quality spare parts supply.</p></div>
             </div>
             <div class="slide" style="background-image: url('termik.jpg');">
-                <div class="slide-content"><h2>INDUSTRIAL FURNACES</h2><p>ALUMINIUM ONE, manufactures billet heating furnaces, aging furnaces, die heating furnaces, and casting furnaces.</p></div>
+                <div class="slide-content"><h2>INDUSTRIAL FURNACES</h2><p>Billet heating, aging, die heating, and casting furnaces with advanced engineering.</p></div>
             </div>
         </div>
     </section>
     <section id="about">
-        <h2>About Us ;   Our experience, shaped by technical infrastructure and knowledge, is constantly evolving through our continuously updated system, enabling us to aim for new horizons. We strive to offer the highest perceived quality, which all of humanity deserves, to shareholders in the Aluminum Extrusion sector.</h2>
+        <h2>About Us</h2>
+        <p style="margin-bottom: 40px; line-height: 1.6; color: #eee; max-width: 900px; font-size: 0.95rem; font-style: italic;">Our experience, shaped by technical infrastructure and knowledge, is constantly evolving through our continuously updated system, enabling us to aim for new horizons. We strive to offer the highest perceived quality, which all of humanity deserves, to shareholders in the Aluminum Extrusion sector.</p>
         <div class="grid">
-            <div class="card"><div class="card-img"><img src="vision_resmi.jpg" alt="V"></div><h3>Vision</h3><p>To offer sustainable, avant-garde solutions focused on total quality.</p></div>
-            <div class="card"><div class="card-img"><img src="mission_resmi.jpg" alt="M"></div><h3>Mission</h3><p>By establishing a global brand image, our goal is to be the first brand that comes to mind whenever the word "ONE" is used.</p></div>
-            <div class="card"><div class="card-img"><img src="hr_resmi.jpg" alt="H"></div><h3>HR</h3><p>To join us, please send us your professional CV, which is stored in accordance with KVKK (Personal Data Protection Law) regulations.</p></div>
+            <div class="card"><div class="card-img"><img src="vision_resmi.jpg" alt="V"></div><h3>Vision</h3><p>Sustainable, avant-garde solutions focused on total quality.</p></div>
+            <div class="card"><div class="card-img"><img src="mission_resmi.jpg" alt="M"></div><h3>Mission</h3><p>Establishing a global brand where "ONE" represents the first choice.</p></div>
+            <div class="card"><div class="card-img"><img src="hr_resmi.jpg" alt="H"></div><h3>HR</h3><p>Join us by sending your professional CV in accordance with KVKK regulations.</p></div>
         </div>
     </section>
     <section id="products">
         <h2>Our Products</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-building"></i><h3>Aluminium Extrusion Press</h3><p>Our Brands; SINOMACH, YUELEAD, TECHWAY, SKM</p></div>
-            <div class="card"><i class="fas fa-industry"></i><h3>Cooling Table</h3><p>IEX, PRECISION PARTS, SPECIAL DESIGN</p></div>
-            <div class="card"><i class="fas fa-industry"></i><h3>Storage Systems</h3><p>IEX, CUSTOM DESIGN</p></div>
-            <div class="card"><i class="fas fa-solar-panel"></i><h3>Industrial Furnaces</h3><p>IEX, YUELEAD, ECOMAK</p></div>
+            <div class="card"><i class="fas fa-industry"></i><h3>Extrusion Press</h3><p>SINOMACH, YUELEAD, TECHWAY, SKM</p></div>
+            <div class="card"><i class="fas fa-table"></i><h3>Cooling Table</h3><p>IEX, PRECISION PARTS, SPECIAL DESIGN</p></div>
+            <div class="card"><i class="fas fa-boxes-stacked"></i><h3>Storage Systems</h3><p>IEX, CUSTOM DESIGNED SOLUTIONS</p></div>
+            <div class="card"><i class="fas fa-fire"></i><h3>Industrial Furnaces</h3><p>IEX, YUELEAD, ECOMAK SYSTEMS</p></div>
         </div>
     </section>
     <section id="projects">
         <h2>Projects</h2>
         <div class="grid">
-            <div class="card"><h3>Project A</h3><p>Industrial development.</p></div>
-            <div class="card"><h3>Project B</h3><p>Facade masterpiece.</p></div>
-            <div class="card"><h3>Project C</h3><p>Global supply.</p></div>
+            <div class="card"><h3>Project A</h3><p>Industrial development and engineering.</p></div>
+            <div class="card"><h3>Project B</h3><p>Facade and architectural masterpiece.</p></div>
+            <div class="card"><h3>Project C</h3><p>Global supply chain integration.</p></div>
         </div>
     </section>
     <section id="services">
         <h2>Services</h2>
         <div class="grid">
-            <div class="card"><i class="fas fa-drafting-compass"></i><h3>R&D</h3><p>Custom design.</p></div>
-            <div class="card"><i class="fas fa-microchip"></i><h3>CNC</h3><p>High precision.</p></div>
-            <div class="card"><i class="fas fa-paint-roller"></i><h3>Surface</h3><p>Anodizing coating.</p></div>
+            <div class="card"><i class="fas fa-drafting-compass"></i><h3>R&D</h3><p>Advanced custom design engineering.</p></div>
+            <div class="card"><i class="fas fa-microchip"></i><h3>CNC</h3><p>High precision automated machining.</p></div>
+            <div class="card"><i class="fas fa-paint-roller"></i><h3>Surface</h3><p>Professional anodizing and coating.</p></div>
         </div>
     </section>
     <section id="news">
         <h2>ONE's News</h2>
         <div class="grid">
-            <div class="card"><h3>New Line</h3><p>Our customer in Northern Cyprus has completed the installation and commissioning of their extrusion press line.</p></div>
-            <div class="card"><h3>ALUEXPO 2025 FAIR</h3><p>We have secured our place at the ALUEXPO 2025 exhibition. We look forward to welcoming all our guests.</p></div>
-            <div class="card"><h3>New Line</h3><p>Our customer's aluminum extrusion line in Australia has been installed and commissioned.</p></div>
+            <div class="card"><h3>Cyprus Line</h3><p>Installation and commissioning of the extrusion press line is complete.</p></div>
+            <div class="card"><h3>ALUEXPO 2025</h3><p>We have secured our place at ALUEXPO 2025. See you at our booth!</p></div>
+            <div class="card"><h3>Australia Project</h3><p>New aluminum extrusion line successfully installed and commissioned.</p></div>
         </div>
     </section>
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="card" style="max-width: 800px; width: 100%;">
-            <p>Istasyon Mah. Şehitler Cad. Eska Mare Sitesi A107 Blok No :20 Tuzla / ISTANBUL, TÜRKİYE</p>
+            <p>Istasyon Mah. Şehitler Cad. Eska Mare Sitesi A107 Blok No:20 Tuzla / ISTANBUL</p>
             <p>one@aluminiumone.com | +90 543 38 38 060</p>
         </div>
     </section>
-    <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-    </a>
-    <footer>
-        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p>
-    </footer>
+    <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <footer><p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p></footer>
     <script>
         const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 80);
-        });
-        function toggleMenu() {
-            document.getElementById('sideMenu').classList.toggle('active');
-            document.getElementById('menuOverlay').classList.toggle('active');
-        }
+        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 80); });
+        function toggleMenu() { document.getElementById('sideMenu').classList.toggle('active'); document.getElementById('menuOverlay').classList.toggle('active'); }
         const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0;
-        let slideInterval;
-        function showSlide(index) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
+        let currentSlide = 0; let slideInterval;
+        function showSlide(index) { slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); }
         function nextSlide() { showSlide(currentSlide + 1); }
         function prevSlide() { showSlide(currentSlide - 1); }
         slideInterval = setInterval(nextSlide, 5000);
-        const home = document.getElementById('home');
-        let startX = 0;
-        home.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            clearInterval(slideInterval);
-        }, {passive: true});
-        home.addEventListener('touchend', (e) => {
-            let endX = e.changedTouches[0].clientX;
-            if (startX - endX > 50) nextSlide();
-            else if (endX - startX > 50) prevSlide();
-            slideInterval = setInterval(nextSlide, 5000);
-        }, {passive: true});
+        const home = document.getElementById('home'); let startX = 0;
+        home.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; clearInterval(slideInterval); }, {passive: true});
+        home.addEventListener('touchend', (e) => { let endX = e.changedTouches[0].clientX; if (startX - endX > 50) nextSlide(); else if (endX - startX > 50) prevSlide(); slideInterval = setInterval(nextSlide, 5000); }, {passive: true});
     </script>
 </body>
 </html>
