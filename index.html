@@ -10,9 +10,9 @@
         html { scroll-padding-top: 100px; }
         body { background: #000; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow-x: hidden; }
 
-        /* HEADER */
+        /* HEADER - GRİYE YAKIN SİYAH (ANTRASİT) */
         header {
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(26, 26, 26, 0.98); 
             height: 120px;
             padding: 0 40px;
             display: flex;
@@ -23,7 +23,7 @@
             width: 100%;
             z-index: 2000;
             transition: 0.5s ease;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
 
         header.scrolled {
@@ -32,7 +32,6 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
-        .header-left { flex: 0; }
         .header-left img { height: 75px; transition: 0.4s ease; }
         header.scrolled .header-left img { height: 55px; }
 
@@ -42,7 +41,7 @@
         header.scrolled .contact-group a { color: #000000; }
         .contact-group a i { color: #00aaff; }
 
-        .social-group { display: flex; gap: 15px; border-left: 1px solid #333; padding-left: 20px; }
+        .social-group { display: flex; gap: 15px; border-left: 1px solid #444; padding-left: 20px; }
         header.scrolled .social-group { border-left-color: #ddd; }
         .social-group a i { font-size: 1.4rem; transition: 0.3s; }
         .fa-linkedin { color: #0077b5 !important; }
@@ -51,7 +50,6 @@
         .fa-facebook { color: #1877f2 !important; }
         .social-group a:hover { transform: scale(1.2); }
 
-        .header-right { flex: 0; }
         .menu-btn { background: none; border: none; color: #fff; font-size: 1.8rem; cursor: pointer; display: flex; align-items: center; gap: 12px; }
         header.scrolled .menu-btn { color: #000; }
         .menu-btn span { font-size: 0.85rem; font-weight: 800; letter-spacing: 1.5px; }
@@ -59,7 +57,7 @@
         /* SIDE MENU */
         .side-menu {
             position: fixed; top: 0; right: -380px; width: 380px; height: 100vh;
-            background: rgba(10, 10, 10, 0.98); z-index: 3000; transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+            background: #1a1a1a; z-index: 3000; transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
             padding: 100px 50px; border-left: 1px solid #333; backdrop-filter: blur(15px);
         }
         .side-menu.active { right: 0; }
@@ -81,10 +79,10 @@
         .hero-content { position: relative; z-index: 10; background: rgba(0,0,0,0.6); padding: 50px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); max-width: 800px; margin: 15% auto 0; text-align: center; pointer-events: none; }
         .hero-content h1 { font-size: 4rem; letter-spacing: 2px; margin-bottom: 10px; font-weight: 900; }
 
-        /* ABOUT US - ARKA PLAN RESMİ */
+        /* ABOUT US - BACKGROUND IMAGE */
         #about {
             position: relative;
-            background-image: url('aboutus.jpg'); /* BURAYI RESİM ADIYLA DEĞİŞTİR */
+            background-image: url('about_bg.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -96,7 +94,7 @@
             background: rgba(0, 0, 0, 0.75); z-index: -1;
         }
 
-        /* GENEL BÖLÜM VE KART YAPISI */
+        /* SECTIONS */
         section { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 120px 50px; border-bottom: 1px solid #111; }
         h2 { font-size: 3.5rem; color: #00aaff; margin-bottom: 50px; letter-spacing: 5px; font-weight: 900; text-transform: uppercase; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; width: 100%; max-width: 1400px; }
@@ -109,26 +107,14 @@
         .card p { color: #ccc; line-height: 1.6; }
 
         .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 3000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-
         footer { padding: 50px; text-align: center; color: #666; border-top: 1px solid #111; }
-
-        @media (max-width: 1024px) {
-            .header-middle { display: none; }
-            .side-menu { width: 100%; right: -100%; }
-            .hero-content h1 { font-size: 2.5rem; }
-            h2 { font-size: 2.5rem; }
-        }
     </style>
 </head>
 <body>
-
     <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
 
     <header id="mainHeader">
-        <div class="header-left">
-            <a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a>
-        </div>
-
+        <div class="header-left"><a href="#home"><img src="aluminium_one_logo_2.png" alt="Logo"></a></div>
         <div class="header-middle">
             <div class="contact-group">
                 <a href="tel:+905433838060"><i class="fas fa-phone"></i> +90 543 38 38 060</a>
@@ -141,11 +127,8 @@
                 <a href="#"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
-
         <div class="header-right">
-            <button class="menu-btn" onclick="toggleMenu()">
-                <span>MENU</span> <i class="fas fa-bars-staggered"></i>
-            </button>
+            <button class="menu-btn" onclick="toggleMenu()"><span>MENU</span> <i class="fas fa-bars-staggered"></i></button>
         </div>
     </header>
 
@@ -169,7 +152,6 @@
             <div class="slide active" style="background-image: url('prees.jpg');"></div>
             <div class="slide" style="background-image: url('Stackeeer.jpg');"></div>
             <div class="slide" style="background-image: url('germee.jpg');"></div>
-            <div class="slide" style="background-image: url('termik.jpg');"></div>
         </div>
         <div class="hero-content">
             <h1>ALUMINIUM ONE</h1>
@@ -180,21 +162,9 @@
     <section id="about">
         <h2>About Us</h2>
         <div class="grid">
-            <div class="card">
-                <div class="card-img"><img src="vision_resmi.jpg" alt="Vision"></div>
-                <h3>Vision</h3>
-                <p>Global alüminyum teknolojilerinde standartları belirleyen lider olmak.</p>
-            </div>
-            <div class="card">
-                <div class="card-img"><img src="mission_resmi.jpg" alt="Mission"></div>
-                <h3>Mission</h3>
-                <p>Yüksek kaliteli ve sürdürülebilir mühendislik çözümleri sunmak.</p>
-            </div>
-            <div class="card">
-                <div class="card-img"><img src="hr_resmi.jpg" alt="HR"></div>
-                <h3>HR</h3>
-                <p>Yetenekli insan gücüne yatırım yaparak sürekli gelişimi sağlamak.</p>
-            </div>
+            <div class="card"><div class="card-img"><img src="vision_resmi.jpg" alt="Vision"></div><h3>Vision</h3><p>Global alüminyum teknolojilerinde standartları belirleyen lider olmak.</p></div>
+            <div class="card"><div class="card-img"><img src="mission_resmi.jpg" alt="Mission"></div><h3>Mission</h3><p>Yüksek kaliteli ve sürdürülebilir mühendislik çözümleri sunmak.</p></div>
+            <div class="card"><div class="card-img"><img src="hr_resmi.jpg" alt="HR"></div><h3>HR</h3><p>Yetenekli insan gücüne yatırım yaparak sürekli gelişimi sağlamak.</p></div>
         </div>
     </section>
 
@@ -242,44 +212,23 @@
     </section>
 
     <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-
-    <footer>
-        <p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p>
-    </footer>
+    <footer><p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved.</p></footer>
 
     <script>
         const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => {
-            header.classList.toggle('scrolled', window.scrollY > 80);
-        });
-
-        function toggleMenu() {
-            document.getElementById('sideMenu').classList.toggle('active');
-            document.getElementById('menuOverlay').classList.toggle('active');
-        }
-
+        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 80); });
+        function toggleMenu() { document.getElementById('sideMenu').classList.toggle('active'); document.getElementById('menuOverlay').classList.toggle('active'); }
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0;
         let slideInterval;
-
-        function showSlide(index) {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
+        function showSlide(index) { slides[currentSlide].classList.remove('active'); currentSlide = (index + slides.length) % slides.length; slides[currentSlide].classList.add('active'); }
         function nextSlide() { showSlide(currentSlide + 1); }
         function prevSlide() { showSlide(currentSlide - 1); }
-        
         slideInterval = setInterval(nextSlide, 5000);
-
         let startX = 0;
         const home = document.getElementById('home');
         home.addEventListener('mousedown', (e) => { startX = e.pageX; clearInterval(slideInterval); });
-        home.addEventListener('mouseup', (e) => {
-            if (startX - e.pageX > 100) nextSlide();
-            else if (e.pageX - startX > 100) prevSlide();
-            slideInterval = setInterval(nextSlide, 5000);
-        });
+        home.addEventListener('mouseup', (e) => { if (Math.abs(startX - e.pageX) > 100) { if (startX > e.pageX) nextSlide(); else prevSlide(); } slideInterval = setInterval(nextSlide, 5000); });
     </script>
 </body>
 </html>
