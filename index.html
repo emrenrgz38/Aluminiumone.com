@@ -322,14 +322,19 @@
         .arrow-left { left: 15px; }
         .arrow-right { right: 15px; }
 
-        /* SECTIONS */
+        /* ABOUT SECTION - FULL PAGE VERSION */
         #about {
             position: relative;
             background-image: url('aboutus.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            padding: 80px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 20px 80px;
             z-index: 1;
         }
 
