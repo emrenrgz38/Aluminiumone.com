@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Aluminium One | Aluminium Extrusion</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -13,15 +13,16 @@
             scroll-behavior: smooth;
         }
 
-        html {
-            scroll-padding-top: 100px;
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            position: relative;
         }
 
         body {
             background: #000;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
         }
 
         /* HEADER SECTION */
@@ -152,8 +153,9 @@
         .side-menu {
             position: fixed;
             top: 0;
-            right: -380px;
-            width: 380px;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
             height: 100vh;
             background: rgba(10, 10, 10, 0.98);
             z-index: 3000;
@@ -265,24 +267,24 @@
             background: #00aaff;
         }
 
-        .arrow-left { left: 30px; }
-        .arrow-right { right: 30px; }
+        .arrow-left { left: 15px; }
+        .arrow-right { right: 15px; }
 
         .hero-content {
             position: relative;
             z-index: 10;
             background: rgba(0,0,0,0.6);
-            padding: 50px;
+            padding: 30px;
             border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.1);
-            max-width: 800px;
-            margin: 15% auto 0;
+            max-width: 90%;
+            margin: 150px auto 0;
             text-align: center;
             pointer-events: none;
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 2.5rem;
             letter-spacing: 2px;
             margin-bottom: 10px;
             font-weight: 900;
@@ -295,7 +297,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            padding: 150px 50px;
+            padding: 80px 20px;
             z-index: 1;
         }
 
@@ -315,30 +317,31 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 120px 50px;
+            padding: 80px 20px;
             border-bottom: 1px solid #111;
+            width: 100%;
         }
 
         h2 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             color: #00aaff;
-            margin-bottom: 50px;
-            letter-spacing: 5px;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
             font-weight: 900;
             text-transform: uppercase;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
             width: 100%;
-            max-width: 1400px;
+            max-width: 1200px;
         }
 
         .card {
             background: rgba(20, 20, 20, 0.7);
-            padding: 50px 30px;
+            padding: 40px 20px;
             border-radius: 20px;
             border: 1px solid #333;
             transition: 0.5s;
@@ -347,14 +350,14 @@
 
         .card:hover {
             border-color: #00aaff;
-            transform: translateY(-15px);
+            transform: translateY(-10px);
             background: rgba(0,0,0,0.9);
         }
 
         .card-img {
-            width: 110px;
-            height: 110px;
-            margin: 0 auto 25px;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
             border-radius: 50%;
             overflow: hidden;
             border: 3px solid #00aaff;
@@ -367,49 +370,54 @@
         }
 
         .card i {
-            font-size: 3.5rem;
+            font-size: 3rem;
             color: #00aaff;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: block;
         }
 
         .card h3 {
             color: #00aaff;
             margin-bottom: 15px;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
 
         .card p {
             color: #ccc;
             line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .whatsapp-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             background: #25D366;
             color: white;
-            padding: 15px 25px;
+            padding: 12px 20px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             z-index: 3000;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-size: 0.9rem;
         }
 
         footer {
-            padding: 50px;
+            padding: 40px 20px;
             text-align: center;
             color: #666;
             border-top: 1px solid #111;
+            font-size: 0.8rem;
         }
 
         @media (max-width: 1024px) {
+            header { height: 90px; padding: 0 20px; }
             .header-middle { display: none; }
-            .side-menu { width: 100%; right: -100%; }
-            .hero-content h1 { font-size: 2.5rem; }
-            h2 { font-size: 2.5rem; }
+            .header-left img { height: 50px; }
+            .side-menu { width: 85%; }
+            .hero-content h1 { font-size: 2rem; }
+            h2 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -575,16 +583,17 @@
         const home = document.getElementById('home');
         let startX = 0;
 
-        home.addEventListener('mousedown', (e) => {
-            startX = e.pageX;
+        home.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
             clearInterval(slideInterval);
-        });
+        }, {passive: true});
 
-        home.addEventListener('mouseup', (e) => {
-            if (startX - e.pageX > 100) nextSlide();
-            else if (e.pageX - startX > 100) prevSlide();
+        home.addEventListener('touchend', (e) => {
+            let endX = e.changedTouches[0].clientX;
+            if (startX - endX > 50) nextSlide();
+            else if (endX - startX > 50) prevSlide();
             slideInterval = setInterval(nextSlide, 5000);
-        });
+        }, {passive: true});
     </script>
 </body>
 </html>
