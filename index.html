@@ -639,8 +639,6 @@
             <button class="slider-arrow arrow-left" id="galleryPrev"><i class="fas fa-chevron-left"></i></button>
             <button class="slider-arrow arrow-right" id="galleryNext"><i class="fas fa-chevron-right"></i></button>
             
-            <img id="mainGalleryImg" src="" alt="Product View">
-        </div>
                 <img id="mainGalleryImg" src="" alt="Product View">
             </div>
             <div id="thumbContainer" class="gallery-thumbs"></div>
@@ -724,48 +722,7 @@
     let currentGalleryImages = [];
         let currentImgIndex = 0;
 
-        function openProductGallery(productType) {
-            const gallerySection = document.getElementById('productGallery');
-            const mainImg = document.getElementById('mainGalleryImg');
-            const thumbBox = document.getElementById('thumbContainer');
-            
-            // Aynı başlığa tıklanırsa kapatma mantığı
-            if (gallerySection.style.display === 'block' && gallerySection.dataset.current === productType) {
-                gallerySection.style.display = 'none';
-                return;
-            }
-
-            gallerySection.style.display = 'block';
-            gallerySection.dataset.current = productType; 
-            thumbBox.innerHTML = ''; 
-            
-            currentGalleryImages = galleryData[productType];
-            currentImgIndex = 0;
-            mainImg.src = currentGalleryImages[0];
-
-            currentGalleryImages.forEach((imgSrc, index) => {
-                const thumb = document.createElement('img');
-                thumb.src = imgSrc;
-                if(index === 0) thumb.classList.add('active-thumb');
-                
-                thumb.onclick = function() {
-                    currentImgIndex = index;
-                    updateGalleryImage();
-                };
-                thumbBox.appendChild(thumb);
-            });
-
-            gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function updateGalleryImage() {
-            const mainImg = document.getElementById('mainGalleryImg');
-            mainImg.src = currentGalleryImages[currentImgIndex];
-            
-            document.querySelectorAll('.gallery-thumbs img').forEach((t, i) => {
-                t.classList.toggle('active-thumb', i === currentImgIndex);
-            });
-        }
+      
 
         // GALERİ OKLARININ TIKLANMA OLAYLARI
         document.getElementById('galleryNext').onclick = () => {
