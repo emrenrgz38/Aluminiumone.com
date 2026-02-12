@@ -615,24 +615,6 @@
         .gallery-main .arrow-left { left: 20px; }
         .gallery-main .arrow-right { right: 20px; }
 /* REFERENCES SECTION - Otomatik Akış Altyapısı */
-        /* SERVICES DAİRESEL GALERİ TASARIMI */
-.service-main-view img {
-    border: 5px solid #00aaff;
-    border-radius: 50% !important; /* Logo daireselliği */
-    transition: all 0.3s ease;
-}
-
-.service-thumbs img {
-    border: 2px solid #00aaff;
-    border-radius: 50% !important;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.service-thumbs img:hover {
-    border-color: #d4af37 !important; /* Üzerine gelince logo sarısı */
-    transform: scale(1.1);
-}
      /* REFERENCES SECTION - Arka Plan Beyaz */
         #references {
             padding: 60px 0;
@@ -739,63 +721,6 @@
             .slide-content p { font-size: 1rem; }
             .gallery-main { height: 40vh; }
         }
-        /* SERVICES ÖZEL TASARIM */
-
-/* Dairesel Resim Çerçevesi */
-.circle-frame {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Tam Yuvarlak */
-    overflow: hidden;
-    margin: 0 auto 20px;
-    border: 4px solid #00aaff; /* Logo Mavisi */
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-}
-
-.circle-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Resmin daire içine tam oturmasını sağlar */
-}
-
-/* Üzerine gelince dairesel çerçeve altın sarısına dönsün ve büyüsün */
-.service-card:hover .circle-frame {
-    transform: scale(1.1);
-    border-color: #d4af37; /* Logo Altın Sarısı */
-    box-shadow: 0 12px 30px rgba(0,170,255,0.3);
-}
-
-/* Başlık Kutucukları (Hap Şeklinde) */
-.service-label {
-    color: #333;
-    font-size: 18px;
-    background: #f8f9fa;
-    padding: 10px 25px;
-    border-radius: 50px; /* Tam yuvarlatılmış köşeler */
-    display: inline-block;
-    border: 1px solid #ddd;
-    transition: all 0.3s ease;
-    font-weight: 600;
-}
-
-.service-card:hover .service-label {
-    background-color: #00aaff;
-    color: white;
-    border-color: #00aaff;
-}
-
-/* Mobil Ayarlar */
-@media screen and (max-width: 768px) {
-    .circle-frame {
-        width: 160px;
-        height: 160px;
-    }
-    .services-container {
-        gap: 30px;
-    }
-}
     </style>
 </head>
 <body>
@@ -911,61 +836,12 @@
             <div class="card"><h3>Project C</h3><p>Global supply chain integration.</p></div>
         </div>
     </section>
-    <section id="services" style="padding: 80px 0; background-color: #ffffff; width: 100%;">
-    
-    <div style="text-align: center; margin-bottom: 60px;">
-        <h2 style="color: #00aaff; font-size: clamp(24px, 5vw, 36px); border: 3px solid #00aaff; display: inline-block; padding: 15px 50px; border-radius: 100px; text-transform: uppercase; letter-spacing: 2px; margin: 0 auto;">
-            OUR SERVICES
-        </h2>
-    </div>
-
-    <div class="services-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-        
-        <div class="service-card" style="text-align: center; width: 220px;">
-            <div class="circle-frame">
-                <img src="spare-parts.jpg" alt="Spare Parts">
-            </div>
-            <h3 class="service-label">Spare Parts</h3>
-        </div>
-
-        <div class="service-card" style="text-align: center; width: 220px;">
-            <div class="circle-frame">
-                <img src="maintenance.jpg" alt="Maintenance">
-            </div>
-            <h3 class="service-label">Maintenance</h3>
-        </div>
-
-        <div class="service-card" style="text-align: center; width: 220px;">
-            <div class="circle-frame">
-                <img src="after-sales.jpg" alt="After Sale Services">
-            </div>
-            <h3 class="service-label">After Sale Services</h3>
-        </div>
-
-        <div class="service-card" style="text-align: center; width: 220px;">
-            <div class="circle-frame">
-                <img src="consultancy.jpg" alt="Consultancy">
-            </div>
-            <h3 class="service-label">Consultancy</h3>
-        </div>
-
-       <div id="service-gallery" style="text-align: center; padding: 40px 20px;">
-    
-    <div style="margin-bottom: 25px;">
-        <img id="main-service-img" src="spare1.jpg" style="width: 350px; height: 350px; border-radius: 50%; border: 5px solid #00aaff; object-fit: cover;">
-    </div>
-
-    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-        <img src="spare1.jpg" class="service-thumb" onclick="document.getElementById('main-service-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
-        <img src="spare2.jpg" class="service-thumb" onclick="document.getElementById('main-service-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
-        <img src="spare3.jpg" class="service-thumb" onclick="document.getElementById('main-service-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
-        <img src="spare4.jpg" class="service-thumb" onclick="document.getElementById('main-service-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
-    </div>
-
-</div>
-
-    </div>
-</section>
+    <section id="services">
+        <h2>Services</h2>
+        <div class="grid">
+            <div class="card"><i class="fas fa-drafting-compass"></i><h3>R&D</h3><p>Advanced custom design engineering.</p></div>
+            <div class="card"><i class="fas fa-microchip"></i><h3>CNC</h3><p>High precision automated machining.</p></div>
+            <div class="card"><i class="fas fa-paint-roller"></i><h3>Surface</h3><p>Professional anodizing and coating.</p></div>
         </div>
     </section>
     <section id="news">
@@ -1100,42 +976,7 @@ window.addEventListener('click', function(event) {
                 t.classList.toggle('active-thumb', i === currentImgIndex);
             });
         }
-
-        // ... senin mevcut kodların bittiği yer
-    updateGalleryImage(); // 1103. satır civarı
-    
-    // --- BURADAN BAŞLA ---
-    function openServiceGallery(images) {
-        const modal = document.getElementById('service-gallery-modal');
-        const mainImg = document.getElementById('service-modal-main');
-        const thumbContainer = document.getElementById('service-modal-thumbs');
-        
-        thumbContainer.innerHTML = ''; 
-        mainImg.src = images[0];
-        
-        images.forEach(imgSrc => {
-            const thumb = document.createElement('img');
-            thumb.src = imgSrc;
-            thumb.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin: 0 5px;";
-            thumb.onclick = function() {
-                mainImg.src = imgSrc;
-                Array.from(thumbContainer.children).forEach(t => t.style.borderColor = "#fff");
-                this.style.borderColor = "#d4af37";
-            };
-            thumbContainer.appendChild(thumb);
-        });
-        modal.style.display = "flex";
-    }
-
-    function closeServiceGallery() {
-        document.getElementById('service-gallery-modal').style.display = "none";
-    }
-    // --- BURADA BİTİR ---
-
-}; // Bu pencere kapatma (window.onclick) parantezi olabilir, buna dokunma
-</script>
-        
-        // MOBİL READ MORE - TAMAMEN DIŞARIDA
+// MOBİL READ MORE - TAMAMEN DIŞARIDA
 function toggleReadMore() {
     const text = document.getElementById('product-text');
     const btn = document.getElementById('read-more-btn');
@@ -1170,17 +1011,5 @@ function toggleReadMore() {
             currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
             updateGalleryImage();
         };    </script>
-   <div id="service-gallery-modal" class="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); justify-content:center; align-items:center;">
-    <span onclick="closeServiceGallery()" style="position:absolute; top:20px; right:35px; color:#fff; font-size:40px; cursor:pointer;">&times;</span>
-    
-    <div style="text-align:center;">
-        <div style="margin-bottom:20px;">
-            <img id="service-modal-main" src="" style="width:450px; height:450px; border-radius:50%; border:6px solid #00aaff; object-fit:cover; box-shadow:0 0 30px rgba(0,170,255,0.5);">
-        </div>
-        
-        <div id="service-modal-thumbs" style="display:flex; justify-content:center; gap:15px;">
-            </div>
-    </div>
-</div>
 </body>
 </html>
