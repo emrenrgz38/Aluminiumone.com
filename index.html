@@ -721,6 +721,63 @@
             .slide-content p { font-size: 1rem; }
             .gallery-main { height: 40vh; }
         }
+        /* SERVICES ÖZEL TASARIM */
+
+/* Dairesel Resim Çerçevesi */
+.circle-frame {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Tam Yuvarlak */
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 4px solid #00aaff; /* Logo Mavisi */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+
+.circle-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Resmin daire içine tam oturmasını sağlar */
+}
+
+/* Üzerine gelince dairesel çerçeve altın sarısına dönsün ve büyüsün */
+.service-card:hover .circle-frame {
+    transform: scale(1.1);
+    border-color: #d4af37; /* Logo Altın Sarısı */
+    box-shadow: 0 12px 30px rgba(0,170,255,0.3);
+}
+
+/* Başlık Kutucukları (Hap Şeklinde) */
+.service-label {
+    color: #333;
+    font-size: 18px;
+    background: #f8f9fa;
+    padding: 10px 25px;
+    border-radius: 50px; /* Tam yuvarlatılmış köşeler */
+    display: inline-block;
+    border: 1px solid #ddd;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.service-card:hover .service-label {
+    background-color: #00aaff;
+    color: white;
+    border-color: #00aaff;
+}
+
+/* Mobil Ayarlar */
+@media screen and (max-width: 768px) {
+    .circle-frame {
+        width: 160px;
+        height: 160px;
+    }
+    .services-container {
+        gap: 30px;
+    }
+}
     </style>
 </head>
 <body>
@@ -836,12 +893,46 @@
             <div class="card"><h3>Project C</h3><p>Global supply chain integration.</p></div>
         </div>
     </section>
-    <section id="services">
-        <h2>Services</h2>
-        <div class="grid">
-            <div class="card"><i class="fas fa-drafting-compass"></i><h3>R&D</h3><p>Advanced custom design engineering.</p></div>
-            <div class="card"><i class="fas fa-microchip"></i><h3>CNC</h3><p>High precision automated machining.</p></div>
-            <div class="card"><i class="fas fa-paint-roller"></i><h3>Surface</h3><p>Professional anodizing and coating.</p></div>
+    <section id="services" style="padding: 80px 0; background-color: #ffffff; width: 100%;">
+    
+    <div style="text-align: center; margin-bottom: 60px;">
+        <h2 style="color: #00aaff; font-size: clamp(24px, 5vw, 36px); border: 3px solid #00aaff; display: inline-block; padding: 15px 50px; border-radius: 100px; text-transform: uppercase; letter-spacing: 2px; margin: 0 auto;">
+            OUR SERVICES
+        </h2>
+    </div>
+
+    <div class="services-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        
+        <div class="service-card" style="text-align: center; width: 220px;">
+            <div class="circle-frame">
+                <img src="spare-parts.jpg" alt="Spare Parts">
+            </div>
+            <h3 class="service-label">Spare Parts</h3>
+        </div>
+
+        <div class="service-card" style="text-align: center; width: 220px;">
+            <div class="circle-frame">
+                <img src="maintenance.jpg" alt="Maintenance">
+            </div>
+            <h3 class="service-label">Maintenance</h3>
+        </div>
+
+        <div class="service-card" style="text-align: center; width: 220px;">
+            <div class="circle-frame">
+                <img src="after-sales.jpg" alt="After Sale Services">
+            </div>
+            <h3 class="service-label">After Sale Services</h3>
+        </div>
+
+        <div class="service-card" style="text-align: center; width: 220px;">
+            <div class="circle-frame">
+                <img src="consultancy.jpg" alt="Consultancy">
+            </div>
+            <h3 class="service-label">Consultancy</h3>
+        </div>
+
+    </div>
+</section>
         </div>
     </section>
     <section id="news">
