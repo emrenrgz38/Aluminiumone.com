@@ -427,27 +427,29 @@
             border: 1px solid #333;
         }
 
-        .card-overlay {
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 20px;
-            width: 100%;
-            transition: 0.3s;
-        }
-
+    .card-overlay {
+    /* Karartmayı yukarıya doğru daha geniş ve koyu başlattık */
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
+    padding: 20px;
+    width: 100%;
+    transition: 0.3s;
+}
         .products-grid .card:hover .card-overlay {
             background: rgba(0, 170, 255, 0.4); /* Hoverda hafif mavi parlama */
         }
         .card h3 {
-            color: #00aaff;
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
+    color: #ffffff !important; /* Başlıkları saf beyaz yaparak patlatalım */
+    margin-bottom: 5px;
+    font-size: 1.4rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Yazıya hafif gölge ekleyerek zeminden ayırdık */
+}
 
-        .card p {
-            color: #ccc;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
+.card p {
+    color: #00aaff !important; /* Marka isimlerini o meşhur mavi tonda bırakalım ama daha parlak dursun */
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin: 0;
+}
         /* PRODUCTS SECTION - Arka Plan Güncellemesi */
         #products {
             position: relative;
