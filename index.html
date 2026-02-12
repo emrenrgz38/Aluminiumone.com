@@ -556,15 +556,28 @@
 }
         /* MOBİL UYUMLULUK - 1 YAPISI */
 @media (max-width: 992px) {
-    /* Yazıyı 2 satıra kısıtlar */
+    /* Yazıyı 4 satırda kes */
     .truncate-mobile {
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        text-overflow: ellipsis;
     }
-    
+
+    /* Butona basınca (JS expanded ekleyince) aç */
+    .truncate-mobile.expanded {
+        display: block !important;
+        -webkit-line-clamp: unset !important;
+    }
+
+    /* Gizli olan butonu mobilde göster */
+    #read-more-btn {
+        display: block !important;
+        color: #d4af37;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+}    
     /* Açıldığında tam boy gösterir */
     .truncate-mobile.expanded {
         display: block;
