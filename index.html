@@ -949,16 +949,19 @@
             <h3 class="service-label">Consultancy</h3>
         </div>
 
-        <div class="services-gallery-wrapper" style="text-align: center; padding: 40px 0;">
-    <div class="service-main-view" style="margin-bottom: 30px;">
-        <img id="service-large-img" src="spare1.jpg" style="width: 350px; height: 350px; border-radius: 50%; border: 5px solid #00aaff; object-fit: cover; box-shadow: 0 0 20px rgba(0,0,0,0.2);">
+       <div id="service-gallery" style="text-align: center; padding: 40px 20px;">
+    
+    <div style="margin-bottom: 25px;">
+        <img id="main-service-img" src="spare1.jpg" style="width: 350px; height: 350px; border-radius: 50%; border: 5px solid #00aaff; object-fit: cover;">
     </div>
 
-    <div class="service-thumbs" style="display: flex; justify-content: center; gap: 15px;">
-        <img src="spare1.jpg" onclick="document.getElementById('service-large-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
-        <img src="spare2.jpg" onclick="document.getElementById('service-large-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
-        <img src="spare3.jpg" onclick="document.getElementById('service-large-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
+    <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+        <img src="spare1.jpg" class="service-thumb" onclick="document.getElementById('main-service-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
+        <img src="spare2.jpg" class="service-thumb" onclick="document.getElementById('main-service-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
+        <img src="spare3.jpg" class="service-thumb" onclick="document.getElementById('main-service-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
+        <img src="spare4.jpg" class="service-thumb" onclick="document.getElementById('main-service-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
     </div>
+
 </div>
 
     </div>
