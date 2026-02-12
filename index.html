@@ -587,14 +587,25 @@
 }
 
 #product-text {
-    text-align: justify;
-    padding: 0 5px;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin-left: 0 !important;   /* Ayrı ayrı olan bu kısımları 0 yap */
-    margin-right: 0 !important;  /* Ayrı ayrı olan bu kısımları 0 yap */
-    margin-bottom: 20px !important; /* Butonla aradaki boşluk kalsın */
-}}    
+    /* 1. Yazıyı iki yana yasla (Çizgilere yaklaştırır) */
+    text-align: justify !important; 
+    
+    /* 2. HTML'deki o 950px'i zorla iptal et */
+    max-width: 100% !important; 
+    width: 100% !important; 
+    
+    /* 3. Sağ ve sol boşlukları tamamen sıfırla */
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-inline: 0 !important; /* Bazı yeni telefonlar için ekstra garanti */
+    
+    /* 4. Kenarlara çok yapışmasın, şık dursun diye minik bir pay */
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    
+    font-size: 1rem !important; /* Mobilde yazı çok büyükse biraz küçülttük */
+}
+    }    
     /* Açıldığında tam boy gösterir */
     .truncate-mobile.expanded {
         display: block;
