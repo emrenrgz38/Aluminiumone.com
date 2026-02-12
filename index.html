@@ -464,7 +464,40 @@
             font-weight: bold;
             font-size: 0.9rem;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }        /* PRODUCTS SECTION - Arka Plan Güncellemesi */
+        }        
+        /* BAŞLIK KUTUSU VE SINIR ÇİZGİLERİ */
+        .products-title-box {
+            display: inline-block;
+            padding: 10px 45px;
+            border: 2px solid #00aaff;
+            border-radius: 50px;
+            margin-bottom: 35px;
+            background: rgba(0, 170, 255, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .products-description-area {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 20px 60px;
+            text-align: center;
+        }
+
+        /* Şık Dikey Çizgiler (Hizalama İçin) */
+        .products-description-area::before,
+        .products-description-area::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, #00aaff, transparent);
+        }
+
+        .products-description-area::before { left: 0; }
+        .products-description-area::after { right: 0; }
+        /* PRODUCTS SECTION - Arka Plan Güncellemesi */
         #products {
             position: relative;
             background-image: url('products_bg.jpg'); /* Buraya GitHub'daki resim adını yaz */
@@ -714,34 +747,46 @@
     </section>
     <section id="products">
         <h2>Our Products</h2>
-        <div class="grid products-grid"> <div class="card" onclick="openProductGallery('press')" style="background-image: url('press_kapak.jpg');">
-                <div class="card-overlay">
-                    <h3>Extrusion Press</h3>
-                    <p>SINOMACH, YUELEAD, TECHWAY, SKM</p>
-                </div>
+        <div class="products-title-box">
+        <h2 class="section-title" style="margin-bottom: 0; color: #00aaff;">OUR PRODUCTS</h2>
+    </div>
+
+    <div class="products-description-area">
+        <p style="color: #fff; font-size: 1.1rem; line-height: 1.8;">
+            Aluminium ONE manufactures aluminum extrusion presses, conveyors, handling and stacking systems, industrial ovens (billet heating, 
+            die heating, aging ovens, etc.), and surface treatment systems (powder coating, anodizing, polishing-satin finishing) with a unique design approach, 
+            offering specialized solutions for the extrusion industry.
+        </p>
+    </div>
+      <div class="grid products-grid" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        
+        <div class="card" onclick="openProductGallery('press')" style="background-image: url('press_kapak.jpg');">
+            <div class="card-overlay">
+                <h3>Extrusion Press</h3>
+                <p>SINOMACH, YUELEAD, TECHWAY, SKM</p>
             </div>
 
-            <div class="card" onclick="openProductGallery('table')" style="background-image: url('table_kapak.jpg');">
-                <div class="card-overlay">
-                    <h3>Cooling Table</h3>
-                    <p>IEX, PRECISION PARTS, SPECIAL DESIGN</p>
-                </div>
-            </div>
-
-            <div class="card" onclick="openProductGallery('storage')" style="background-image: url('storage_kapak.jpg');">
-                <div class="card-overlay">
-                    <h3>Storage Systems</h3>
-                    <p>IEX, CUSTOM DESIGNED SOLUTIONS</p>
-                </div>
-            </div>
-
-            <div class="card" onclick="openProductGallery('furnace')" style="background-image: url('furnace_kapak.jpg');">
-                <div class="card-overlay">
-                    <h3>Industrial Furnaces</h3>
-                    <p>IEX, YUELEAD, ECOMAK SYSTEMS</p>
-                </div>
+        <div class="card" onclick="openProductGallery('table')" style="background-image: url('table_kapak.jpg');">
+            <div class="card-overlay">
+                <h3>Cooling Table</h3>
+                <p>IEX, PRECISION PARTS, SPECIAL DESIGN</p>
             </div>
         </div>
+
+        <div class="card" onclick="openProductGallery('storage')" style="background-image: url('storage_kapak.jpg');">
+            <div class="card-overlay">
+                <h3>Storage Systems</h3>
+                <p>IEX, CUSTOM DESIGNED SOLUTIONS</p>
+            </div>
+        </div>
+
+        <div class="card" onclick="openProductGallery('furnace')" style="background-image: url('furnace_kapak.jpg');">
+            <div class="card-overlay">
+                <h3>Industrial Furnaces</h3>
+                <p>IEX, YUELEAD, ECOMAK SYSTEMS</p>
+
+    </div> </div> </section> ```
+
         <div id="productGallery">
            <div class="gallery-main" style="position: relative;">
             <button class="slider-arrow arrow-left" id="galleryPrev"><i class="fas fa-chevron-left"></i></button>
