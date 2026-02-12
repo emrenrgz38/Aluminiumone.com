@@ -413,7 +413,30 @@
             margin-bottom: 20px;
             display: block;
         }
+/* PRODUCT CARDS - Kapak Fotoğrafı Modu */
+        .products-grid .card {
+            position: relative;
+            height: 350px; /* Kart yüksekliği */
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Yazıları alta yaslar */
+            padding: 0; /* İç paddingi sıfırladık ki resim tam otursun */
+            border: 1px solid #333;
+        }
 
+        .card-overlay {
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .products-grid .card:hover .card-overlay {
+            background: rgba(0, 170, 255, 0.4); /* Hoverda hafif mavi parlama */
+        }
         .card h3 {
             color: #00aaff;
             margin-bottom: 15px;
@@ -675,13 +698,34 @@
     </section>
     <section id="products">
         <h2>Our Products</h2>
-        <div class="grid">
-            <div class="card" onclick="openProductGallery('press')" style="cursor:pointer;"><i class="fas fa-industry"></i><h3>Extrusion Press</h3><p>SINOMACH, YUELEAD, TECHWAY, SKM</p></div>
-            <div class="card" onclick="openProductGallery('table')" style="cursor:pointer;"><i class="fas fa-table"></i><h3>Cooling Table</h3><p>IEX, PRECISION PARTS, SPECIAL DESIGN</p></div>
-            <div class="card" onclick="openProductGallery('storage')" style="cursor:pointer;"><i class="fas fa-boxes-stacked"></i><h3>Storage Systems</h3><p>IEX, CUSTOM DESIGNED SOLUTIONS</p></div>
-            <div class="card" onclick="openProductGallery('furnace')" style="cursor:pointer;"><i class="fas fa-fire"></i><h3>Industrial Furnaces</h3><p>IEX, YUELEAD, ECOMAK SYSTEMS</p></div>
-        </div>
+        <div class="grid products-grid"> <div class="card" onclick="openProductGallery('press')" style="background-image: url('press_kapak.jpg');">
+                <div class="card-overlay">
+                    <h3>Extrusion Press</h3>
+                    <p>SINOMACH, YUELEAD, TECHWAY, SKM</p>
+                </div>
+            </div>
 
+            <div class="card" onclick="openProductGallery('table')" style="background-image: url('table_kapak.jpg');">
+                <div class="card-overlay">
+                    <h3>Cooling Table</h3>
+                    <p>IEX, PRECISION PARTS, SPECIAL DESIGN</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openProductGallery('storage')" style="background-image: url('storage_kapak.jpg');">
+                <div class="card-overlay">
+                    <h3>Storage Systems</h3>
+                    <p>IEX, CUSTOM DESIGNED SOLUTIONS</p>
+                </div>
+            </div>
+
+            <div class="card" onclick="openProductGallery('furnace')" style="background-image: url('furnace_kapak.jpg');">
+                <div class="card-overlay">
+                    <h3>Industrial Furnaces</h3>
+                    <p>IEX, YUELEAD, ECOMAK SYSTEMS</p>
+                </div>
+            </div>
+        </div>
         <div id="productGallery">
            <div class="gallery-main" style="position: relative;">
             <button class="slider-arrow arrow-left" id="galleryPrev"><i class="fas fa-chevron-left"></i></button>
