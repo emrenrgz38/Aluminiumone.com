@@ -584,7 +584,7 @@
 
     /* 4. Butonu Şık Yap */
     #read-more-btn {
-        display: block !important;
+        display: none;
         background: none;
         border: none;
         color: #d4af37; /* Altın sarısı */
@@ -592,9 +592,12 @@
         cursor: pointer;
         padding: 5px 10px;
         margin: 0 auto;
-    }
-}
 
+}
+h2.section-title {
+    font-size: 20px !important; /* Başlığı burada küçülttük */
+    text-align: center !important;
+}
     /* Kartları mobilde alt alta dizer */
     .products-grid {
         grid-template-columns: 1fr !important;
@@ -602,11 +605,7 @@
         padding: 0 15px;
    /* Mobilde Başlığı Zarifleştirme */
     /* Başlığı hedef alan en kesin kod */
-h2.section-title {
-    font-size: 1.6rem !important;
-    margin-bottom: 15px !important;
-    text-align: center !important;
-}
+
     
     /* Eğer altındaki metni de biraz küçültmek istersen */
     .products-description-area p {
