@@ -576,11 +576,7 @@
         margin-bottom: 15px !important;
     }
 
-/* ============================================================
-   1. MASAÜSTÜ İÇİN KESİN AYARLAR (Mobil Dışında Kalan Kısım)
-   ============================================================ */
-
-/* Masaüstünde butonu her ne olursa olsun GİZLE */
+/* 1. Kural: Butonu dünya genelinde (masaüstü dahil) GÖM */
 #read-more-btn {
     display: none !important;
 }
@@ -591,26 +587,21 @@
     -webkit-line-clamp: unset !important;
 }
 
-/* ============================================================
-   2. MOBİL AYARLAR (Sadece 992px ve altı için)
-   ============================================================ */
+/* 2. Kural: Sadece 992px ve altındaki cihazlarda CANLANDIR */
 @media screen and (max-width: 992px) {
     #read-more-btn {
         display: block !important;
         visibility: visible !important;
-        opacity: 1 !important;
-        height: auto !important;
         color: #d4af37 !important;
-        font-weight: bold;
         margin: 15px auto !important;
         width: auto !important;
+        cursor: pointer !important;
     }
     
-    /* Başlığı mobilde hizaya getir */
+/* Başlığı mobilde hizaya sok (Our Products) */
     h2.section-title {
         font-size: 22px !important;
         text-align: center !important;
-        display: block !important;
     }
 }
     /* Mobilde Yazıyı 4 Satırda Kes */
