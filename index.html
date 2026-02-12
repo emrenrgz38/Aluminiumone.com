@@ -556,106 +556,40 @@
 }
         /* MOBİL UYUMLULUK - 1 YAPISI */
 @media (max-width: 992px) {
-    /* 1. Başlığı Küçült */
-    .section-title {
-        font-size: 1.6rem !important;
-        margin-bottom: 20px !important;
-        text-align: center !important;
-    }
-
-    /* 2. Yazıyı Kes ve Yanlara Yay */
-    #product-text {
+    /* Yazıyı 2 satıra kısıtlar */
+    .truncate-mobile {
         display: -webkit-box;
-        -webkit-line-clamp: 4; /* 4 satırda keser */
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        text-align: justify !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 10px !important;
-        margin-bottom: 15px !important;
+        text-overflow: ellipsis;
+    }
+    
+    /* Açıldığında tam boy gösterir */
+    .truncate-mobile.expanded {
+        display: block;
+        -webkit-line-clamp: initial;
     }
 
-    /* Mobilde Yazıyı 4 Satırda Kes */
-    #product-text {
-        display: -webkit-box !important;
-        -webkit-line-clamp: 4 !important;
-        -webkit-box-orient: vertical !important;
-        overflow: hidden !important;
-        text-align: justify !important;
-        padding: 0 15px !important;
-    }
-
-    /* Yazı açıldığında tam göster */
-    #product-text.expanded {
-        display: block !important;
-        -webkit-line-clamp: unset !important;
-    }
-
-    /* Butonu SADECE mobilde göster */
-   #read-more-btn {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-    /* Mobilde kutucukların dikey (alt alta) olması normaldir, 
-       ama galerinin patlamaması için şu yapıyı koru: */
+    /* Kartları mobilde alt alta dizer */
     .products-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+        padding: 0 15px;
+   /* Mobilde Başlığı Zarifleştirme */
+    .products-description-area h2 {
+        font-size: 1.8rem !important; /* Masaüstünden daha küçük ve zarif */
+        letter-spacing: 1px;         /* Harf aralarını biraz açarak ferahlatıyoruz */
+        margin-bottom: 15px;
     }
+    
+    /* Eğer altındaki metni de biraz küçültmek istersen */
+    .products-description-area p {
+        font-size: 0.95rem !important;
+        line-height: 1.6;
+    } }
 }
-
-
-
-        
-/* --- MOBİL READ MORE VE BAŞLIK DÜZENLEME --- */
-#read-more-btn {
-    display: none !important; /* Masaüstünde butonu tamamen yok eder */
-}
-
-@media screen and (max-width: 992px) {
-    /* Başlığı mobilde kutuya ortalar ve boyutunu ayarlar */
-    h2.section-title {
-        font-size: 24px !important;
-        text-align: center !important;
-        width: 100% !important;
-        margin: 20px auto !important;
-    }
-
-    /* Mobilde yazıyı 4 satırda keser */
-    #product-text {
-        display: -webkit-box !important;
-        -webkit-line-clamp: 4 !important;
-        -webkit-box-orient: vertical !important;
-        overflow: hidden !important;
-        margin-bottom: 15px !important;
-    }
-
-    /* Yazı açıldığında kısıtlamayı kaldırır */
-    #product-text.expanded {
-        display: block !important;
-        -webkit-line-clamp: unset !important;
-    }
-
-    /* Butonu sadece mobilde geri getirir */
-    #read-more-btn {
-        display: block !important;
-        margin: 10px auto !important;
-        color: #d4af37 !important;
-        background: none !important;
-        border: none !important;
-        font-weight: bold !important;
-    }
-}
-/* ============================================================
-   3. BÜTÜN KODLARIN BİTTİĞİ YER (PARANTEZ KONTROLÜ)
-   ============================================================ *//* --- MOBİL BİTTİ --- */
-    .gallery-main img {
+        .gallery-main img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
@@ -853,28 +787,18 @@
     <section id="products">
         <div class="container" style="text-align: center; padding: 80px 20px;">
             
-            <div class="products-title-box">       
-                
-<div class="product-wrapper" style="text-align: center; width: 100%; margin-bottom: 40px;">
-    
-    <h2 class="section-title" style="font-size: clamp(22px, 4vw, 32px) !important; color: #00aaff; margin: 0 auto 20px auto; display: inline-block; width: 100%;">
-        OUR PRODUCTS
-    </h2>
+            <div class="products-title-box">
+                <h2 class="section-title" style="margin-bottom: 0; color: #00aaff; font-size: 2rem;">OUR PRODUCTS</h2>
+            </div>
 
-    <div id="product-text" style="margin-bottom: 15px;">
-        <p style="margin: 0; line-height: 1.6;">
-            Aluminium ONE manufactures aluminum extrusion presses, conveyors, handling and stacking systems, industrial ovens (billet heating, 
+           <div class="products-description-area" style="display: flex; flex-direction: column; align-items: center; min-height: 120px; margin-bottom: 40px;">
+    <p id="product-text" class="truncate-mobile" style="color: #fff; font-size: 1.1rem; line-height: 1.8; max-width: 950px; margin: 0 auto; text-align: center;">
+        Aluminium ONE manufactures aluminum extrusion presses, conveyors, handling and stacking systems, industrial ovens (billet heating, 
         die heating, aging ovens, etc.), and surface treatment systems (powder coating, anodizing, polishing-satin finishing) with a unique design approach, 
         offering specialized solutions for the extrusion industry.
-        </p>
-    </div>
-
-    <button id="read-more-btn" onclick="toggleReadMore()" style="display: none; background: none; border: none; color: #d4af37; font-weight: bold; cursor: pointer; margin: 10px auto;">
-        Read More...
-    </button>
-
+    </p>
+    <button id="read-more-btn" onclick="toggleReadMore()" style="display: none; background: none; border: none; color: #00aaff; cursor: pointer; font-weight: bold; margin-top: 10px;">Read More...</button>
 </div>
-  
             <div class="products-grid" style="max-width: 1200px; margin: 50px auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
                 <div class="card" onclick="openProductGallery('press')" style="background-image: url('press_kapak.jpg'); cursor: pointer;">
                     <div class="card-overlay"><h3>Extrusion Press</h3><p>SINOMACH, YUELEAD, TECHWAY, SKM</p></div>
@@ -1054,15 +978,14 @@ window.addEventListener('click', function(event) {
         }
 // MOBİL READ MORE - TAMAMEN DIŞARIDA
 function toggleReadMore() {
-    const text = document.getElementById("product-text");
-    const btn = document.getElementById("read-more-btn");
-
-    if (text.classList.contains("expanded")) {
-        text.classList.remove("expanded");
-        btn.innerText = "Read More...";
+    const text = document.getElementById('product-text');
+    const btn = document.getElementById('read-more-btn');
+    if (text.classList.contains('expanded')) {
+        text.classList.remove('expanded');
+        btn.innerText = 'Read More...';
     } else {
-        text.classList.add("expanded");
-        btn.innerText = "Read Less";
+        text.classList.add('expanded');
+        btn.innerText = 'Show Less';
     }
 }
         // OKLARIN ÇALIŞMASI
