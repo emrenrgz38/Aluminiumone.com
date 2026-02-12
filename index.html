@@ -604,7 +604,20 @@
     padding-right: 10px !important;
     
     font-size: 1rem !important; /* Mobilde yazı çok büyükse biraz küçülttük */
+/* Mobilde Our Products başlığını küçült */
+.section-title {
+    font-size: 24px !important; 
+    margin-bottom: 20px !important;
+    letter-spacing: 1px !important;
+    text-align: center !important;
 }
+
+/* Başlığın altındaki o altın rengi çizgiyi (varsa) orantılayalım */
+.section-title::after {
+    width: 50px !important;
+    height: 2px !important;
+    margin: 10px auto !important;
+}}
   
     /* Açıldığında tam boy gösterir */
     .truncate-mobile.expanded {
