@@ -525,9 +525,8 @@
             z-index: -1;
         }
 
-        /* --- GALERİ EKSTRA STİLLER (YAPININ SONUNA EKLENDİ) --- */
-       #productGallery {
-    display: none; /* JS 'flex' yapınca devreye girecek */
+  #productGallery {
+    display: none; 
     position: fixed;
     top: 0;
     left: 0;
@@ -535,16 +534,16 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.95);
     z-index: 10000;
-    justify-content: center; /* Yatayda ortalar */
-    align-items: center;     /* Dikeyde ortalar */
-    padding: 20px;
-    animation: fadeIn 0.5s ease;
+    /* İÇERİĞİ TAM ORTALAYAN SİHİRLİ SATIRLAR */
+    justify-content: center; 
+    align-items: center;     
+    flex-direction: column;
 }
 
 .gallery-main {
-    width: 90%;
-    max-width: 1100px;
-    height: 70vh; /* Ekranın %70'ini kaplar, boğmaz */
+    width: 85%;
+    max-width: 1200px;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -553,6 +552,7 @@
     border-radius: 15px;
     position: relative;
     overflow: hidden;
+    margin-bottom: 20px; /* Alttaki küçük resimlerle mesafe */
 }
         
         .gallery-main img {
