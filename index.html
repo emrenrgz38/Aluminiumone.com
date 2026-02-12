@@ -576,7 +576,20 @@
         color: #d4af37;
         margin-top: 10px;
         cursor: pointer;
-    }
+  /* Mobilde modalın iç boşluklarını daralt */
+.modal-content {
+    padding: 15px !important; /* 40px olan boşluğu 15px'e düşürdük */
+    gap: 20px !important;    /* Görsel ile yazı arasındaki boşluğu azalttık */
+}
+
+.modal-details {
+    padding: 0 !important;   /* Ekstra iç boşluk varsa sıfırladık */
+}
+
+#product-text {
+    text-align: justify;     /* Yazıyı iki yana yaslayarak daha düzgün bir hiza sağlar */
+    padding: 0 5px;          /* Çizgilere çok yapışmasın diye çok küçük bir pay */
+  }
 }    
     /* Açıldığında tam boy gösterir */
     .truncate-mobile.expanded {
