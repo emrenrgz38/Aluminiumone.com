@@ -615,6 +615,24 @@
         .gallery-main .arrow-left { left: 20px; }
         .gallery-main .arrow-right { right: 20px; }
 /* REFERENCES SECTION - Otomatik Akış Altyapısı */
+        /* SERVICES DAİRESEL GALERİ TASARIMI */
+.service-main-view img {
+    border: 5px solid #00aaff;
+    border-radius: 50% !important; /* Logo daireselliği */
+    transition: all 0.3s ease;
+}
+
+.service-thumbs img {
+    border: 2px solid #00aaff;
+    border-radius: 50% !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-thumbs img:hover {
+    border-color: #d4af37 !important; /* Üzerine gelince logo sarısı */
+    transform: scale(1.1);
+}
      /* REFERENCES SECTION - Arka Plan Beyaz */
         #references {
             padding: 60px 0;
@@ -931,6 +949,18 @@
             <h3 class="service-label">Consultancy</h3>
         </div>
 
+        <div class="services-gallery-wrapper" style="text-align: center; padding: 40px 0;">
+    <div class="service-main-view" style="margin-bottom: 30px;">
+        <img id="service-large-img" src="spare1.jpg" style="width: 350px; height: 350px; border-radius: 50%; border: 5px solid #00aaff; object-fit: cover; box-shadow: 0 0 20px rgba(0,0,0,0.2);">
+    </div>
+
+    <div class="service-thumbs" style="display: flex; justify-content: center; gap: 15px;">
+        <img src="spare1.jpg" onclick="document.getElementById('service-large-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
+        <img src="spare2.jpg" onclick="document.getElementById('service-large-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
+        <img src="spare3.jpg" onclick="document.getElementById('service-large-img').src=this.src" style="width: 80px; height: 80px; border-radius: 50%; border: 2px solid #00aaff; cursor: pointer; object-fit: cover;">
+    </div>
+</div>
+
     </div>
 </section>
         </div>
@@ -1102,5 +1132,19 @@ function toggleReadMore() {
             currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
             updateGalleryImage();
         };    </script>
+    <div id="service-modal" class="modal-container">
+    <span class="close-modal" onclick="closeGallery()">&times;</span>
+    
+    <div class="modal-content">
+        <div class="main-circle-view">
+            <img id="main-gallery-img" src="" alt="Service Detail">
+        </div>
+
+        <div class="thumb-wrapper">
+            <div id="thumb-container" class="thumb-scroll">
+                </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
