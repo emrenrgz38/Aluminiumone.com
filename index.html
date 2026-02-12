@@ -413,44 +413,58 @@
             margin-bottom: 20px;
             display: block;
         }
-/* PRODUCT CARDS - Kapak Fotoğrafı Modu */
+/* PRODUCT CARDS - Buton ve Netlik Güncellemesi */
         .products-grid .card {
             position: relative;
-            height: 350px; /* Kart yüksekliği */
+            height: 350px;
             overflow: hidden;
-            background-size: cover;
-            background-position: center;
+            border-radius: 12px;
+            border: 2px solid #333;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Yazıları alta yaslar */
-            padding: 0; /* İç paddingi sıfırladık ki resim tam otursun */
-            border: 1px solid #333;
+            justify-content: flex-end;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            background-size: cover;
+            background-position: center;
         }
 
-    .card-overlay {
-    /* Karartmayı yukarıya doğru daha geniş ve koyu başlattık */
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
-    padding: 20px;
-    width: 100%;
-    transition: 0.3s;
-}
-        .products-grid .card:hover .card-overlay {
-            background: rgba(0, 170, 255, 0.4); /* Hoverda hafif mavi parlama */
+        /* Üzerine gelince buton gibi zıplama efekti */
+        .products-grid .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #00aaff;
+            box-shadow: 0 15px 30px rgba(0, 170, 255, 0.4);
         }
+
+        /* Tıklama anı basılma hissi */
+        .products-grid .card:active {
+            transform: translateY(-5px) scale(0.98);
+        }
+
+        /* Yazıların arkasını karartıp netleştirme (Overlay) */
+        .card-overlay {
+            /* Karartmayı daha yukarıdan ve daha koyu başlattık */
+            background: linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.7) 60%, transparent 100%);
+            padding: 25px;
+            width: 100%;
+            transition: 0.3s;
+            text-align: center; /* Buton gibi ortaladık */
+        }
+
+        /* Yazıların Netliği */
         .card h3 {
-    color: #ffffff !important; /* Başlıkları saf beyaz yaparak patlatalım */
-    margin-bottom: 5px;
-    font-size: 1.4rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Yazıya hafif gölge ekleyerek zeminden ayırdık */
-}
+            color: #ffffff !important;
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Yazıyı zeminden kopardık */
+        }
 
-.card p {
-    color: #00aaff !important; /* Marka isimlerini o meşhur mavi tonda bırakalım ama daha parlak dursun */
-    font-weight: bold;
-    font-size: 0.85rem;
-    margin: 0;
-}
-        /* PRODUCTS SECTION - Arka Plan Güncellemesi */
+        .card p {
+            color: #00aaff !important;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }        /* PRODUCTS SECTION - Arka Plan Güncellemesi */
         #products {
             position: relative;
             background-image: url('products_bg.jpg'); /* Buraya GitHub'daki resim adını yaz */
