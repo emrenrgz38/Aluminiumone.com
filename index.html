@@ -577,34 +577,45 @@
     }
 
 /* 1. Kural: Butonu dünya genelinde (masaüstü dahil) GÖM */
+/* --- MOBİL READ MORE VE BAŞLIK DÜZENLEME --- */
 #read-more-btn {
-    display: none !important;
+    display: none !important; /* Masaüstünde butonu tamamen yok eder */
 }
 
-/* Masaüstünde metnin tam görünmesini sağla */
-#product-text {
-    display: block !important;
-    -webkit-line-clamp: unset !important;
-}
-
-/* 2. Kural: Sadece 992px ve altındaki cihazlarda CANLANDIR */
 @media screen and (max-width: 992px) {
+    /* Başlığı mobilde kutuya ortalar ve boyutunu ayarlar */
+    h2.section-title {
+        font-size: 24px !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin: 20px auto !important;
+    }
+
+    /* Mobilde yazıyı 4 satırda keser */
+    #product-text {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Yazı açıldığında kısıtlamayı kaldırır */
+    #product-text.expanded {
+        display: block !important;
+        -webkit-line-clamp: unset !important;
+    }
+
+    /* Butonu sadece mobilde geri getirir */
     #read-more-btn {
         display: block !important;
-        visibility: visible !important;
+        margin: 10px auto !important;
         color: #d4af37 !important;
-        margin: 15px auto !important;
-        width: auto !important;
-        cursor: pointer !important;
+        background: none !important;
+        border: none !important;
+        font-weight: bold !important;
     }
-    
-/* Başlığı mobilde hizaya sok (Our Products) */
-    h2.section-title {
-        font-size: 22px !important;
-        text-align: center !important;
-    }
-}
-    /* Mobilde Yazıyı 4 Satırda Kes */
+}    /* Mobilde Yazıyı 4 Satırda Kes */
     #product-text {
         display: -webkit-box !important;
         -webkit-line-clamp: 4 !important;
@@ -838,18 +849,28 @@
     <section id="products">
         <div class="container" style="text-align: center; padding: 80px 20px;">
             
-            <div class="products-title-box">
-               <h2 class="section-title" style="font-size: clamp(22px, 5vw, 32px) !important; text-align: center !important; width: 100% !important; display: block !important; margin: 20px auto !important; padding: 0 !important; color: #00aaff;">OUR PRODUCTS</h2>
-            </div>
+            <div class="products-title-box">       
+                
+<div class="product-wrapper" style="text-align: center; width: 100%; margin-bottom: 40px;">
+    
+    <h2 class="section-title" style="font-size: clamp(22px, 4vw, 32px) !important; color: #00aaff; margin: 0 auto 20px auto; display: inline-block; width: 100%;">
+        OUR PRODUCTS
+    </h2>
 
-           <div class="products-description-area" style="text-align: center; margin-bottom: 40px;">
-    <p id="product-text" class="truncate-mobile" style="color: #fff; font-size: 1.1rem; line-height: 1.8;">
-        Aluminium ONE manufactures aluminum extrusion presses, conveyors, handling and stacking systems, industrial ovens (billet heating, 
+    <div id="product-text" style="margin-bottom: 15px;">
+        <p style="margin: 0; line-height: 1.6;">
+            Aluminium ONE manufactures aluminum extrusion presses, conveyors, handling and stacking systems, industrial ovens (billet heating, 
         die heating, aging ovens, etc.), and surface treatment systems (powder coating, anodizing, polishing-satin finishing) with a unique design approach, 
         offering specialized solutions for the extrusion industry.
-   </p>
-<button id="read-more-btn" onclick="toggleReadMore()" style="display: none; background: none; border: none; color: #d4af37; font-weight: bold; cursor: pointer; margin: 10px auto;">Read More...</button>
+        </p>
+    </div>
+
+    <button id="read-more-btn" onclick="toggleReadMore()" style="display: none; background: none; border: none; color: #d4af37; font-weight: bold; cursor: pointer; margin: 10px auto;">
+        Read More...
+    </button>
+
 </div>
+  
             <div class="products-grid" style="max-width: 1200px; margin: 50px auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
                 <div class="card" onclick="openProductGallery('press')" style="background-image: url('press_kapak.jpg'); cursor: pointer;">
                     <div class="card-overlay"><h3>Extrusion Press</h3><p>SINOMACH, YUELEAD, TECHWAY, SKM</p></div>
