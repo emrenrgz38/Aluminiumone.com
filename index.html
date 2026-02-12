@@ -594,15 +594,25 @@
 /* ============================================================
    2. MOBİL AYARLAR (Sadece 992px ve altı için)
    ============================================================ */
-@media (max-width: 992px) {
-
-    /* Mobilde Başlığı Küçült */
-    h2.section-title, .products-section h2 {
-        font-size: 24px !important;
-        text-align: center !important;
-        margin-bottom: 20px !important;
+@media screen and (max-width: 992px) {
+    #read-more-btn {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        color: #d4af37 !important;
+        font-weight: bold;
+        margin: 15px auto !important;
+        width: auto !important;
     }
-
+    
+    /* Başlığı mobilde hizaya getir */
+    h2.section-title {
+        font-size: 22px !important;
+        text-align: center !important;
+        display: block !important;
+    }
+}
     /* Mobilde Yazıyı 4 Satırda Kes */
     #product-text {
         display: -webkit-box !important;
@@ -620,19 +630,14 @@
     }
 
     /* Butonu SADECE mobilde göster */
-    #read-more-btn {
-        display: block !important;
-        visibility: visible !important;
-        color: #d4af37 !important;
-        font-weight: bold !important;
-        text-align: center !important;
-        padding: 10px;
-        margin: 10px auto !important;
-        background: transparent !important;
-        border: none !important;
-        cursor: pointer !important;
-    }
-
+   #read-more-btn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
     /* Mobilde kutucukların dikey (alt alta) olması normaldir, 
        ama galerinin patlamaması için şu yapıyı koru: */
     .products-grid {
