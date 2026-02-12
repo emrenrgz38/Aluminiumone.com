@@ -576,52 +576,74 @@
         margin-bottom: 15px !important;
     }
 
-/* --- 1. MASAÜSTÜ: Butonu tamamen yok et --- */
+/* ============================================================
+   1. MASAÜSTÜ İÇİN KESİN AYARLAR (Mobil Dışında Kalan Kısım)
+   ============================================================ */
+
+/* Masaüstünde butonu her ne olursa olsun GİZLE */
 #read-more-btn {
     display: none !important;
 }
 
-/* --- 2. MOBİL DÜNYASI BAŞLIYOR --- */
+/* Masaüstünde metnin tam görünmesini sağla */
+#product-text {
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+}
+
+/* ============================================================
+   2. MOBİL AYARLAR (Sadece 992px ve altı için)
+   ============================================================ */
 @media (max-width: 992px) {
-    
-    /* Başlığı küçült ve hizala */
-    h2.section-title {
+
+    /* Mobilde Başlığı Küçült */
+    h2.section-title, .products-section h2 {
         font-size: 24px !important;
         text-align: center !important;
-        margin-bottom: 15px !important;
-        display: block !important;
+        margin-bottom: 20px !important;
     }
 
-    /* Yazıyı 4 satıra hapset */
+    /* Mobilde Yazıyı 4 Satırda Kes */
     #product-text {
         display: -webkit-box !important;
         -webkit-line-clamp: 4 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
         text-align: justify !important;
+        padding: 0 15px !important;
     }
 
-    /* Açıldığında hepsini göster */
+    /* Yazı açıldığında tam göster */
     #product-text.expanded {
         display: block !important;
         -webkit-line-clamp: unset !important;
     }
 
-    /* Butonu mobilde zorla göster */
+    /* Butonu SADECE mobilde göster */
     #read-more-btn {
         display: block !important;
         visibility: visible !important;
         color: #d4af37 !important;
-        font-weight: bold;
-        text-align: center;
-        width: 100%;
-        padding: 10px 0;
-        background: none;
-        border: none;
-        cursor: pointer;
+        font-weight: bold !important;
+        text-align: center !important;
+        padding: 10px;
+        margin: 10px auto !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+    }
+
+    /* Mobilde kutucukların dikey (alt alta) olması normaldir, 
+       ama galerinin patlamaması için şu yapıyı koru: */
+    .products-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
     }
 }
-/* --- MOBİL BİTTİ --- */
+/* ============================================================
+   3. BÜTÜN KODLARIN BİTTİĞİ YER (PARANTEZ KONTROLÜ)
+   ============================================================ *//* --- MOBİL BİTTİ --- */
     .gallery-main img {
             max-width: 100%;
             max-height: 100%;
