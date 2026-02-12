@@ -576,7 +576,18 @@
         grid-template-columns: 1fr !important;
         gap: 20px;
         padding: 0 15px;
+   /* Mobilde Başlığı Zarifleştirme */
+    .products-description-area h2 {
+        font-size: 1.8rem !important; /* Masaüstünden daha küçük ve zarif */
+        letter-spacing: 1px;         /* Harf aralarını biraz açarak ferahlatıyoruz */
+        margin-bottom: 15px;
     }
+    
+    /* Eğer altındaki metni de biraz küçültmek istersen */
+    .products-description-area p {
+        font-size: 0.95rem !important;
+        line-height: 1.6;
+    } }
 }
         .gallery-main img {
             max-width: 100%;
@@ -934,7 +945,20 @@
             currentGalleryImages = galleryData[productType];
             currentImgIndex = 0;
             mainImg.src = currentGalleryImages[0];
-
+// Mobil "Read More" Mekanizması - 1 Yapısı
+function toggleReadMore() {
+    const text = document.getElementById('product-text');
+    const btn = document.getElementById('read-more-btn');
+    
+    // expanded sınıfı varsa kaldır (kapat), yoksa ekle (aç)
+    if (text.classList.contains('expanded')) {
+        text.classList.remove('expanded');
+        btn.innerText = 'Read More...';
+    } else {
+        text.classList.add('expanded');
+        btn.innerText = 'Show Less';
+    }
+}
             currentGalleryImages.forEach((imgSrc, index) => {
                 const thumb = document.createElement('img');
                 thumb.src = imgSrc;
