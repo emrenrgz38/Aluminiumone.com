@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Aluminium One | Aluminium Extrusion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluminium One | Aluminium Extrusion Press</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -555,7 +555,7 @@
     margin-bottom: 20px; /* Alttaki küçük resimlerle mesafe */
 }
         /* MOBİL UYUMLULUK - 1 YAPISI */
-@media (max-width: 600px) {
+@media (max-width: 992px) {
     /* Yazıyı 2 satıra kısıtlar */
     .truncate-mobile {
         display: -webkit-box;
@@ -945,20 +945,7 @@
             currentGalleryImages = galleryData[productType];
             currentImgIndex = 0;
             mainImg.src = currentGalleryImages[0];
-// Mobil "Read More" Mekanizması - 1 Yapısı
-function toggleReadMore() {
-    const text = document.getElementById('product-text');
-    const btn = document.getElementById('read-more-btn');
-    
-    // expanded sınıfı varsa kaldır (kapat), yoksa ekle (aç)
-    if (text.classList.contains('expanded')) {
-        text.classList.remove('expanded');
-        btn.innerText = 'Read More...';
-    } else {
-        text.classList.add('expanded');
-        btn.innerText = 'Show Less';
-    }
-}
+
             currentGalleryImages.forEach((imgSrc, index) => {
                 const thumb = document.createElement('img');
                 thumb.src = imgSrc;
@@ -989,7 +976,18 @@ window.addEventListener('click', function(event) {
                 t.classList.toggle('active-thumb', i === currentImgIndex);
             });
         }
-
+// MOBİL READ MORE - TAMAMEN DIŞARIDA
+function toggleReadMore() {
+    const text = document.getElementById('product-text');
+    const btn = document.getElementById('read-more-btn');
+    if (text.classList.contains('expanded')) {
+        text.classList.remove('expanded');
+        btn.innerText = 'Read More...';
+    } else {
+        text.classList.add('expanded');
+        btn.innerText = 'Show Less';
+    }
+}
         // OKLARIN ÇALIŞMASI
         document.getElementById('galleryNext').onclick = () => {
             currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length;
