@@ -576,7 +576,43 @@
         margin-bottom: 15px !important;
     }
 
-/* 1. Kural: Butonu dünya genelinde (masaüstü dahil) GÖM */
+    /* Mobilde Yazıyı 4 Satırda Kes */
+    #product-text {
+        display: -webkit-box !important;
+        -webkit-line-clamp: 4 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        text-align: justify !important;
+        padding: 0 15px !important;
+    }
+
+    /* Yazı açıldığında tam göster */
+    #product-text.expanded {
+        display: block !important;
+        -webkit-line-clamp: unset !important;
+    }
+
+    /* Butonu SADECE mobilde göster */
+   #read-more-btn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+    /* Mobilde kutucukların dikey (alt alta) olması normaldir, 
+       ama galerinin patlamaması için şu yapıyı koru: */
+    .products-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+}
+
+
+
+        
 /* --- MOBİL READ MORE VE BAŞLIK DÜZENLEME --- */
 #read-more-btn {
     display: none !important; /* Masaüstünde butonu tamamen yok eder */
@@ -614,38 +650,6 @@
         background: none !important;
         border: none !important;
         font-weight: bold !important;
-    }
-}    /* Mobilde Yazıyı 4 Satırda Kes */
-    #product-text {
-        display: -webkit-box !important;
-        -webkit-line-clamp: 4 !important;
-        -webkit-box-orient: vertical !important;
-        overflow: hidden !important;
-        text-align: justify !important;
-        padding: 0 15px !important;
-    }
-
-    /* Yazı açıldığında tam göster */
-    #product-text.expanded {
-        display: block !important;
-        -webkit-line-clamp: unset !important;
-    }
-
-    /* Butonu SADECE mobilde göster */
-   #read-more-btn {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-    /* Mobilde kutucukların dikey (alt alta) olması normaldir, 
-       ama galerinin patlamaması için şu yapıyı koru: */
-    .products-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px !important;
     }
 }
 /* ============================================================
