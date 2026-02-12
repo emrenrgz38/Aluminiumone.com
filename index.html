@@ -926,7 +926,15 @@
 
             gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-
+// Boşluğa tıklayınca kapatma özelliği - 1 Yapısı Korumalı
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('productGallery');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        document.getElementById('thumbContainer').innerHTML = '';
+        modal.dataset.current = '';
+    }
+});
         function updateGalleryImage() {
             const mainImg = document.getElementById('mainGalleryImg');
             mainImg.src = currentGalleryImages[currentImgIndex];
