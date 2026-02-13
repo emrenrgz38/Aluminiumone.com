@@ -1065,7 +1065,28 @@ function toggleReadMore() {
         });
         modal.style.display = 'flex';
     }
+    </script></div> 
+
+    <script>
+    function openServiceGallery(images) {
+        var modal = document.getElementById('service-gallery-modal');
+        var mainImg = document.getElementById('service-modal-img');
+        var thumbBox = document.getElementById('service-modal-thumbs');
+        thumbBox.innerHTML = '';
+        mainImg.src = images[0];
+        images.forEach(function(src) {
+            var t = document.createElement('img');
+            t.src = src;
+            t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
+            t.onclick = function() { mainImg.src = src; };
+            thumbBox.appendChild(t);
+        });
+        modal.style.display = 'flex';
+    }
     </script>
+
+</body>
+</html>
 
 </body>
 </html>
