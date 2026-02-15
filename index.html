@@ -832,12 +832,32 @@
     </section>
     <section id="projects">
         <h2>Projects</h2>
-        <div class="grid">
-            <div class="card"><h3>Quench System</h3><p>ONE offers superior engineering solutions with its extrusion experience and produces water cooling systems with special designs for the products produced.</p></div>
-            <div class="card"><h3>Puller & Double Puller</h3><p>ONE designs and manufactures custom-designed torque-driven puller systems with simultaneous operation capabilities to meet the specific needs of facilities.</p></div>
-            <div class="card"><h3>Revamping</h3><p>ONE is able to realize renovation / modernization projects with its qualified engineer staff and experienced team in the extrusion industry.</p></div>
-        </div>
+        <div class="card" onclick="toggleCard(this)" style="cursor: pointer; overflow: hidden; transition: all 0.5s ease; min-height: 200px;">
+    <h3>Quench System</h3>
+    <p>ONE offers superior engineering solutions with its extrusion experience and produces water cooling systems with special designs for the products produced.</p>
+    
+    <div class="card-image-content" style="max-height: 0; opacity: 0; transition: all 0.5s ease; padding-top: 10px;">
+        <img src="quench-resim.jpg" style="width: 100%; border-radius: 8px; margin-top: 15px;">
+    </div>
+</div>
 
+<div class="card" onclick="toggleCard(this)" style="cursor: pointer; overflow: hidden; transition: all 0.5s ease; min-height: 200px;">
+    <h3>Puller & Double Puller</h3>
+    <p>ONE designs and manufactures custom-designed torque-driven puller systems with simultaneous operation capabilities to meet the specific needs of facilities.</p>
+    
+    <div class="card-image-content" style="max-height: 0; opacity: 0; transition: all 0.5s ease; padding-top: 10px;">
+        <img src="puller-resim.jpg" style="width: 100%; border-radius: 8px; margin-top: 15px;">
+    </div>
+</div>
+
+<div class="card" onclick="toggleCard(this)" style="cursor: pointer; overflow: hidden; transition: all 0.5s ease; min-height: 200px;">
+    <h3>Revamping</h3>
+    <p>ONE is able to realize renovation / modernization projects with its qualified engineer staff and experienced team in the extrusion industry.</p>
+    
+    <div class="card-image-content" style="max-height: 0; opacity: 0; transition: all 0.5s ease; padding-top: 10px;">
+        <img src="revamping-resim.jpg" style="width: 100%; border-radius: 8px; margin-top: 15px;">
+    </div>
+</div>
     </section>
     <section id="services" style="padding: 80px 0; background-color: #fff;">
     <div style="text-align: center; margin-bottom: 50px;">
@@ -1097,6 +1117,20 @@ function toggleReadMore() {
         });
         modal.style.display = 'flex';
     }
+        function toggleCard(element) {
+    const imageContent = element.querySelector('.card-image-content');
+    
+    // Eğer kart kapalıysa aç, açıksa kapat
+    if (imageContent.style.maxHeight === '0px' || imageContent.style.maxHeight === '') {
+        imageContent.style.maxHeight = '500px'; // Resmin sığacağı kadar yükseklik
+        imageContent.style.opacity = '1';
+        element.style.backgroundColor = '#f9f9f9'; // Hafif vurgu için arka plan (isteğe bağlı)
+    } else {
+        imageContent.style.maxHeight = '0';
+        imageContent.style.opacity = '0';
+        element.style.backgroundColor = ''; 
+    }
+}
     </script>
 
 </body>
