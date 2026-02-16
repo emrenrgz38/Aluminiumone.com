@@ -1120,11 +1120,24 @@ function toggleReadMore() {
     }
         function toggleCard(element) {
     const imageContent = element.querySelector('.card-image-content');
-    
-  
 }
     </script>
+<script>
+function toggleCard(element) {
+    // Kutu içindeki gizli resim alanını bulur
+    const content = element.querySelector('.card-image-content');
 
+    // Eğer kapalıysa açar, açıksa kapatır
+    if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+        content.style.maxHeight = '500px'; // Aşağı doğru esneme payı
+        content.style.opacity = '1';
+    } else {
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+    }
+}
+</script>
+    
 </body>
 </html>
 
