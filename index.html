@@ -726,6 +726,39 @@
     </style>
 </head>
 <body>
+    <div id="side-nav" style="position: fixed; right: 30px; top: 50%; transform: translateY(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 20px; align-items: center;">
+    
+    <a href="#home" class="nav-dot active" title="Home" style="width: 12px; height: 12px; border-radius: 50%; background: #00aaff; border: 2px solid #00aaff; transition: 0.3s; display: block; box-shadow: 0 0 10px rgba(0, 170, 255, 0.5);"></a>
+    
+    <a href="#about" class="nav-dot" title="About" style="width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid #555; transition: 0.3s; display: block;"></a>
+    
+    <a href="#produts" class="nav-dot" title="Projects" style="width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid #555; transition: 0.3s; display: block;"></a>
+        
+        <a href="#projects" class="nav-dot" title="Projects" style="width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid #555; transition: 0.3s; display: block;"></a>
+
+        <a href="#services" class="nav-dot" title="Projects" style="width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid #555; transition: 0.3s; display: block;"></a>
+
+        <a href="#news" class="nav-dot" title="Projects" style="width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid #555; transition: 0.3s; display: block;"></a>
+    
+    <a href="#contact" class="nav-dot" title="Contact" style="width: 10px; height: 10px; border-radius: 50%; background: transparent; border: 2px solid #555; transition: 0.3s; display: block;"></a>
+</div>
+
+<style>
+    /* Mouse ile üzerine gelince veya aktif olunca parlaması için */
+    .nav-dot:hover {
+        border-color: #00aaff !important;
+        transform: scale(1.3);
+    }
+    
+    /* Scroll bar'ı tamamen gizlemek istersen (isteğe bağlı) */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    html {
+        scrollbar-width: none; /* Firefox için */
+        scroll-behavior: smooth; /* Noktaya basınca yumuşak kaysın diye */
+    }
+</style>
     <div class="menu-overlay" id="menuOverlay" onclick="toggleMenu()"></div>
     <header id="mainHeader">
         <div class="header-left">
@@ -1247,6 +1280,29 @@ function toggleCard(element) {
         content.style.opacity = '0';
     }
 }
+    <script>
+    window.addEventListener('scroll', () => {
+        let sections = document.querySelectorAll('section, header'); // Bölümlerin id'lerini kontrol eder
+        let navDots = document.querySelectorAll('.nav-dot');
+        
+        sections.forEach((section, i) => {
+            let rect = section.getBoundingClientRect();
+            if (rect.top >= -200 && rect.top <= 200) {
+                navDots.forEach(dot => {
+                    dot.style.background = 'transparent';
+                    dot.style.borderColor = '#555';
+                    dot.style.width = '10px';
+                    dot.style.height = '10px';
+                });
+                navDots[i].style.background = '#00aaff';
+                navDots[i].style.borderColor = '#00aaff';
+                navDots[i].style.width = '12px';
+                navDots[i].style.height = '12px';
+                navDots[i].style.boxShadow = '0 0 10px rgba(0, 170, 255, 0.5)';
+            }
+        });
+    });
+</script>
 </script>
     
 </body>
