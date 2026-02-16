@@ -832,12 +832,12 @@
     </section>
     <section id="projects">
         <h2>Projects</h2>
-        <div class="card" onclick="toggleCard(this)" style="cursor: pointer; transition: background 0.3s;">
+       <div class="card" onclick="toggleCard(this)" style="cursor: pointer; transition: background 0.3s;">
     <h3>Quench System</h3>
     <p>ONE offers superior engineering solutions with its extrusion experience and produces water cooling systems with special designs for the products produced.</p>
     
     <div class="card-image-content" style="display: none; padding-top: 15px;">
-        <img src="quench-resim.jpg" style="width: 100%; height: auto; border-radius: 5px;">
+        <img src="quench.jpg" style="width: 100%; height: auto; border-radius: 5px;">
     </div>
 </div>
 
@@ -846,7 +846,7 @@
     <p>ONE designs and manufactures custom-designed torque-driven puller systems with simultaneous operation capabilities to meet the specific needs of facilities.</p>
     
     <div class="card-image-content" style="max-height: 0; opacity: 0; transition: all 0.5s ease; padding-top: 10px;">
-        <img src="puller-resim.jpg" style="width: 100%; border-radius: 8px; margin-top: 15px;">
+        <img src="puller.jpg" style="width: 100%; border-radius: 8px; margin-top: 15px;">
     </div>
 </div>
 
@@ -855,7 +855,7 @@
     <p>ONE is able to realize renovation / modernization projects with its qualified engineer staff and experienced team in the extrusion industry.</p>
     
     <div class="card-image-content" style="max-height: 0; opacity: 0; transition: all 0.5s ease; padding-top: 10px;">
-        <img src="revamping-resim.jpg" style="width: 100%; border-radius: 8px; margin-top: 15px;">
+        <img src="revamping.jpg" style="width: 100%; border-radius: 8px; margin-top: 15px;">
     </div>
 </div>
     </section>
@@ -1120,16 +1120,7 @@ function toggleReadMore() {
         function toggleCard(element) {
     const imageContent = element.querySelector('.card-image-content');
     
-    // Eğer kart kapalıysa aç, açıksa kapat
-    if (imageContent.style.maxHeight === '0px' || imageContent.style.maxHeight === '') {
-        imageContent.style.maxHeight = '500px'; // Resmin sığacağı kadar yükseklik
-        imageContent.style.opacity = '1';
-        element.style.backgroundColor = '#f9f9f9'; // Hafif vurgu için arka plan (isteğe bağlı)
-    } else {
-        imageContent.style.maxHeight = '0';
-        imageContent.style.opacity = '0';
-        element.style.backgroundColor = ''; 
-    }
+  
 }
     </script>
 
