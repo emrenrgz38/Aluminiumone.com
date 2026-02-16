@@ -1282,23 +1282,37 @@ function toggleCard(element) {
 }
     <script>
     window.addEventListener('scroll', () => {
-        let sections = document.querySelectorAll('section, header'); // Bölümlerin id'lerini kontrol eder
-        let navDots = document.querySelectorAll('.nav-dot');
+        // Senin sayfandaki ana bölümlerin ID'lerini buraya yazdık
+        const sectionIds = ['home', 'about', 'projects', 'contact'];
+        const navDots = document.querySelectorAll('.nav-dot');
         
-        sections.forEach((section, i) => {
-            let rect = section.getBoundingClientRect();
-            if (rect.top >= -200 && rect.top <= 200) {
-                navDots.forEach(dot => {
-                    dot.style.background = 'transparent';
-                    dot.style.borderColor = '#555';
-                    dot.style.width = '10px';
-                    dot.style.height = '10px';
-                });
-                navDots[i].style.background = '#00aaff';
-                navDots[i].style.borderColor = '#00aaff';
-                navDots[i].style.width = '12px';
-                navDots[i].style.height = '12px';
-                navDots[i].style.boxShadow = '0 0 10px rgba(0, 170, 255, 0.5)';
+        let currentSection = "";
+
+        sectionIds.forEach((id) => {
+            const section = document.getElementById(id);
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                // Eğer bölüm ekranın üst kısmına yakınsa veya ekranı kaplıyorsa onu "aktif" say
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    currentSection = id;
+                }
+            }
+        });
+
+        navDots.forEach((dot) => {
+            // Önce hepsini söndür (gri yap)
+            dot.style.background = "transparent";
+            dot.style.borderColor = "#555";
+            dot.style.width = "10px";
+            dot.style.height = "10px";
+
+            // Sadece aktif olanı yak (mavi yap)
+            if (dot.getAttribute("href") === `#${currentSection}`) {
+                dot.style.background = "#00aaff";
+                dot.style.borderColor = "#00aaff";
+                dot.style.width = "12px";
+                dot.style.height = "12px";
+                dot.style.boxShadow = "0 0 10px rgba(0, 170, 255, 0.5)";
             }
         });
     });
