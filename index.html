@@ -1195,41 +1195,44 @@ function toggleReadMore() {
     <div id="service-modal-thumbs" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;"></div>
 </div> 
 
-   <script>
-    function openServiceGallery(coverSrc, images) {
+    <script>
+    function openServiceGallery(images) {
         var modal = document.getElementById('service-gallery-modal');
         var mainImg = document.getElementById('service-modal-img');
         var thumbBox = document.getElementById('service-modal-thumbs');
-        
         thumbBox.innerHTML = '';
-        
-        // Hatalı images[0] düzeltildi, tıklanan kapak resmi merkeze gelir
-        mainImg.src = coverSrc;
-        
+        mainImg.src = images[0];
         images.forEach(function(src) {
             var t = document.createElement('img');
             t.src = src;
             t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
-            // Hatalı coversrc düzeltildi, küçük resme basınca büyük olan değişir
             t.onclick = function() { mainImg.src = src; };
             thumbBox.appendChild(t);
         });
-        
         modal.style.display = 'flex';
     }
+    </script></div> 
 
-    function toggleCard(element) {
-        const content = element.querySelector('.card-image-content');
-        // Boş olan fonksiyon dolduruldu, kartlar artık süzülerek açılır
-        if (!content.style.maxHeight || content.style.maxHeight === '0px' || content.style.maxHeight === '0') {
-            content.style.maxHeight = '500px';
-            content.style.opacity = '1';
-        } else {
-            content.style.maxHeight = '0px';
-            content.style.opacity = '0';
-        }
+    <script>
+    function openServiceGallery(images) {
+        var modal = document.getElementById('service-gallery-modal');
+        var mainImg = document.getElementById('service-modal-img');
+        var thumbBox = document.getElementById('service-modal-thumbs');
+        thumbBox.innerHTML = '';
+        mainImg.src = images[0];
+        images.forEach(function(src) {
+            var t = document.createElement('img');
+            t.src = src;
+            t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
+            t.onclick = function() { mainImg.src = src; };
+            thumbBox.appendChild(t);
+        });
+        modal.style.display = 'flex';
     }
-</script> 
+        function toggleCard(element) {
+    const imageContent = element.querySelector('.card-image-content');
+}
+    </script>
 <script>
 function toggleCard(element) {
     // Kutu içindeki gizli resim alanını bulur
