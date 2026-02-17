@@ -1302,25 +1302,47 @@ function toggleCard(element) {
     }
 }
     <script>
-    window.addEventListener('scroll', () => {
-        // Senin sayfandaki ana bölümlerin ID'lerini buraya yazdık
-        const sectionIds = ['home', 'about', 'products', 'projects', 'services', 'news', 'contact'];
-        const navDots = document.querySelectorAll('.nav-dot');
-        
-        let currentSection = "";
+   window.addEventListener('scroll', () => {
+    // Senin 7 ana bölümün
+    const sectionIds = ['home', 'about', 'products', 'projects', 'services', 'news', 'contact'];
+    const navDots = document.querySelectorAll('.nav-dot');
+    
+    let currentSection = "";
 
-        sectionIds.forEach((id) => {
-            const section = document.getElementById(id);
-            if (section) {
-                const rect = section.getBoundingClientRect();
-                // Eğer bölüm ekranın üst kısmına yakınsa veya ekranı kaplıyorsa onu "aktif" say
-                if (rect.top <= 150 && rect.bottom >= 150) {
-                    currentSection = id;
-                }
+    sectionIds.forEach((id) => {
+        const section = document.getElementById(id);
+        if (section) {
+            const rect = section.getBoundingClientRect();
+            // Mantık: Bölümün üstü ekranın ortasına yaklaştıysa veya içindeyse onu aktif yap
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                currentSection = id;
             }
-        });
+        }
+    });
 
-        navDots.forEach((dot) => {
+    // En alta gelindiğinde zorla 'contact'ı yak (sayfa kısa kalsa bile)
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 50) {
+        currentSection = "contact";
+    }
+
+    navDots.forEach((dot) => {
+        // Hepsini önce söndür
+        dot.style.background = "transparent";
+        dot.style.borderColor = "#555";
+        dot.style.width = "10px";
+        dot.style.height = "10px";
+        dot.style.boxShadow = "none";
+
+        // Mevcut bölümle eşleşen noktayı canlandır
+        if (dot.getAttribute("href") === `#${currentSection}`) {
+            dot.style.background = "#00aaff";
+            dot.style.borderColor = "#00aaff";
+            dot.style.width = "12px";
+            dot.style.height = "12px";
+            dot.style.boxShadow = "0 0 10px rgba(0, 170, 255, 0.5)";
+        }
+    });
+});        navDots.forEach((dot) => {
             // Önce hepsini söndür (gri yap)
             dot.style.background = "transparent";
             dot.style.borderColor = "#555";
