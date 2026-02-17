@@ -744,6 +744,27 @@
 </div>
 
 <style>
+   <style>
+    /* Masaüstü ayarları */
+    html { 
+        scroll-behavior: smooth !important; 
+    }
+    .nav-dot:hover { 
+        border-color: #00aaff !important; 
+        transform: scale(1.4); 
+        box-shadow: 0 0 15px rgba(0, 170, 255, 0.6); 
+    }
+    ::-webkit-scrollbar { 
+        width: 0px; 
+        background: transparent; 
+    }
+
+    /* MOBİLDE GİZLEME (Eklenen Kısım) */
+    @media (max-width: 768px) {
+        #side-nav {
+            display: none !important;
+        }
+    }
     /* Mouse ile üzerine gelince veya aktif olunca parlaması için */
     .nav-dot:hover {
         border-color: #00aaff !important;
