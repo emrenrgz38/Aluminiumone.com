@@ -1302,24 +1302,46 @@ function toggleCard(element) {
     }
 }
     <script>
-   window.addEventListener('scroll', () => {
-    // Senin 7 ana bölümün
-    const sectionIds = ['home', 'about us', 'products', 'projects', 'services', 'news', 'contact'];
+   <script>
+document.addEventListener('DOMContentLoaded', () => {
     const navDots = document.querySelectorAll('.nav-dot');
     
-    let currentSection = "";
+    // Gözlemci Ayarları: Bölümün %60'ı ekrandaysa aktif et
+    const options = {
+        threshold: 0.6
+    };
 
-    sectionIds.forEach((id) => {
-        const section = document.getElementById(id);
-        if (section) {
-            const rect = section.getBoundingClientRect();
-            // Mantık: Bölümün üstü ekranın ortasına yaklaştıysa veya içindeyse onu aktif yap
-            if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-                currentSection = id;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                
+                navDots.forEach(dot => {
+                    // Noktayı söndür
+                    dot.style.background = "transparent";
+                    dot.style.borderColor = "#555";
+                    dot.style.width = "10px";
+                    dot.style.height = "10px";
+                    dot.style.boxShadow = "none";
+
+                    // Eğer noktanın href'i, ekrandaki bölümün ID'si ile aynıysa yak!
+                    if (dot.getAttribute('href') === `#${id}`) {
+                        dot.style.background = "#00aaff";
+                        dot.style.borderColor = "#00aaff";
+                        dot.style.width = "14px";
+                        dot.style.height = "14px";
+                        dot.style.boxShadow = "0 0 15px rgba(0, 170, 255, 0.8)";
+                    }
+                });
             }
-        }
-    });
+        });
+    }, options);
 
+    // Takip edilecek bölümleri sisteme tanıt
+    const sections = document.querySelectorAll('header[id], section[id], div[id]');
+    sections.forEach(section => observer.observe(section));
+});
+</script>
     // En alta gelindiğinde zorla 'contact'ı yak (sayfa kısa kalsa bile)
     if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 50) {
         currentSection = "contact";
