@@ -1249,58 +1249,30 @@ function toggleCard(element) {
 }
 </script>
 
-        <script>
-function selectSite(choice) {
-    const entry = document.getElementById('entry-split');
-    const mainContent = document.getElementById('main-site-content');
-    const body = document.body;
-
-    // 1. Karşılama ekranını kaldır
-    entry.classList.add('hide-entry');
-    mainContent.style.display = 'block';
-
-    // 2. Seçime göre sitenin "ruhunu" değiştir
-    if (choice === 'profile') {
-        body.classList.add('theme-profiles');
-        body.classList.remove('theme-machines');
-        console.log("Profil tasarımı yüklendi.");
-        // Burada profil tarafına özel renkleri veya bölümleri aktif edebilirsin
-    } else {
-        body.classList.add('theme-machines');
-        body.classList.remove('theme-profiles');
-        console.log("Makine tasarımı yüklendi.");
-        // Burada makine tarafına özel bölümleri aktif edebilirsin
-    }
-}
-</script>
-
-  <div id="entry-split">
+ <div id="entry-split">
     <div class="split left" onclick="selectSite('profile')">
         <div class="split-content">
-            <h1>Alaşım Profiller</h1>
-            <p>Mimari ve Endüstriyel Çözümler</p>
-            <button class="btn-entry">Keşfet</button>
+            <h1>ALAŞIM PROFİLLER</h1>
+            <button class="btn-entry">GİRİŞ YAP</button>
         </div>
     </div>
     <div class="split right" onclick="selectSite('machine')">
         <div class="split-content">
-            <h1>Makineler</h1>
-            <p>Üretim ve Teknoloji Hattı</p>
-            <button class="btn-entry">İncele</button>
+            <h1>MAKİNELER</h1>
+            <button class="btn-entry">GİRİŞ YAP</button>
         </div>
     </div>
 </div>
 
-<div id="main-site-content" style="display:none;">
-    </div>     
-        <style>
+<style>
+/* 2. Gerekli CSS (Head içine veya Scriptten hemen önce) */
 #entry-split {
     position: fixed;
-    width: 100%;
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
     display: flex;
-    z-index: 9999;
-    transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+    z-index: 10000; /* En üstte durması için */
+    transition: all 0.8s ease-in-out;
 }
 
 .split {
@@ -1308,23 +1280,40 @@ function selectSite(choice) {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 0.5s;
     cursor: pointer;
+    transition: flex 0.5s ease;
     overflow: hidden;
-    position: relative;
 }
 
-.left { background: #2c3e50; color: white; } /* Profil tarafı koyu/kurumsal */
-.right { background: #e67e22; color: white; } /* Makine tarafı daha endüstriyel */
+.left { background: #1a1a1a; color: white; border-right: 2px solid #333; }
+.right { background: #d35400; color: white; }
 
-.split:hover { flex: 1.2; } /* Üzerine gelince genişleme efekti */
+.split:hover { flex: 1.3; }
 
-.split-content { text-align: center; z-index: 2; }
+.split-content h1 { font-size: 3rem; font-weight: bold; }
 
-/* Seçim yapılınca ekranın yukarı kayması için */
-.hide-entry { transform: translateY(-100%); }
+/* Seçim yapılınca ekranı yukarı fırlatan klas */
+.hide-entry { transform: translateY(-100%); opacity: 0; pointer-events: none; }
 </style>
-        
+
+<script>
+/* 3. Çalıştıran Fonksiyon */
+function selectSite(choice) {
+    const entry = document.getElementById('entry-split');
+    
+    // Ekranı yukarı kaydır
+    entry.classList.add('hide-entry');
+
+    // Seçime göre yapılacak işlemler (Buraya tema değiştirme kodlarını ekleyeceğiz)
+    console.log("Seçilen yol: " + choice);
+    
+    // Eğer asıl site içeriğin gizliyse onu aç:
+    const mainContent = document.getElementById('main-site-content');
+    if(mainContent) {
+        mainContent.style.display = 'block';
+    }
+}
+</script>       
 </body>
 </html>
 
