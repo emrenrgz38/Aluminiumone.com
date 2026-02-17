@@ -1304,32 +1304,42 @@ function toggleCard(element) {
     <script>
  <script>
 window.addEventListener('scroll', () => {
-    // Sağdaki 7 noktayı ve sayfadaki 7 ana bölümü çekiyoruz
-    const dots = document.querySelectorAll('.nav-dot');
-    const sections = document.querySelectorAll('header, section, .page-section'); // Sayfa bölümlerini kapsayan ortak etiketler
+    // Senin 7 noktanın baktığı ID listesi (Tam senin sıranla)
+    const sectionIds = ['home', 'about', 'products', 'projects', 'services', 'news', 'contact'];
+    const navDots = document.querySelectorAll('.nav-dot');
     
-    let current = 0;
+    let currentActive = "";
 
-    // Sayfadaki bölümleri tara, hangisi ekranın üstüne en yakınsa onun sırasını al
-    sections.forEach((section, index) => {
-        const rect = section.getBoundingClientRect();
-        // Bölümün üstü ekranın ortasından yukarıdaysa bu aktif bölümdür
-        if (rect.top <= window.innerHeight / 2) {
-            current = index;
+    // Hangi bölümün içindeyiz? (ID bazlı kontrol)
+    sectionIds.forEach(id => {
+        const section = document.getElementById(id);
+        if (section) {
+            const rect = section.getBoundingClientRect();
+            // Bölümün üstü ekranın ortasından yukarıdaysa aktiftir
+            if (rect.top <= window.innerHeight / 2) {
+                currentActive = id;
+            }
         }
     });
 
-    // Noktaları boya
-    dots.forEach((dot, i) => {
-        if (i === current) {
-            // AKTİF NOKTA
+    // En alta gelince Contact'ı zorla yak (Sayfa kısa kalsa bile)
+    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 100) {
+        currentActive = "contact";
+    }
+
+    // Noktaları güncelle
+    navDots.forEach(dot => {
+        const href = dot.getAttribute('href').replace('#', '');
+        
+        if (href === currentActive) {
+            // AKTİF: Mavi ve Parlak
             dot.style.background = "#00aaff";
             dot.style.borderColor = "#00aaff";
             dot.style.width = "14px";
             dot.style.height = "14px";
             dot.style.boxShadow = "0 0 15px rgba(0, 170, 255, 0.8)";
         } else {
-            // PASİF NOKTA
+            // PASİF: Şeffaf
             dot.style.background = "transparent";
             dot.style.borderColor = "#555";
             dot.style.width = "10px";
