@@ -1105,40 +1105,49 @@
 </section>
     <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     <footer><p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p></footer>
-    <script>
-        const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 80); });
-        
-        function toggleMenu() { 
-            document.getElementById('sideMenu').classList.toggle('active');
-            document.getElementById('menuOverlay').classList.toggle('active'); 
-        }
+<script>
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => { 
+        header.classList.toggle('scrolled', window.scrollY > 80); 
+    });
+    
+    function toggleMenu() { 
+        document.getElementById('sideMenu').classList.toggle('active');
+        document.getElementById('menuOverlay').classList.toggle('active'); 
+    }
 
-        const slides = document.querySelectorAll('.slide');
-        let currentSlide = 0; 
-        let slideInterval;
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0; 
+    let slideInterval;
 
-        function showSlide(index) { 
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active'); 
-        }
+    function showSlide(index) { 
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (index + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active'); 
+    }
 
-        function nextSlide() { showSlide(currentSlide + 1); }
-        function prevSlide() { showSlide(currentSlide - 1); }
+    function nextSlide() { showSlide(currentSlide + 1); }
+    function prevSlide() { showSlide(currentSlide - 1); }
 
-        slideInterval = setInterval(nextSlide, 5000);
+    slideInterval = setInterval(nextSlide, 5000);
 
-        const home = document.getElementById('home'); 
-        let startX = 0;
-        home.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; clearInterval(slideInterval); }, {passive: true});
+    const home = document.getElementById('home'); 
+    let startX = 0;
+
+    if (home) {
+        home.addEventListener('touchstart', (e) => { 
+            startX = e.touches[0].clientX; 
+            clearInterval(slideInterval); 
+        }, {passive: true});
+
         home.addEventListener('touchend', (e) => { 
             let endX = e.changedTouches[0].clientX; 
             if (startX - endX > 50) nextSlide(); 
             else if (endX - startX > 50) prevSlide(); 
             slideInterval = setInterval(nextSlide, 5000); 
         }, {passive: true});
-
+    }
+</script>
         // --- GALERİ SCRIPT (GÖRSEL VERİLERİNİ BURAYA EKLE) ---
         const galleryData = {
             'press': ['preees.jpg', 'press2.jpg', 'press3.jpg', 'press4.jpg', 'press5.jpg', 'press6.jpg', 'press7.jpg', 'press8.jpg', 'press9.jpg'],
