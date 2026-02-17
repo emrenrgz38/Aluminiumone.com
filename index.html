@@ -1302,53 +1302,41 @@ function toggleCard(element) {
     }
 }
     <script>
-  <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const navDots = document.querySelectorAll('.nav-dot');
+ <script>
+window.addEventListener('scroll', () => {
+    // Sağdaki 7 noktayı ve sayfadaki 7 ana bölümü çekiyoruz
+    const dots = document.querySelectorAll('.nav-dot');
+    const sections = document.querySelectorAll('header, section, .page-section'); // Sayfa bölümlerini kapsayan ortak etiketler
     
-    // 1. GÖZLEMCİ SİSTEMİ (Sayfadaki bölümleri takip eder)
-    const options = {
-        threshold: 0.5 // Bölümün yarısı göründüğünde yakar
-    };
+    let current = 0;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                updateDots(`#${id}`);
-            }
-        });
-    }, options);
-
-    // Takip edilecek ana bölümleri sisteme tanıt
-    const sections = document.querySelectorAll('header[id], section[id], div[id]');
-    sections.forEach(section => observer.observe(section));
-
-    // 2. EN ALT SİGORTASI (Sayfa dibine gelince Contact'ı yakar)
-    window.addEventListener('scroll', () => {
-        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 100) {
-            updateDots('#contact');
+    // Sayfadaki bölümleri tara, hangisi ekranın üstüne en yakınsa onun sırasını al
+    sections.forEach((section, index) => {
+        const rect = section.getBoundingClientRect();
+        // Bölümün üstü ekranın ortasından yukarıdaysa bu aktif bölümdür
+        if (rect.top <= window.innerHeight / 2) {
+            current = index;
         }
     });
 
-    // 3. RENKLENDİRME FONKSİYONU
-    function updateDots(activeHref) {
-        navDots.forEach(dot => {
-            if (dot.getAttribute('href') === activeHref) {
-                dot.style.background = "#00aaff";
-                dot.style.borderColor = "#00aaff";
-                dot.style.width = "14px";
-                dot.style.height = "14px";
-                dot.style.boxShadow = "0 0 15px rgba(0, 170, 255, 0.8)";
-            } else {
-                dot.style.background = "transparent";
-                dot.style.borderColor = "#555";
-                dot.style.width = "10px";
-                dot.style.height = "10px";
-                dot.style.boxShadow = "none";
-            }
-        });
-    }
+    // Noktaları boya
+    dots.forEach((dot, i) => {
+        if (i === current) {
+            // AKTİF NOKTA
+            dot.style.background = "#00aaff";
+            dot.style.borderColor = "#00aaff";
+            dot.style.width = "14px";
+            dot.style.height = "14px";
+            dot.style.boxShadow = "0 0 15px rgba(0, 170, 255, 0.8)";
+        } else {
+            // PASİF NOKTA
+            dot.style.background = "transparent";
+            dot.style.borderColor = "#555";
+            dot.style.width = "10px";
+            dot.style.height = "10px";
+            dot.style.boxShadow = "none";
+        }
+    });
 });
 </script>
 </script>
