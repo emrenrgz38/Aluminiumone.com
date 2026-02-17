@@ -1248,7 +1248,83 @@ function toggleCard(element) {
     }
 }
 </script>
-    
+
+        <script>
+function selectSite(choice) {
+    const entry = document.getElementById('entry-split');
+    const mainContent = document.getElementById('main-site-content');
+    const body = document.body;
+
+    // 1. Karşılama ekranını kaldır
+    entry.classList.add('hide-entry');
+    mainContent.style.display = 'block';
+
+    // 2. Seçime göre sitenin "ruhunu" değiştir
+    if (choice === 'profile') {
+        body.classList.add('theme-profiles');
+        body.classList.remove('theme-machines');
+        console.log("Profil tasarımı yüklendi.");
+        // Burada profil tarafına özel renkleri veya bölümleri aktif edebilirsin
+    } else {
+        body.classList.add('theme-machines');
+        body.classList.remove('theme-profiles');
+        console.log("Makine tasarımı yüklendi.");
+        // Burada makine tarafına özel bölümleri aktif edebilirsin
+    }
+}
+</script>
+
+  <div id="entry-split">
+    <div class="split left" onclick="selectSite('profile')">
+        <div class="split-content">
+            <h1>Alaşım Profiller</h1>
+            <p>Mimari ve Endüstriyel Çözümler</p>
+            <button class="btn-entry">Keşfet</button>
+        </div>
+    </div>
+    <div class="split right" onclick="selectSite('machine')">
+        <div class="split-content">
+            <h1>Makineler</h1>
+            <p>Üretim ve Teknoloji Hattı</p>
+            <button class="btn-entry">İncele</button>
+        </div>
+    </div>
+</div>
+
+<div id="main-site-content" style="display:none;">
+    </div>     
+        <style>
+#entry-split {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    z-index: 9999;
+    transition: transform 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.split {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+}
+
+.left { background: #2c3e50; color: white; } /* Profil tarafı koyu/kurumsal */
+.right { background: #e67e22; color: white; } /* Makine tarafı daha endüstriyel */
+
+.split:hover { flex: 1.2; } /* Üzerine gelince genişleme efekti */
+
+.split-content { text-align: center; z-index: 2; }
+
+/* Seçim yapılınca ekranın yukarı kayması için */
+.hide-entry { transform: translateY(-100%); }
+</style>
+        
 </body>
 </html>
 
