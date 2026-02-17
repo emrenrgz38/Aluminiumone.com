@@ -1249,71 +1249,127 @@ function toggleCard(element) {
 }
 </script>
 
- <div id="entry-split">
+<div id="entry-split">
     <div class="split left" onclick="selectSite('profile')">
         <div class="split-content">
             <h1>ALAŞIM PROFİLLER</h1>
+            <p>Mimari ve Endüstriyel Çözümler</p>
             <button class="btn-entry">GİRİŞ YAP</button>
         </div>
     </div>
     <div class="split right" onclick="selectSite('machine')">
         <div class="split-content">
             <h1>MAKİNELER</h1>
+            <p>Üretim ve Teknoloji Hattı</p>
             <button class="btn-entry">GİRİŞ YAP</button>
         </div>
     </div>
 </div>
 
 <style>
-/* 2. Gerekli CSS (Head içine veya Scriptten hemen önce) */
-#entry-split {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100vh;
-    display: flex;
-    z-index: 10000; /* En üstte durması için */
-    transition: all 0.8s ease-in-out;
-}
+    /* Karşılama Ekranı Stilleri */
+    #entry-split {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100vh;
+        display: flex;
+        z-index: 10000;
+        transition: all 0.8s cubic-bezier(0.85, 0, 0.15, 1);
+    }
+    .split {
+        flex: 1; display: flex; align-items: center; justify-content: center;
+        cursor: pointer; transition: flex 0.5s ease; overflow: hidden; position: relative;
+    }
+    .left { background: #1a1a1a; color: white; border-right: 1px solid #333; }
+    .right { background: #d35400; color: white; }
+    .split:hover { flex: 1.3; }
+    .split-content { text-align: center; }
+    .split-content h1 { font-size: 3rem; margin-bottom: 20px; font-weight: bold; }
+    .btn-entry { 
+        padding: 15px 40px; border: 2px solid white; background: transparent; 
+        color: white; cursor: pointer; font-weight: bold; transition: 0.3s;
+    }
+    .btn-entry:hover { background: white; color: black; }
+    
+    /* Ekranı Kapatma Efekti */
+    .hide-entry { transform: translateY(-100%); opacity: 0; pointer-events: none; }
 
-.split {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: flex 0.5s ease;
-    overflow: hidden;
-}
+    /* --- TEMA MOTORU --- */
+    /* Profil Seçilince: Sadece .profile-only olanlar görünür */
+    body.theme-profile .machine-only { display: none !important; }
+    body.theme-profile .profile-only { display: block !important; }
 
-.left { background: #1a1a1a; color: white; border-right: 2px solid #333; }
-.right { background: #d35400; color: white; }
+    /* Makine Seçilince: Sadece .machine-only olanlar görünür */
+    body.theme-machine .profile-only { display: none !important; }
+    body.theme-machine .machine-only { display: block !important; }
 
-.split:hover { flex: 1.3; }
-
-.split-content h1 { font-size: 3rem; font-weight: bold; }
-
-/* Seçim yapılınca ekranı yukarı fırlatan klas */
-.hide-entry { transform: translateY(-100%); opacity: 0; pointer-events: none; }
+    /* MOBİL UYUM */
+    @media (max-width: 768px) {
+        #entry-split { flex-direction: column; }
+        .split { width: 100%; height: 50vh; }
+        .split-content h1 { font-size: 1.8rem; }
+    }
 </style>
 
 <script>
-/* 3. Çalıştıran Fonksiyon */
-function selectSite(choice) {
-    const entry = document.getElementById('entry-split');
-    
-    // Ekranı yukarı kaydır
-    entry.classList.add('hide-entry');
+    // Site Seçim Motoru
+    function selectSite(choice) {
+        const entry = document.getElementById('entry-split');
+        const body = document.body;
 
-    // Seçime göre yapılacak işlemler (Buraya tema değiştirme kodlarını ekleyeceğiz)
-    console.log("Seçilen yol: " + choice);
-    
-    // Eğer asıl site içeriğin gizliyse onu aç:
-    const mainContent = document.getElementById('main-site-content');
-    if(mainContent) {
-        mainContent.style.display = 'block';
+        // Karşılamayı kaldır
+        entry.classList.add('hide-entry');
+
+        // Temayı Giydir
+        if (choice === 'profile') {
+            body.classList.remove('theme-machine');
+            body.classList.add('theme-profile');
+        } else {
+            body.classList.remove('theme-profile');
+            body.classList.add('theme-machine');
+        }
+        
+        // Seçimi tarayıcıya kaydet (Opsiyonel)
+        localStorage.setItem('userPreference', choice);
     }
-}
-</script>       
+
+    // Senin Tamir Ettiğimiz Galeri Fonksiyonun
+    function openServiceGallery(coverSrc, images) {
+        var modal = document.getElementById('service-gallery-modal');
+        var mainImg = document.getElementById('service-modal-img');
+        var thumbBox = document.getElementById('service-modal-thumbs');
+        
+        if (!modal || !mainImg || !thumbBox) return;
+
+        thumbBox.innerHTML = '';
+        mainImg.src = coverSrc;
+        
+        images.forEach(function(src) {
+            var t = document.createElement('img');
+            t.src = src;
+            t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
+            t.onclick = function() { mainImg.src = src; };
+            thumbBox.appendChild(t);
+        });
+        
+        modal.style.display = 'flex';
+    }
+
+    // Kart Açma Fonksiyonun
+    function toggleCard(element) {
+        const content = element.querySelector('.card-image-content');
+        if (content) {
+            if (!content.style.maxHeight || content.style.maxHeight === '0px') {
+                content.style.maxHeight = '500px';
+                content.style.opacity = '1';
+            } else {
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+            }
+        }
+    }
+</script>
+
 </body>
 </html>
 
