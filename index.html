@@ -1302,85 +1302,54 @@ function toggleCard(element) {
     }
 }
     <script>
-   <script>
+  <script>
 document.addEventListener('DOMContentLoaded', () => {
     const navDots = document.querySelectorAll('.nav-dot');
     
-    // Gözlemci Ayarları: Bölümün %60'ı ekrandaysa aktif et
+    // 1. GÖZLEMCİ SİSTEMİ (Sayfadaki bölümleri takip eder)
     const options = {
-        threshold: 0.6
+        threshold: 0.5 // Bölümün yarısı göründüğünde yakar
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const id = entry.target.getAttribute('id');
-                
-                navDots.forEach(dot => {
-                    // Noktayı söndür
-                    dot.style.background = "transparent";
-                    dot.style.borderColor = "#555";
-                    dot.style.width = "10px";
-                    dot.style.height = "10px";
-                    dot.style.boxShadow = "none";
-
-                    // Eğer noktanın href'i, ekrandaki bölümün ID'si ile aynıysa yak!
-                    if (dot.getAttribute('href') === `#${id}`) {
-                        dot.style.background = "#00aaff";
-                        dot.style.borderColor = "#00aaff";
-                        dot.style.width = "14px";
-                        dot.style.height = "14px";
-                        dot.style.boxShadow = "0 0 15px rgba(0, 170, 255, 0.8)";
-                    }
-                });
+                updateDots(`#${id}`);
             }
         });
     }, options);
 
-    // Takip edilecek bölümleri sisteme tanıt
+    // Takip edilecek ana bölümleri sisteme tanıt
     const sections = document.querySelectorAll('header[id], section[id], div[id]');
     sections.forEach(section => observer.observe(section));
-});
-</script>
-    // En alta gelindiğinde zorla 'contact'ı yak (sayfa kısa kalsa bile)
-    if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 50) {
-        currentSection = "contact";
-    }
 
-    navDots.forEach((dot) => {
-        // Hepsini önce söndür
-        dot.style.background = "transparent";
-        dot.style.borderColor = "#555";
-        dot.style.width = "10px";
-        dot.style.height = "10px";
-        dot.style.boxShadow = "none";
-
-        // Mevcut bölümle eşleşen noktayı canlandır
-        if (dot.getAttribute("href") === `#${currentSection}`) {
-            dot.style.background = "#00aaff";
-            dot.style.borderColor = "#00aaff";
-            dot.style.width = "12px";
-            dot.style.height = "12px";
-            dot.style.boxShadow = "0 0 10px rgba(0, 170, 255, 0.5)";
+    // 2. EN ALT SİGORTASI (Sayfa dibine gelince Contact'ı yakar)
+    window.addEventListener('scroll', () => {
+        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 100) {
+            updateDots('#contact');
         }
     });
-});        navDots.forEach((dot) => {
-            // Önce hepsini söndür (gri yap)
-            dot.style.background = "transparent";
-            dot.style.borderColor = "#555";
-            dot.style.width = "10px";
-            dot.style.height = "10px";
 
-            // Sadece aktif olanı yak (mavi yap)
-            if (dot.getAttribute("href") === `#${currentSection}`) {
+    // 3. RENKLENDİRME FONKSİYONU
+    function updateDots(activeHref) {
+        navDots.forEach(dot => {
+            if (dot.getAttribute('href') === activeHref) {
                 dot.style.background = "#00aaff";
                 dot.style.borderColor = "#00aaff";
-                dot.style.width = "12px";
-                dot.style.height = "12px";
-                dot.style.boxShadow = "0 0 10px rgba(0, 170, 255, 0.5)";
+                dot.style.width = "14px";
+                dot.style.height = "14px";
+                dot.style.boxShadow = "0 0 15px rgba(0, 170, 255, 0.8)";
+            } else {
+                dot.style.background = "transparent";
+                dot.style.borderColor = "#555";
+                dot.style.width = "10px";
+                dot.style.height = "10px";
+                dot.style.boxShadow = "none";
             }
         });
-    });
+    }
+});
 </script>
 </script>
     
