@@ -972,7 +972,8 @@
     <div class="news-grid">
         <div class="news-card">
             <div class="news-img-box">
-                <img src="cyprus-project.jpg" alt="Cyprus Line"> <div class="news-date">FEB 2026</div>
+                <img src="cyprus-project.jpg" alt="Cyprus Line">
+                <div class="news-date">FEB 2024</div>
             </div>
             <div class="news-info">
                 <h3>Cyprus Line</h3>
@@ -1007,10 +1008,10 @@
 </section>
 
 <style>
-/* NEWS SECTION ÖZEL STİLLERİ */
+/* NEWS SECTION - KURUMSAL MAVİ TEMA */
 #news {
     padding: 100px 5%;
-    background: #000; /* Makine tarafı siyah tema */
+    background: #000; /* Arka plan siyah kalsın ki asaletini korusun */
 }
 
 .section-header {
@@ -1020,14 +1021,15 @@
 
 .section-header h2 {
     font-size: 2.5rem;
-    color: #d35400; /* Senin o meşhur turuncun */
+    color: #0056b3; /* İŞTE O MAVİ (Kurumsal Mavin) */
     letter-spacing: 2px;
+    font-weight: 800;
 }
 
 .underline {
     width: 60px;
     height: 4px;
-    background: #d35400;
+    background: #0056b3; /* Çizgi artık mavi */
     margin: 15px auto;
 }
 
@@ -1050,8 +1052,8 @@
 
 .news-card:hover {
     transform: translateY(-10px);
-    border-color: #d35400;
-    box-shadow: 0 10px 30px rgba(211, 84, 0, 0.1);
+    border-color: #0056b3; /* Hover olduğunda mavi parlama */
+    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.2);
 }
 
 .news-img-box {
@@ -1075,7 +1077,7 @@
     position: absolute;
     top: 15px;
     right: 15px;
-    background: #d35400;
+    background: #0056b3; /* Tarih etiketi mavi */
     color: #fff;
     padding: 5px 12px;
     font-size: 0.75rem;
@@ -1100,7 +1102,7 @@
 }
 
 .news-link {
-    color: #d35400;
+    color: #0056b3; /* Linkler mavi */
     text-decoration: none;
     font-weight: bold;
     font-size: 0.9rem;
@@ -1112,10 +1114,9 @@
 
 .news-link:hover {
     gap: 15px;
-    color: #fff;
+    color: #fff; /* Üzerine gelince link beyazlasın */
 }
 
-/* Mobil için küçük ayar */
 @media (max-width: 768px) {
     .news-grid {
         grid-template-columns: 1fr;
