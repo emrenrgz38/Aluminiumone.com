@@ -1208,7 +1208,9 @@
     <script>
         // 1. HEADER & MENÜ KONTROLÜ
         const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 80); });
+        window.addEventListener('scroll', () => { 
+            if(header) header.classList.toggle('scrolled', window.scrollY > 80); 
+        });
         
         function toggleMenu() { 
             document.getElementById('sideMenu').classList.toggle('active');
@@ -1221,6 +1223,7 @@
         let slideInterval;
 
         function showSlide(index) { 
+            if(slides.length === 0) return;
             slides[currentSlide].classList.remove('active');
             currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active'); 
@@ -1228,20 +1231,28 @@
 
         function nextSlide() { showSlide(currentSlide + 1); }
         function prevSlide() { showSlide(currentSlide - 1); }
-        slideInterval = setInterval(nextSlide, 5000);
+        
+        if(slides.length > 0) {
+            slideInterval = setInterval(nextSlide, 5000);
+        }
 
-        // Slider Swipe (Kaydırma) Desteği
+        // Slider Swipe (Kaydırma)
         const home = document.getElementById('home'); 
-        let startX = 0;
-        home.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; clearInterval(slideInterval); }, {passive: true});
-        home.addEventListener('touchend', (e) => { 
-            let endX = e.changedTouches[0].clientX; 
-            if (startX - endX > 50) nextSlide(); 
-            else if (endX - startX > 50) prevSlide(); 
-            slideInterval = setInterval(nextSlide, 5000); 
-        }, {passive: true});
+        if(home) {
+            let startX = 0;
+            home.addEventListener('touchstart', (e) => { 
+                startX = e.touches[0].clientX; 
+                clearInterval(slideInterval); 
+            }, {passive: true});
+            home.addEventListener('touchend', (e) => { 
+                let endX = e.changedTouches[0].clientX; 
+                if (startX - endX > 50) nextSlide(); 
+                else if (endX - startX > 50) prevSlide(); 
+                slideInterval = setInterval(nextSlide, 5000); 
+            }, {passive: true});
+        }
 
-        // 3. ÜRÜN GALERİSİ (Grid Galeri)
+        // 3. ÜRÜN GALERİ VERİLERİ
         const galleryData = {
             'press': ['preees.jpg', 'press2.jpg', 'press3.jpg', 'press4.jpg', 'press5.jpg', 'press6.jpg', 'press7.jpg', 'press8.jpg', 'press9.jpg'],
             'table': ['handling1.jpg', 'handling2.jpg', 'table3.jpg', 'table4.jpg', 'table5.jpg'],
@@ -1252,11 +1263,14 @@
         let currentGalleryImages = [];
         let currentImgIndex = 0;
 
+        // 4. GALERİ AÇMA FONKSİYONU
         function openProductGallery(productType) {
             const gallerySection = document.getElementById('productGallery');
             const mainImg = document.getElementById('mainGalleryImg');
             const thumbBox = document.getElementById('thumbContainer');
             
+            if (!gallerySection || !mainImg || !thumbBox) return;
+
             if (gallerySection.style.display === 'flex' && gallerySection.dataset.current === productType) {
                 gallerySection.style.display = 'none';
                 thumbBox.innerHTML = '';
@@ -1292,24 +1306,7 @@
             });
         }
 
-        // 4. SERVİS GALERİSİ (Yuvarlak Modal)
-        function openServiceGallery(images) {
-            var modal = document.getElementById('service-gallery-modal');
-            var mainImg = document.getElementById('service-modal-img');
-            var thumbBox = document.getElementById('service-modal-thumbs');
-            thumbBox.innerHTML = '';
-            mainImg.src = images[0];
-            images.forEach(function(src) {
-                var t = document.createElement('img');
-                t.src = src;
-                t.style = "width:60px; height:60px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
-                t.onclick = function() { mainImg.src = src; };
-                thumbBox.appendChild(t);
-            });
-            modal.style.display = 'flex';
-        }
-
-        // 5. HABERLER (İSKAMBİL SİSTEMİ - MOBİL)
+        // 5. HABERLER (MOBİL İSKAMBİL)
         function openStackCard(element) {
             const allCards = document.querySelectorAll('.stack-card');
             allCards.forEach(card => { if (card !== element) card.classList.remove('active'); });
@@ -1319,18 +1316,7 @@
             }
         }
 
-        // 6. GENEL ETKİLEŞİMLER (Kartlar & Boşluk Tıklama)
-        function toggleCard(element) {
-            const content = element.querySelector('.card-image-content');
-            if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
-                content.style.maxHeight = '500px';
-                content.style.opacity = '1';
-            } else {
-                content.style.maxHeight = '0px';
-                content.style.opacity = '0';
-            }
-        }
-
+        // 6. MODAL KAPATMA (Boşluğa Tıklayınca)
         window.addEventListener('click', function(event) {
             const modal = document.getElementById('productGallery');
             if (event.target === modal) {
