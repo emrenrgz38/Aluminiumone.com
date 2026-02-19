@@ -615,6 +615,87 @@
         .gallery-main .slider-arrow:hover { background: #00aaff; }
         .gallery-main .arrow-left { left: 20px; }
         .gallery-main .arrow-right { right: 20px; }
+
+        <style>
+    /* MASAÜSTÜ: SOLA KAYAN KUTULU TASARIM (6 KART) */
+    .news-slider-desktop {
+        width: 100%;
+        overflow: hidden;
+        padding: 40px 0;
+        background: #000;
+        position: relative;
+    }
+
+    .news-track {
+        display: flex;
+        gap: 30px;
+        /* 6 kart + boşluklar için genişlik ayarı */
+        width: calc(400px * 6 + 180px); 
+        animation: scrollNews 40s linear infinite;
+    }
+
+    /* Mouse üzerine gelince kaymayı durdur */
+    .news-track:hover { animation-play-state: paused; }
+
+    .news-card-desk {
+        flex: 0 0 400px;
+        background: #111;
+        border: 1px solid #222;
+        border-radius: 12px;
+        padding: 0;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    .news-card-desk:hover {
+        border-color: #00aaff;
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,170,255,0.15);
+    }
+
+    .news-img-box {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .news-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .news-date-tag {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #00aaff;
+        color: #fff;
+        padding: 5px 12px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    .news-info { padding: 25px; }
+    .news-info h3 { margin: 0 0 15px 0; color: #fff; font-size: 1.4rem; }
+    .news-info p { color: #aaa; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+
+    @keyframes scrollNews {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-400px * 3 - 90px)); } /* Döngü noktası */
+    }
+
+    /* MOBİL GİZLEME/GÖSTERME AYARI */
+    @media (min-width: 769px) {
+        .news-stack-mobile { display: none !important; }
+    }
+    
+    @media (max-width: 768px) {
+        .news-slider-desktop { display: none !important; }
+        /* Önceki mesajdaki .news-stack-mobile CSS'ini buraya ekleyebilirsin */
+    }
+</style>
 /* REFERENCES SECTION - Otomatik Akış Altyapısı */
      /* REFERENCES SECTION - Arka Plan Beyaz */
         #references {
