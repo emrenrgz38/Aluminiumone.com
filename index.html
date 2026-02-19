@@ -615,87 +615,6 @@
         .gallery-main .slider-arrow:hover { background: #00aaff; }
         .gallery-main .arrow-left { left: 20px; }
         .gallery-main .arrow-right { right: 20px; }
-
-        <style>
-    /* MASAÜSTÜ: SOLA KAYAN KUTULU TASARIM (6 KART) */
-    .news-slider-desktop {
-        width: 100%;
-        overflow: hidden;
-        padding: 40px 0;
-        background: #000;
-        position: relative;
-    }
-
-    .news-track {
-        display: flex;
-        gap: 30px;
-        /* 6 kart + boşluklar için genişlik ayarı */
-        width: calc(400px * 6 + 180px); 
-        animation: scrollNews 40s linear infinite;
-    }
-
-    /* Mouse üzerine gelince kaymayı durdur */
-    .news-track:hover { animation-play-state: paused; }
-
-    .news-card-desk {
-        flex: 0 0 400px;
-        background: #111;
-        border: 1px solid #222;
-        border-radius: 12px;
-        padding: 0;
-        overflow: hidden;
-        transition: 0.3s;
-    }
-
-    .news-card-desk:hover {
-        border-color: #00aaff;
-        transform: translateY(-10px);
-        box-shadow: 0 10px 30px rgba(0,170,255,0.15);
-    }
-
-    .news-img-box {
-        position: relative;
-        height: 220px;
-        overflow: hidden;
-    }
-
-    .news-img-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .news-date-tag {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        background: #00aaff;
-        color: #fff;
-        padding: 5px 12px;
-        border-radius: 5px;
-        font-size: 0.8rem;
-        font-weight: bold;
-    }
-
-    .news-info { padding: 25px; }
-    .news-info h3 { margin: 0 0 15px 0; color: #fff; font-size: 1.4rem; }
-    .news-info p { color: #aaa; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
-
-    @keyframes scrollNews {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(-400px * 3 - 90px)); } /* Döngü noktası */
-    }
-
-    /* MOBİL GİZLEME/GÖSTERME AYARI */
-    @media (min-width: 769px) {
-        .news-stack-mobile { display: none !important; }
-    }
-    
-    @media (max-width: 768px) {
-        .news-slider-desktop { display: none !important; }
-        /* Önceki mesajdaki .news-stack-mobile CSS'ini buraya ekleyebilirsin */
-    }
-        
 /* REFERENCES SECTION - Otomatik Akış Altyapısı */
      /* REFERENCES SECTION - Arka Plan Beyaz */
         #references {
@@ -1051,151 +970,72 @@
         <div class="underline"></div>
     </div>
     
-    <div class="news-stack-mobile">
-    <div class="stack-card" onclick="this.classList.toggle('active')">
-        <div class="card-mini">
-            <h3>Cyprus Line</h3>
-            <span class="m-date">FEB 2024</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="card-content">
-            <img src="cyprus-project.jpg">
-            <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
-            <a href="javascript:void(0);" style="color:#00aaff; font-weight:bold;">Read More...</a>
-        </div>
-    </div>
+    <div class="news-slider-container">
+        <div class="news-track">
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="cyprus-project.jpg" alt="Cyprus Line">
+                    <div class="news-date">FEB 2024</div>
+                </div>
+                <div class="news-info">
+                    <h3>Cyprus Line</h3>
+                    <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
 
-    <div class="stack-card" onclick="this.classList.toggle('active')">
-        <div class="card-mini">
-            <h3>ALUEXPO 2025</h3>
-            <span class="m-date">OCT 2025</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="card-content">
-            <img src="aluexpo.jpg">
-            <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
-            <a href="javascript:void(0);" style="color:#00aaff; font-weight:bold;">Read More...</a>
-        </div>
-    </div>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="aluexpo.jpg" alt="ALUEXPO 2025">
+                    <div class="news-date">OCT 2025</div>
+                </div>
+                <div class="news-info">
+                    <h3>ALUEXPO 2025</h3>
+                    <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
 
-    <div class="stack-card" onclick="this.classList.toggle('active')">
-        <div class="card-mini">
-            <h3>Australia Project</h3>
-            <span class="m-date">NEW</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="card-content">
-            <img src="australia.jpg">
-            <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
-            <a href="javascript:void(0);" style="color:#00aaff; font-weight:bold;">Read More...</a>
-        </div>
-    </div>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="australia.jpg" alt="Australia Project">
+                </div>
+                <div class="news-info">
+                    <h3>Australia Project</h3>
+                    <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
 
-    <div class="stack-card" onclick="this.classList.toggle('active')">
-        <div class="card-mini">
-            <h3>Cyprus Line - Phase 2</h3>
-            <span class="m-date">FEB 2024</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="card-content">
-            <img src="cyprus-project.jpg">
-            <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
-            <a href="javascript:void(0);" style="color:#00aaff; font-weight:bold;">Read More...</a>
-        </div>
-    </div>
-
-    <div class="stack-card" onclick="this.classList.toggle('active')">
-        <div class="card-mini">
-            <h3>ALUEXPO 2025 - Innovation</h3>
-            <span class="m-date">OCT 2025</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="card-content">
-            <img src="aluexpo.jpg">
-            <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
-            <a href="javascript:void(0);" style="color:#00aaff; font-weight:bold;">Read More...</a>
-        </div>
-    </div>
-
-    <div class="stack-card" onclick="this.classList.toggle('active')">
-        <div class="card-mini">
-            <h3>Australia Project - Final Stage</h3>
-            <span class="m-date">NEW</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-        <div class="card-content">
-            <img src="australia.jpg">
-            <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
-            <a href="javascript:void(0);" style="color:#00aaff; font-weight:bold;">Read More...</a>
+            <div class="news-card">
+                <div class="news-img-box"><img src="cyprus-project.jpg"><div class="news-date">FEB 2024</div></div>
+                <div class="news-info">
+                    <h3>Cyprus Line</h3>
+                    <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box"><img src="aluexpo.jpg"><div class="news-date">OCT 2025</div></div>
+                <div class="news-info">
+                    <h3>ALUEXPO 2025</h3>
+                    <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box"><img src="australia.jpg"></div>
+                <div class="news-info">
+                    <h3>Australia Project</h3>
+                    <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-    
-    </section>
+</section>
 
 <style>
-
-    @media (max-width: 768px) {
-    /* Masaüstü slider'ı mobilde gizle */
-    .news-slider-desktop { display: none !important; }
-
-    /* İskambil kartı destesi (Stack) yapısı */
-    .news-stack-mobile {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        padding: 0 15px;
-    }
-
-    .stack-card {
-        background: #111;
-        border: 1px solid #222;
-        border-top: 3px solid #00aaff;
-        border-radius: 12px;
-        overflow: hidden;
-        transition: all 0.4s ease;
-        cursor: pointer;
-    }
-
-    /* Kart kapalıyken görünen başlık kısmı */
-    .card-mini {
-        padding: 18px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .card-mini h3 { margin: 0; font-size: 1rem; color: #fff; }
-    .m-date { color: #00aaff; font-size: 0.8rem; font-weight: bold; }
-
-    /* Kart tıklandığında açılan içerik */
-    .card-content {
-        max-height: 0;
-        opacity: 0;
-        padding: 0 18px;
-        transition: all 0.4s ease;
-        overflow: hidden;
-    }
-
-    /* Kart aktif olduğunda (JS ile eklenecek class) */
-    .stack-card.active { border-color: #00aaff; }
-    .stack-card.active .card-content {
-        max-height: 800px;
-        opacity: 1;
-        padding-bottom: 20px;
-    }
-
-    .stack-card.active .fa-chevron-down {
-        transform: rotate(180deg);
-        color: #00aaff;
-    }
-
-    .card-content img {
-        width: 100%;
-        border-radius: 8px;
-        margin: 10px 0;
-    }
-}
 /* NEWS KAYDIRMA MOTORU */
 #news {
     padding: 80px 0;
