@@ -969,158 +969,130 @@
         <div class="underline"></div>
     </div>
     
-    <div class="news-grid">
-        <div class="news-card">
-            <div class="news-img-box">
-                <img src="cyprus-project.jpg" alt="Cyprus Line">
-                <div class="news-date">FEB 2024</div>
+    <section id="news">
+    <div class="section-header">
+        <h2>ONE's News</h2>
+        <div class="underline"></div>
+    </div>
+    
+    <div class="news-slider-container">
+        <div class="news-track">
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="cyprus-project.jpg" alt="Cyprus Line">
+                    <div class="news-date">FEB 2024</div>
+                </div>
+                <div class="news-info">
+                    <h3>Cyprus Line</h3>
+                    <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
-            <div class="news-info">
-                <h3>Cyprus Line</h3>
-                <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
-                <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
 
-        <div class="news-card">
-            <div class="news-img-box">
-                <img src="aluexpo.jpg" alt="ALUEXPO 2025">
-                <div class="news-date">OCT 2025</div>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="aluexpo.jpg" alt="ALUEXPO 2025">
+                    <div class="news-date">OCT 2025</div>
+                </div>
+                <div class="news-info">
+                    <h3>ALUEXPO 2025</h3>
+                    <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
-            <div class="news-info">
-                <h3>ALUEXPO 2025</h3>
-                <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
-                <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
 
-        <div class="news-card">
-            <div class="news-img-box">
-                <img src="australia.jpg" alt="Australia Project">
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="australia.jpg" alt="Australia Project">
+                </div>
+                <div class="news-info">
+                    <h3>Australia Project</h3>
+                    <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
-            <div class="news-info">
-                <h3>Australia Project</h3>
-                <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
-                <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+
+            <div class="news-card">
+                <div class="news-img-box"><img src="cyprus-project.jpg"><div class="news-date">FEB 2024</div></div>
+                <div class="news-info">
+                    <h3>Cyprus Line</h3>
+                    <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box"><img src="aluexpo.jpg"><div class="news-date">OCT 2025</div></div>
+                <div class="news-info">
+                    <h3>ALUEXPO 2025</h3>
+                    <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box"><img src="australia.jpg"></div>
+                <div class="news-info">
+                    <h3>Australia Project</h3>
+                    <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <style>
-/* NEWS SECTION - KURUMSAL MAVİ TEMA */
+/* NEWS KAYDIRMA MOTORU */
 #news {
-    padding: 100px 5%;
-    background: #000; /* Arka plan siyah kalsın ki asaletini korusun */
+    padding: 80px 0;
+    background: #000;
+    overflow: hidden; /* Taşmayı engeller */
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header h2 { color: #0056b3; font-size: 2.5rem; font-weight: bold; }
+.underline { width: 60px; height: 4px; background: #0056b3; margin: 10px auto; }
+
+.news-slider-container {
+    width: 100%;
+    display: flex;
 }
 
-.section-header h2 {
-    font-size: 2.5rem;
-    color: #0056b3; /* İŞTE O MAVİ (Kurumsal Mavin) */
-    letter-spacing: 2px;
-    font-weight: 800;
-}
-
-.underline {
-    width: 60px;
-    height: 4px;
-    background: #0056b3; /* Çizgi artık mavi */
-    margin: 15px auto;
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+.news-track {
+    display: flex;
     gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
+    /* 30 saniyede bir tam tur döner */
+    animation: scrollNews 30s linear infinite;
+}
+
+/* Mouse ile üzerine gelince akış durur, rahat okunur */
+.news-track:hover {
+    animation-play-state: paused;
 }
 
 .news-card {
+    flex: 0 0 380px; /* Kart genişliği sabit */
     background: #111;
     border: 1px solid #222;
-    transition: all 0.4s ease;
-    overflow: hidden;
+    transition: 0.3s;
     display: flex;
     flex-direction: column;
 }
 
-.news-card:hover {
-    transform: translateY(-10px);
-    border-color: #0056b3; /* Hover olduğunda mavi parlama */
-    box-shadow: 0 10px 30px rgba(0, 86, 179, 0.2);
-}
+.news-card:hover { border-color: #0056b3; }
 
-.news-img-box {
-    position: relative;
-    height: 220px;
-    overflow: hidden;
-}
+.news-img-box { position: relative; height: 220px; overflow: hidden; }
+.news-img-box img { width: 100%; height: 100%; object-fit: cover; }
+.news-date { position: absolute; top: 10px; right: 10px; background: #0056b3; color: white; padding: 4px 12px; font-size: 0.8rem; font-weight: bold; }
 
-.news-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
+.news-info { padding: 25px; }
+.news-info h3 { color: white; margin-bottom: 15px; font-size: 1.4rem; }
+.news-info p { color: #ccc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; min-height: 75px; }
+.news-link { color: #0056b3; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
 
-.news-card:hover .news-img-box img {
-    transform: scale(1.1);
-}
-
-.news-date {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: #0056b3; /* Tarih etiketi mavi */
-    color: #fff;
-    padding: 5px 12px;
-    font-size: 0.75rem;
-    font-weight: bold;
-}
-
-.news-info {
-    padding: 25px;
-}
-
-.news-info h3 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: #fff;
-}
-
-.news-info p {
-    color: #999;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-.news-link {
-    color: #0056b3; /* Linkler mavi */
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: 0.3s;
-}
-
-.news-link:hover {
-    gap: 15px;
-    color: #fff; /* Üzerine gelince link beyazlasın */
-}
-
-@media (max-width: 768px) {
-    .news-grid {
-        grid-template-columns: 1fr;
-    }
+/* ANİMASYON HESABI */
+@keyframes scrollNews {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-380px * 3 - 90px)); } /* 3 kart + boşluklar kadar sola kayar */
 }
 </style>
     <section id="references">
