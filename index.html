@@ -964,7 +964,7 @@
     </div>
 </section>
    
-    <section id="news-stack-mobile">
+    <section id="news">
     <div class="section-header">
         <h2>ONE's News</h2>
         <div class="underline"></div>
@@ -1103,6 +1103,68 @@
     .stack-card.active .card-header-mini i {
         transform: rotate(180deg);
         color: #0056b3;
+    }
+}
+
+    /* MASAÜSTÜ İÇİN ÖZEL KUTU VE KAYDIRMA AYARI */
+@media (min-width: 769px) {
+    #news {
+        overflow: hidden; /* Dışarı taşan kutuları gizle */
+        padding: 60px 0;
+        background: #000;
+    }
+
+    .news-slider-desktop {
+        display: block !important;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    /* KUTULARIN DİZİLDİĞİ HAT */
+    .news-track {
+        display: flex !important;
+        flex-direction: row !important; /* Resimlerin alt alta gelmesini engeller */
+        gap: 30px;
+        width: max-content; /* Kutuların yan yana dizilmesini sağlar */
+        animation: scrollNews 40s linear infinite;
+    }
+
+    /* TEK BİR HABER KUTUSU (Boyut Kontrolü) */
+    .news-card-desk {
+        width: 400px !important; /* Resmin devasa olmasını engeller */
+        flex-shrink: 0;
+        background: #111;
+        border-radius: 12px;
+        border: 1px solid #222;
+        overflow: hidden;
+        transition: 0.3s;
+    }
+
+    .news-img-box {
+        width: 100%;
+        height: 250px; /* Resim yüksekliğini sabitle */
+        overflow: hidden;
+    }
+
+    .news-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Resmi kutuya sığdırır, bozmaz */
+    }
+
+    .news-info {
+        padding: 20px;
+    }
+
+    /* KAYMA ANİMASYONU */
+    @keyframes scrollNews {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); } /* Listeyi yarısına kadar kaydır */
+    }
+
+    /* Mobildeki iskambil yapısını masaüstünde gizle */
+    .news-stack-mobile {
+        display: none !important;
     }
 }
 </style>
