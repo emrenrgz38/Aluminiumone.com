@@ -969,206 +969,127 @@
         <h2>ONE's News</h2>
         <div class="underline"></div>
     </div>
+    
+    <div class="news-slider-container">
+        <div class="news-track">
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="cyprus-project.jpg" alt="Cyprus Line">
+                    <div class="news-date">FEB 2024</div>
+                </div>
+                <div class="news-info">
+                    <h3>Cyprus Line</h3>
+                    <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
 
-    <div class="stack-container">
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-header-mini">
-                <span class="mini-date">FEB 2024</span>
-                <h3>Cyprus Line</h3>
-                <i class="fas fa-chevron-up"></i>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="aluexpo.jpg" alt="ALUEXPO 2025">
+                    <div class="news-date">OCT 2025</div>
+                </div>
+                <div class="news-info">
+                    <h3>ALUEXPO 2025</h3>
+                    <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
-            <div class="card-full-content">
-                <img src="cyprus-project.jpg" alt="Cyprus Line">
-                <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
-                <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
 
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-header-mini">
-                <span class="mini-date">OCT 2025</span>
-                <h3>ALUEXPO 2025</h3>
-                <i class="fas fa-chevron-up"></i>
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="australia.jpg" alt="Australia Project">
+                </div>
+                <div class="news-info">
+                    <h3>Australia Project</h3>
+                    <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
+                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
-            <div class="card-full-content">
-                <img src="aluexpo.jpg" alt="ALUEXPO 2025">
-                <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
-                <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </div>
 
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-header-mini">
-                <span class="mini-date">NEW</span>
-                <h3>Australia Project</h3>
-                <i class="fas fa-chevron-up"></i>
+            <div class="news-card">
+                <div class="news-img-box"><img src="cyprus-project.jpg"><div class="news-date">FEB 2024</div></div>
+                <div class="news-info">
+                    <h3>Cyprus Line</h3>
+                    <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
             </div>
-            <div class="card-full-content">
-                <img src="australia.jpg" alt="Australia Project">
-                <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
-                <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
+            <div class="news-card">
+                <div class="news-img-box"><img src="aluexpo.jpg"><div class="news-date">OCT 2025</div></div>
+                <div class="news-info">
+                    <h3>ALUEXPO 2025</h3>
+                    <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-img-box"><img src="australia.jpg"></div>
+                <div class="news-info">
+                    <h3>Australia Project</h3>
+                    <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
             </div>
         </div>
     </div>
-        <div id="service-gallery-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; flex-direction: column; padding: 10px;">
-        <span onclick="this.parentElement.style.display='none'" style="position: absolute; top: 20px; right: 30px; color: #fff; font-size: 50px; cursor: pointer; z-index: 10001;">&times;</span>
-        <div style="width: min(600px, 95vw); height: min(600px, 95vw); margin-bottom: 25px;">
-            <img id="service-modal-img" src="" style="width: 100%; height: 100%; border-radius: 50%; border: 6px solid #00aaff; object-fit: cover; box-shadow: 0 0 40px rgba(0,170,255,0.6);">
-        </div>
-        <div id="service-modal-thumbs" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;"></div>
-    </div> 
-
 </section>
+
 <style>
-/* Sadece mobilde görünsün, masaüstünde eski sistem kalsın diyorsan @media kullanıyoruz */
-@media (max-width: 768px) {
-    #news-stack-mobile {
-        padding: 50px 20px;
-        background: #000;
-    }
-
-    .stack-container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 15px; /* Kartlar arasındaki mesafe */
-        margin-top: 30px;
-    }
-
-    .stack-card {
-        background: #111;
-        border: 1px solid #222;
-        border-top: 3px solid #0056b3; /* Kurumsal Mavi Üst Çizgi */
-        border-radius: 12px;
-        overflow: hidden;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        cursor: pointer;
-    }
-
-    /* Başlık ve Tarih Kısmı */
-    .card-header-mini {
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .card-header-mini h3 {
-        color: #fff;
-        font-size: 1.1rem;
-        margin: 0;
-    }
-
-    .mini-date {
-        color: #0056b3;
-        font-weight: bold;
-        font-size: 0.8rem;
-    }
-
-    /* Gizli İçerik */
-    .card-full-content {
-        max-height: 0;
-        opacity: 0;
-        padding: 0 20px;
-        transition: all 0.5s ease;
-    }
-
-    .card-full-content img {
-        width: 100%;
-        border-radius: 8px;
-        margin-bottom: 15px;
-    }
-
-    .card-full-content p {
-        color: #ccc;
-        font-size: 0.9rem;
-        line-height: 1.5;
-        margin-bottom: 20px;
-    }
-
-    /* KART AÇILDIĞINDAKİ HALİ */
-    .stack-card.active {
-        background: #161616;
-        border-color: #0056b3;
-        transform: scale(1.02);
-        z-index: 100;
-    }
-
-    .stack-card.active .card-full-content {
-        max-height: 600px;
-        opacity: 1;
-        padding-bottom: 25px;
-    }
-
-    .stack-card.active .card-header-mini i {
-        transform: rotate(180deg);
-        color: #0056b3;
-    }
+/* NEWS KAYDIRMA MOTORU */
+#news {
+    padding: 80px 0;
+    background: #000;
+    overflow: hidden; /* Taşmayı engeller */
 }
 
-    /* MASAÜSTÜ İÇİN ÖZEL KUTU VE KAYDIRMA AYARI */
-@media (min-width: 769px) {
-    #news {
-        overflow: hidden; /* Dışarı taşan kutuları gizle */
-        padding: 60px 0;
-        background: #000;
-    }
+.section-header { text-align: center; margin-bottom: 40px; }
+.section-header h2 { color: #0056b3; font-size: 2.5rem; font-weight: bold; }
+.underline { width: 60px; height: 4px; background: #0056b3; margin: 10px auto; }
 
-    .news-slider-desktop {
-        display: block !important;
-        width: 100%;
-        overflow: hidden;
-    }
+.news-slider-container {
+    width: 100%;
+    display: flex;
+}
 
-    /* KUTULARIN DİZİLDİĞİ HAT */
-    .news-track {
-        display: flex !important;
-        flex-direction: row !important; /* Resimlerin alt alta gelmesini engeller */
-        gap: 30px;
-        width: max-content; /* Kutuların yan yana dizilmesini sağlar */
-        animation: scrollNews 40s linear infinite;
-    }
+.news-track {
+    display: flex;
+    gap: 30px;
+    /* 30 saniyede bir tam tur döner */
+    animation: scrollNews 30s linear infinite;
+}
 
-    /* TEK BİR HABER KUTUSU (Boyut Kontrolü) */
-    .news-card-desk {
-        width: 400px !important; /* Resmin devasa olmasını engeller */
-        flex-shrink: 0;
-        background: #111;
-        border-radius: 12px;
-        border: 1px solid #222;
-        overflow: hidden;
-        transition: 0.3s;
-    }
+/* Mouse ile üzerine gelince akış durur, rahat okunur */
+.news-track:hover {
+    animation-play-state: paused;
+}
 
-    .news-img-box {
-        width: 100%;
-        height: 250px; /* Resim yüksekliğini sabitle */
-        overflow: hidden;
-    }
+.news-card {
+    flex: 0 0 380px; /* Kart genişliği sabit */
+    background: #111;
+    border: 1px solid #222;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
 
-    .news-img-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Resmi kutuya sığdırır, bozmaz */
-    }
+.news-card:hover { border-color: #0056b3; }
 
-    .news-info {
-        padding: 20px;
-    }
+.news-img-box { position: relative; height: 220px; overflow: hidden; }
+.news-img-box img { width: 100%; height: 100%; object-fit: cover; }
+.news-date { position: absolute; top: 10px; right: 10px; background: #0056b3; color: white; padding: 4px 12px; font-size: 0.8rem; font-weight: bold; }
 
-    /* KAYMA ANİMASYONU */
-    @keyframes scrollNews {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); } /* Listeyi yarısına kadar kaydır */
-    }
+.news-info { padding: 25px; }
+.news-info h3 { color: white; margin-bottom: 15px; font-size: 1.4rem; }
+.news-info p { color: #ccc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; min-height: 75px; }
+.news-link { color: #0056b3; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
 
-    /* Mobildeki iskambil yapısını masaüstünde gizle */
-    .news-stack-mobile {
-        display: none !important;
-    }
+/* ANİMASYON HESABI */
+@keyframes scrollNews {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-380px * 3 - 90px)); } /* 3 kart + boşluklar kadar sola kayar */
 }
 </style>
-    
     <section id="references">
         <div class="logo-slider">
             <div class="logo-item"><img src="ref1.png" alt="Logo 1"></div>
@@ -1249,46 +1170,41 @@
 </section>
     <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     <footer><p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p></footer>
-    
     <script>
-        // 1. HEADER & MENU SİSTEMİ
         const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => { if(header) header.classList.toggle('scrolled', window.scrollY > 80); });
+        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 80); });
         
         function toggleMenu() { 
             document.getElementById('sideMenu').classList.toggle('active');
             document.getElementById('menuOverlay').classList.toggle('active'); 
         }
 
-        // 2. ANA SLIDER (TOUCH DESTEKLİ)
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0; 
         let slideInterval;
 
         function showSlide(index) { 
-            if(!slides.length) return;
             slides[currentSlide].classList.remove('active');
             currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active'); 
         }
+
         function nextSlide() { showSlide(currentSlide + 1); }
         function prevSlide() { showSlide(currentSlide - 1); }
 
         slideInterval = setInterval(nextSlide, 5000);
 
         const home = document.getElementById('home'); 
-        if(home) {
-            let startX = 0;
-            home.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; clearInterval(slideInterval); }, {passive: true});
-            home.addEventListener('touchend', (e) => { 
-                let endX = e.changedTouches[0].clientX; 
-                if (startX - endX > 50) nextSlide(); 
-                else if (endX - startX > 50) prevSlide(); 
-                slideInterval = setInterval(nextSlide, 5000); 
-            }, {passive: true});
-        }
+        let startX = 0;
+        home.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; clearInterval(slideInterval); }, {passive: true});
+        home.addEventListener('touchend', (e) => { 
+            let endX = e.changedTouches[0].clientX; 
+            if (startX - endX > 50) nextSlide(); 
+            else if (endX - startX > 50) prevSlide(); 
+            slideInterval = setInterval(nextSlide, 5000); 
+        }, {passive: true});
 
-        // 3. ÜRÜN GALERİSİ VERİLERİ VE YÖNETİMİ
+        // --- GALERİ SCRIPT (GÖRSEL VERİLERİNİ BURAYA EKLE) ---
         const galleryData = {
             'press': ['preees.jpg', 'press2.jpg', 'press3.jpg', 'press4.jpg', 'press5.jpg', 'press6.jpg', 'press7.jpg', 'press8.jpg', 'press9.jpg'],
             'table': ['handling1.jpg', 'handling2.jpg', 'table3.jpg', 'table4.jpg', 'table5.jpg'],
@@ -1296,7 +1212,7 @@
             'furnace': ['furnace1.jpg', 'furnace2.jpg', 'furnace3.jpg', 'furnace4.jpg', 'furnace5.jpg', 'furnace6.jpg', 'furnace7.jpg', 'furnace8.jpg']
         };
 
-        let currentGalleryImages = [];
+    let currentGalleryImages = [];
         let currentImgIndex = 0;
 
         function openProductGallery(productType) {
@@ -1304,16 +1220,19 @@
             const mainImg = document.getElementById('mainGalleryImg');
             const thumbBox = document.getElementById('thumbContainer');
             
+            // AYNI BAŞLIĞA TIKLANINCA TERTEMİZ KAPATMA
             if (gallerySection.style.display === 'flex' && gallerySection.dataset.current === productType) {
                 gallerySection.style.display = 'none';
-                thumbBox.innerHTML = '';
+                thumbBox.innerHTML = ''; // Küçük resimleri çöpe at
                 gallerySection.dataset.current = ""; 
                 return;
             }
 
+            // YENİ GALERİ AÇILIRKEN ESKİLERİ SİL
             thumbBox.innerHTML = ''; 
             gallerySection.style.display = 'flex';
             gallerySection.dataset.current = productType; 
+            
             currentGalleryImages = galleryData[productType];
             currentImgIndex = 0;
             mainImg.src = currentGalleryImages[0];
@@ -1322,12 +1241,25 @@
                 const thumb = document.createElement('img');
                 thumb.src = imgSrc;
                 if(index === 0) thumb.classList.add('active-thumb');
-                thumb.onclick = function() { currentImgIndex = index; updateGalleryImage(); };
+                
+                thumb.onclick = function() {
+                    currentImgIndex = index;
+                    updateGalleryImage();
+                };
                 thumbBox.appendChild(thumb);
             });
+
             gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-
+// Boşluğa tıklayınca kapatma özelliği - 1 Yapısı Korumalı
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('productGallery');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        document.getElementById('thumbContainer').innerHTML = '';
+        modal.dataset.current = '';
+    }
+});
         function updateGalleryImage() {
             const mainImg = document.getElementById('mainGalleryImg');
             mainImg.src = currentGalleryImages[currentImgIndex];
@@ -1335,55 +1267,109 @@
                 t.classList.toggle('active-thumb', i === currentImgIndex);
             });
         }
+// MOBİL READ MORE - TAMAMEN DIŞARIDA
+function toggleReadMore() {
+    const text = document.getElementById('product-text');
+    const btn = document.getElementById('read-more-btn');
+    if (text.classList.contains('expanded')) {
+        text.classList.remove('expanded');
+        btn.innerText = 'Read More...';
+    } else {
+        text.classList.add('expanded');
+        btn.innerText = 'Show Less';
+    }
+}
+        // OKLARIN ÇALIŞMASI
+        document.getElementById('galleryNext').onclick = () => {
+            currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length;
+            updateGalleryImage();
+        };
 
-        // 4. SERVİS GALERİSİ (YUVARLAK MODAL)
-        function openServiceGallery(images) {
-            var modal = document.getElementById('service-gallery-modal');
-            var mainImg = document.getElementById('service-modal-img');
-            var thumbBox = document.getElementById('service-modal-thumbs');
-            thumbBox.innerHTML = '';
-            mainImg.src = images[0];
-            images.forEach(function(src) {
-                var t = document.createElement('img');
-                t.src = src;
-                t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
-                t.onclick = function() { mainImg.src = src; };
-                thumbBox.appendChild(t);
-            });
-            modal.style.display = 'flex';
-        }
+        document.getElementById('galleryPrev').onclick = () => {
+            currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+            updateGalleryImage();
+        };
 
-        // 5. MOBİL HABER (ISKAMBIL) SİSTEMİ
-        function openStackCard(element) {
-            const allCards = document.querySelectorAll('.stack-card');
-            allCards.forEach(card => { if (card !== element) card.classList.remove('active'); });
-            element.classList.toggle('active');
-            if (element.classList.contains('active')) {
-                setTimeout(() => { element.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 300);
-            }
-        }
+      
 
-        // 6. DİĞER YARDIMCI FONKSİYONLAR
-        function toggleReadMore() {
-            const text = document.getElementById('product-text');
-            const btn = document.getElementById('read-more-btn');
-            text.classList.toggle('expanded');
-            btn.innerText = text.classList.contains('expanded') ? 'Show Less' : 'Read More...';
-        }
+        // GALERİ OKLARININ TIKLANMA OLAYLARI
+        document.getElementById('galleryNext').onclick = () => {
+            currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length;
+            updateGalleryImage();
+        };
 
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('productGallery');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-                document.getElementById('thumbContainer').innerHTML = '';
-            }
+        document.getElementById('galleryPrev').onclick = () => {
+            currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
+            updateGalleryImage();
+        };    </script>
+
+   <div id="service-gallery-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; flex-direction: column; padding: 10px;">
+    
+    <span onclick="this.parentElement.style.display='none'" style="position: absolute; top: 20px; right: 30px; color: #fff; font-size: 50px; cursor: pointer; z-index: 10001;">&times;</span>
+    
+    <div style="width: min(600px, 95vw); height: min(600px, 95vw); margin-bottom: 25px;">
+        <img id="service-modal-img" src="" style="width: 100%; height: 100%; border-radius: 50%; border: 6px solid #00aaff; object-fit: cover; box-shadow: 0 0 40px rgba(0,170,255,0.6);">
+    </div>
+    
+    <div id="service-modal-thumbs" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;"></div>
+</div> 
+
+    <script>
+    function openServiceGallery(images) {
+        var modal = document.getElementById('service-gallery-modal');
+        var mainImg = document.getElementById('service-modal-img');
+        var thumbBox = document.getElementById('service-modal-thumbs');
+        thumbBox.innerHTML = '';
+        mainImg.src = images[0];
+        images.forEach(function(src) {
+            var t = document.createElement('img');
+            t.src = src;
+            t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
+            t.onclick = function() { mainImg.src = src; };
+            thumbBox.appendChild(t);
         });
+        modal.style.display = 'flex';
+    }
+    </script></div> 
 
-        // GALERİ OKLARI
-        const nextG = document.getElementById('galleryNext');
-        const prevG = document.getElementById('galleryPrev');
-        if(nextG) nextG.onclick = () => { currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length; updateGalleryImage(); };
-        if(prevG) prevG.onclick = () => { currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; updateGalleryImage(); };
+    <script>
+    function openServiceGallery(images) {
+        var modal = document.getElementById('service-gallery-modal');
+        var mainImg = document.getElementById('service-modal-img');
+        var thumbBox = document.getElementById('service-modal-thumbs');
+        thumbBox.innerHTML = '';
+        mainImg.src = images[0];
+        images.forEach(function(src) {
+            var t = document.createElement('img');
+            t.src = src;
+            t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
+            t.onclick = function() { mainImg.src = src; };
+            thumbBox.appendChild(t);
+        });
+        modal.style.display = 'flex';
+    }
+        function toggleCard(element) {
+    const imageContent = element.querySelector('.card-image-content');
+}
     </script>
+<script>
+function toggleCard(element) {
+    // Kutu içindeki gizli resim alanını bulur
+    const content = element.querySelector('.card-image-content');
+
+    // Eğer kapalıysa açar, açıksa kapatır
+    if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+        content.style.maxHeight = '500px'; // Aşağı doğru esneme payı
+        content.style.opacity = '1';
+    } else {
+        content.style.maxHeight = '0px';
+        content.style.opacity = '0';
+    }
+}
+</script>
+    
+</body>
+</html>
+
 </body>
 </html>
