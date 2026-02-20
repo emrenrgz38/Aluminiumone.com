@@ -1028,104 +1028,11 @@
     </div>
     
     <div class="news-slider-container">
-        <div class="news-track">
-            <div class="news-card">
-                <div class="news-img-box">
-                    <img src="cyprus-project.jpg">
-                    <div class="news-date">FEB 2023</div>
-                </div>
-                <div class="news-info">
-                    <h3>Cyprus Line</h3>
-                    <p>Installation and commissioning of the extrusion press line is complete and ready for production.</p>
-                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="news-card">
-                <div class="news-img-box">
-                    <img src="aluexpo.png">
-                    <div class="news-date">OCT 2025</div>
-                </div>
-                <div class="news-info">
-                    <h3>ALUEXPO 2025</h3>
-                    <p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p>
-                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="news-card">
-                <div class="news-img-box">
-                    <img src="australia.jpg">
-                    <div class="news-date">AUG 2024</div>
-                </div>
-                <div class="news-info">
-                    <h3>Australia Project</h3>
-                    <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
-                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="news-card">
-                <div class="news-img-box">
-                    <img src="sumangalam.jpg">
-                    <div class="news-date">FEB 2020</div>
-                </div>
-                <div class="news-info">
-                    <h3>Sumangalam(SUMEX) Line</h3>
-                    <p>Installation and commissioning of the 9 inch extrusion press line is complete and ready for production.</p>
-                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="news-card">
-                <div class="news-img-box">
-                    <img src="ismetal.jpg">
-                    <div class="news-date">MAR 2021</div>
-                </div>
-                <div class="news-info">
-                    <h3>İsmetal Line</h3>
-                    <p>Installation and commissioning of the 5 inch extrusion press line is complete and ready for production.</p>
-                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="news-card">
-                <div class="news-img-box">
-                    <img src="australia.jpg">
-                    <div class="news-date">NEW</div>
-                </div>
-                <div class="news-info">
-                    <h3>Australia Project - Final Stage</h3>
-                    <p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p>
-                    <a href="#" class="news-link">Read More... <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
+        <div id="desktop-news-track" class="news-track"></div>
     </div>
 
-    <div class="news-stack-mobile">
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-mini"><h3>Cyprus Line</h3><span class="m-date">FEB 2023</span><i class="fas fa-chevron-down"></i></div>
-            <div class="card-content"><img src="cyprus-project.jpg"><p>Installation and commissioning of the extrusion press line is complete and ready for production.</p></div>
-        </div>
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-mini"><h3>ALUEXPO 2025</h3><span class="m-date">OCT 2025</span><i class="fas fa-chevron-down"></i></div>
-            <div class="card-content"><img src="aluexpo.png"><p>We have secured our place at ALUEXPO 2025. Visit us to see our latest innovations in extrusion technology.</p></div>
-        </div>
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-mini"><h3>Australia Project</h3><span class="m-date">AUG 2024</span><i class="fas fa-chevron-down"></i></div>
-            <div class="card-content"><img src="australia.jpg"><p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p></div>
-        </div>
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-mini"><h3>Sumangalam(SUMEX) Line</h3><span class="m-date">FEB 2020</span><i class="fas fa-chevron-down"></i></div>
-            <div class="card-content"><img src="sumangalam.jpg"><p>Installation and commissioning of the 9 inch extrusion press line is complete and ready for production.</p></div>
-        </div>
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-mini"><h3>İsmetal Line</h3><span class="m-date">MAR 2021</span><i class="fas fa-chevron-down"></i></div>
-            <div class="card-content"><img src="ismetal.jpg"><p>Installation and commissioning of the 5 inch extrusion press line is complete and ready for production.</p></div>
-        </div>
-        <div class="stack-card" onclick="openStackCard(this)">
-            <div class="card-mini"><h3>Australia Project - Final Stage</h3><span class="m-date">NEW</span><i class="fas fa-chevron-down"></i></div>
-            <div class="card-content"><img src="australia.jpg"><p>New aluminum extrusion line successfully installed and commissioned for our partners in Australia.</p></div>
-        </div>
-    </div>
+    <div id="mobile-news-stack" class="news-stack-mobile"></div>
 </section>
-
 <style>
 /* NEWS KAYDIRMA MOTORU */
 /* --- MASAÜSTÜ: SENİN DÜZELTTİĞİN ORİJİNAL KAYDIRMA SİSTEMİ --- */
@@ -1528,6 +1435,61 @@ function toggleCard(element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }, 300);
     }
+}
+
+
+    const myNews = [
+    { title: "Cyprus Line", date: "FEB 2024", img: "cyprus-project.jpg", desc: "Installation and commissioning of the extrusion press line is complete." },
+    { title: "ALUEXPO 2025", date: "OCT 2025", img: "aluexpo.jpg", desc: "We have secured our place at ALUEXPO 2025. Visit us to see our innovations." },
+    { title: "Australia Project", date: "MAR 2024", img: "australia.jpg", desc: "New aluminum extrusion line successfully installed for our partners in Australia." },
+    { title: "Cyprus Phase 2", date: "MAR 2024", img: "sumangalam.jpg", desc: "Phase 2 installation is underway with high efficiency." },
+    { title: "Global Expo", date: "DEC 2025", img: "ismetal.jpg", desc: "Connecting with global partners to showcase our newest technology." },
+    { title: "Sydney Plant", date: "NEW", img: "australia.jpg", desc: "A brand new facility is now operational in the heart of Sydney." }
+];
+
+function renderNews() {
+    const desktopTrack = document.getElementById('desktop-news-track');
+    const mobileStack = document.getElementById('mobile-news-stack');
+
+    myNews.forEach(news => {
+        // Masaüstü Kartlarını Oluştur
+        desktopTrack.innerHTML += `
+            <div class="news-card">
+                <div class="news-img-box">
+                    <img src="${news.img}">
+                    <div class="news-date">${news.date}</div>
+                </div>
+                <div class="news-info">
+                    <h3>${news.title}</h3>
+                    <p>${news.desc}</p>
+                    <a href="#" class="news-link">Read More...</a>
+                </div>
+            </div>`;
+
+        // Mobil İskambil Kartlarını Oluştur
+        mobileStack.innerHTML += `
+            <div class="stack-card" onclick="openStackCard(this)">
+                <div class="card-mini">
+                    <h3>${news.title}</h3>
+                    <span class="m-date">${news.date}</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="card-content">
+                    <img src="${news.img}">
+                    <p>${news.desc}</p>
+                </div>
+            </div>`;
+    });
+}
+
+// Sayfa açıldığında haberleri bas
+renderNews();
+
+// Senin mevcut openStackCard fonksiyonun burada durmaya devam etsin
+function openStackCard(element) {
+    const allCards = document.querySelectorAll('.stack-card');
+    allCards.forEach(card => { if (card !== element) card.classList.remove('active'); });
+    element.classList.toggle('active');
 }
 </script>
     
