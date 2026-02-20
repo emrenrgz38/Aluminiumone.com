@@ -1106,59 +1106,105 @@
 
 <style>
 /* NEWS KAYDIRMA MOTORU */
-#news {
-    padding: 80px 0;
-    background: #000;
-    overflow: hidden; /* Taşmayı engeller */
+/* --- MASAÜSTÜ: SENİN DÜZELTTİĞİN ORİJİNAL KAYDIRMA SİSTEMİ --- */
+@media (min-width: 769px) {
+    #news {
+        padding: 80px 0;
+        background: #000;
+        overflow: hidden;
+    }
+
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-header h2 { color: #0056b3; font-size: 2.5rem; font-weight: bold; }
+    .underline { width: 60px; height: 4px; background: #0056b3; margin: 10px auto; }
+
+    .news-slider-container {
+        width: 100%;
+        display: flex;
+    }
+
+    .news-track {
+        display: flex;
+        gap: 30px;
+        animation: scrollNews 30s linear infinite;
+    }
+
+    .news-track:hover { animation-play-state: paused; }
+
+    .news-card {
+        flex: 0 0 380px;
+        background: #111;
+        border: 1px solid #222;
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .news-card:hover { border-color: #0056b3; }
+    .news-img-box { position: relative; height: 220px; overflow: hidden; }
+    .news-img-box img { width: 100%; height: 100%; object-fit: cover; }
+    .news-date { position: absolute; top: 10px; right: 10px; background: #0056b3; color: white; padding: 4px 12px; font-size: 0.8rem; font-weight: bold; }
+
+    .news-info { padding: 25px; }
+    .news-info h3 { color: white; margin-bottom: 15px; font-size: 1.4rem; }
+    .news-info p { color: #ccc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; min-height: 75px; }
+    .news-link { color: #0056b3; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+
+    @keyframes scrollNews {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-380px * 3 - 90px)); }
+    }
+
+    /* MASAÜSTÜNDE MOBİL YAPISINI GİZLE */
+    .news-stack-mobile { display: none !important; }
 }
 
-.section-header { text-align: center; margin-bottom: 40px; }
-.section-header h2 { color: #0056b3; font-size: 2.5rem; font-weight: bold; }
-.underline { width: 60px; height: 4px; background: #0056b3; margin: 10px auto; }
+/* --- MOBİL: ISKAMBIL KARTI YAPISI (Sadece Mobilde Görünür) --- */
+@media (max-width: 768px) {
+    .news-slider-container { display: none !important; } /* Masaüstü slider'ı mobilde gizle */
+    
+    .news-stack-mobile {
+        display: flex !important;
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 20px;
+    }
 
-.news-slider-container {
-    width: 100%;
-    display: flex;
-}
+    .stack-card {
+        background: #111;
+        border-top: 3px solid #0056b3;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+    }
 
-.news-track {
-    display: flex;
-    gap: 30px;
-    /* 30 saniyede bir tam tur döner */
-    animation: scrollNews 30s linear infinite;
-}
+    .card-mini {
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+    }
 
-/* Mouse ile üzerine gelince akış durur, rahat okunur */
-.news-track:hover {
-    animation-play-state: paused;
-}
+    .card-content {
+        max-height: 0;
+        opacity: 0;
+        transition: 0.4s ease;
+        overflow: hidden;
+        background: #1a1a1a;
+    }
 
-.news-card {
-    flex: 0 0 380px; /* Kart genişliği sabit */
-    background: #111;
-    border: 1px solid #222;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
-}
+    .stack-card.active .card-content {
+        max-height: 1000px;
+        opacity: 1;
+        padding: 20px;
+    }
 
-.news-card:hover { border-color: #0056b3; }
-
-.news-img-box { position: relative; height: 220px; overflow: hidden; }
-.news-img-box img { width: 100%; height: 100%; object-fit: cover; }
-.news-date { position: absolute; top: 10px; right: 10px; background: #0056b3; color: white; padding: 4px 12px; font-size: 0.8rem; font-weight: bold; }
-
-.news-info { padding: 25px; }
-.news-info h3 { color: white; margin-bottom: 15px; font-size: 1.4rem; }
-.news-info p { color: #ccc; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; min-height: 75px; }
-.news-link { color: #0056b3; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; }
-
-/* ANİMASYON HESABI */
-@keyframes scrollNews {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-380px * 3 - 90px)); } /* 3 kart + boşluklar kadar sola kayar */
+    .card-content img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
+    .card-content p { color: #ccc; line-height: 1.6; margin: 0; }
 }
 </style>
+    
     <section id="references">
         <div class="logo-slider">
             <div class="logo-item"><img src="ref1.png" alt="Logo 1"></div>
