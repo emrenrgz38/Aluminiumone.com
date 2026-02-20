@@ -1010,6 +1010,14 @@
             </div>
         </div>
     </div>
+        <div id="service-gallery-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; flex-direction: column; padding: 10px;">
+        <span onclick="this.parentElement.style.display='none'" style="position: absolute; top: 20px; right: 30px; color: #fff; font-size: 50px; cursor: pointer; z-index: 10001;">&times;</span>
+        <div style="width: min(600px, 95vw); height: min(600px, 95vw); margin-bottom: 25px;">
+            <img id="service-modal-img" src="" style="width: 100%; height: 100%; border-radius: 50%; border: 6px solid #00aaff; object-fit: cover; box-shadow: 0 0 40px rgba(0,170,255,0.6);">
+        </div>
+        <div id="service-modal-thumbs" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;"></div>
+    </div> 
+
 </section>
 <style>
 /* Sadece mobilde görünsün, masaüstünde eski sistem kalsın diyorsan @media kullanıyoruz */
@@ -1179,41 +1187,46 @@
 </section>
     <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
     <footer><p>&copy; 2026 ALUMINIUM ONE. All Rights Reserved. | Engineered by Mübarek Reis</p></footer>
+    
     <script>
+        // 1. HEADER & MENU SİSTEMİ
         const header = document.getElementById('mainHeader');
-        window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 80); });
+        window.addEventListener('scroll', () => { if(header) header.classList.toggle('scrolled', window.scrollY > 80); });
         
         function toggleMenu() { 
             document.getElementById('sideMenu').classList.toggle('active');
             document.getElementById('menuOverlay').classList.toggle('active'); 
         }
 
+        // 2. ANA SLIDER (TOUCH DESTEKLİ)
         const slides = document.querySelectorAll('.slide');
         let currentSlide = 0; 
         let slideInterval;
 
         function showSlide(index) { 
+            if(!slides.length) return;
             slides[currentSlide].classList.remove('active');
             currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active'); 
         }
-
         function nextSlide() { showSlide(currentSlide + 1); }
         function prevSlide() { showSlide(currentSlide - 1); }
 
         slideInterval = setInterval(nextSlide, 5000);
 
         const home = document.getElementById('home'); 
-        let startX = 0;
-        home.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; clearInterval(slideInterval); }, {passive: true});
-        home.addEventListener('touchend', (e) => { 
-            let endX = e.changedTouches[0].clientX; 
-            if (startX - endX > 50) nextSlide(); 
-            else if (endX - startX > 50) prevSlide(); 
-            slideInterval = setInterval(nextSlide, 5000); 
-        }, {passive: true});
+        if(home) {
+            let startX = 0;
+            home.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; clearInterval(slideInterval); }, {passive: true});
+            home.addEventListener('touchend', (e) => { 
+                let endX = e.changedTouches[0].clientX; 
+                if (startX - endX > 50) nextSlide(); 
+                else if (endX - startX > 50) prevSlide(); 
+                slideInterval = setInterval(nextSlide, 5000); 
+            }, {passive: true});
+        }
 
-        // --- GALERİ SCRIPT (GÖRSEL VERİLERİNİ BURAYA EKLE) ---
+        // 3. ÜRÜN GALERİSİ VERİLERİ VE YÖNETİMİ
         const galleryData = {
             'press': ['preees.jpg', 'press2.jpg', 'press3.jpg', 'press4.jpg', 'press5.jpg', 'press6.jpg', 'press7.jpg', 'press8.jpg', 'press9.jpg'],
             'table': ['handling1.jpg', 'handling2.jpg', 'table3.jpg', 'table4.jpg', 'table5.jpg'],
@@ -1221,7 +1234,7 @@
             'furnace': ['furnace1.jpg', 'furnace2.jpg', 'furnace3.jpg', 'furnace4.jpg', 'furnace5.jpg', 'furnace6.jpg', 'furnace7.jpg', 'furnace8.jpg']
         };
 
-    let currentGalleryImages = [];
+        let currentGalleryImages = [];
         let currentImgIndex = 0;
 
         function openProductGallery(productType) {
@@ -1229,19 +1242,16 @@
             const mainImg = document.getElementById('mainGalleryImg');
             const thumbBox = document.getElementById('thumbContainer');
             
-            // AYNI BAŞLIĞA TIKLANINCA TERTEMİZ KAPATMA
             if (gallerySection.style.display === 'flex' && gallerySection.dataset.current === productType) {
                 gallerySection.style.display = 'none';
-                thumbBox.innerHTML = ''; // Küçük resimleri çöpe at
+                thumbBox.innerHTML = '';
                 gallerySection.dataset.current = ""; 
                 return;
             }
 
-            // YENİ GALERİ AÇILIRKEN ESKİLERİ SİL
             thumbBox.innerHTML = ''; 
             gallerySection.style.display = 'flex';
             gallerySection.dataset.current = productType; 
-            
             currentGalleryImages = galleryData[productType];
             currentImgIndex = 0;
             mainImg.src = currentGalleryImages[0];
@@ -1250,25 +1260,12 @@
                 const thumb = document.createElement('img');
                 thumb.src = imgSrc;
                 if(index === 0) thumb.classList.add('active-thumb');
-                
-                thumb.onclick = function() {
-                    currentImgIndex = index;
-                    updateGalleryImage();
-                };
+                thumb.onclick = function() { currentImgIndex = index; updateGalleryImage(); };
                 thumbBox.appendChild(thumb);
             });
-
             gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-// Boşluğa tıklayınca kapatma özelliği - 1 Yapısı Korumalı
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('productGallery');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-        document.getElementById('thumbContainer').innerHTML = '';
-        modal.dataset.current = '';
-    }
-});
+
         function updateGalleryImage() {
             const mainImg = document.getElementById('mainGalleryImg');
             mainImg.src = currentGalleryImages[currentImgIndex];
@@ -1276,130 +1273,55 @@ window.addEventListener('click', function(event) {
                 t.classList.toggle('active-thumb', i === currentImgIndex);
             });
         }
-// MOBİL READ MORE - TAMAMEN DIŞARIDA
-function toggleReadMore() {
-    const text = document.getElementById('product-text');
-    const btn = document.getElementById('read-more-btn');
-    if (text.classList.contains('expanded')) {
-        text.classList.remove('expanded');
-        btn.innerText = 'Read More...';
-    } else {
-        text.classList.add('expanded');
-        btn.innerText = 'Show Less';
-    }
-}
-        // OKLARIN ÇALIŞMASI
-        document.getElementById('galleryNext').onclick = () => {
-            currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length;
-            updateGalleryImage();
-        };
 
-        document.getElementById('galleryPrev').onclick = () => {
-            currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
-            updateGalleryImage();
-        };
-
-      
-
-        // GALERİ OKLARININ TIKLANMA OLAYLARI
-        document.getElementById('galleryNext').onclick = () => {
-            currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length;
-            updateGalleryImage();
-        };
-
-        document.getElementById('galleryPrev').onclick = () => {
-            currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length;
-            updateGalleryImage();
-        };    </script>
-
-   <div id="service-gallery-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; flex-direction: column; padding: 10px;">
-    
-    <span onclick="this.parentElement.style.display='none'" style="position: absolute; top: 20px; right: 30px; color: #fff; font-size: 50px; cursor: pointer; z-index: 10001;">&times;</span>
-    
-    <div style="width: min(600px, 95vw); height: min(600px, 95vw); margin-bottom: 25px;">
-        <img id="service-modal-img" src="" style="width: 100%; height: 100%; border-radius: 50%; border: 6px solid #00aaff; object-fit: cover; box-shadow: 0 0 40px rgba(0,170,255,0.6);">
-    </div>
-    
-    <div id="service-modal-thumbs" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;"></div>
-</div> 
-
-    <script>
-    function openServiceGallery(images) {
-        var modal = document.getElementById('service-gallery-modal');
-        var mainImg = document.getElementById('service-modal-img');
-        var thumbBox = document.getElementById('service-modal-thumbs');
-        thumbBox.innerHTML = '';
-        mainImg.src = images[0];
-        images.forEach(function(src) {
-            var t = document.createElement('img');
-            t.src = src;
-            t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
-            t.onclick = function() { mainImg.src = src; };
-            thumbBox.appendChild(t);
-        });
-        modal.style.display = 'flex';
-    }
-    </script></div> 
-
-    <script>
-    function openServiceGallery(images) {
-        var modal = document.getElementById('service-gallery-modal');
-        var mainImg = document.getElementById('service-modal-img');
-        var thumbBox = document.getElementById('service-modal-thumbs');
-        thumbBox.innerHTML = '';
-        mainImg.src = images[0];
-        images.forEach(function(src) {
-            var t = document.createElement('img');
-            t.src = src;
-            t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
-            t.onclick = function() { mainImg.src = src; };
-            thumbBox.appendChild(t);
-        });
-        modal.style.display = 'flex';
-    }
-        function toggleCard(element) {
-    const imageContent = element.querySelector('.card-image-content');
-}
-    </script>
-<script>
-function toggleCard(element) {
-    // Kutu içindeki gizli resim alanını bulur
-    const content = element.querySelector('.card-image-content');
-
-    // Eğer kapalıysa açar, açıksa kapatır
-    if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
-        content.style.maxHeight = '500px'; // Aşağı doğru esneme payı
-        content.style.opacity = '1';
-    } else {
-        content.style.maxHeight = '0px';
-        content.style.opacity = '0';
-    }
-}
-</script>
-<script>
-function openStackCard(element) {
-    // Önce açık olan diğer tüm kartları kapat
-    const allCards = document.querySelectorAll('.stack-card');
-    allCards.forEach(card => {
-        if (card !== element) {
-            card.classList.remove('active');
+        // 4. SERVİS GALERİSİ (YUVARLAK MODAL)
+        function openServiceGallery(images) {
+            var modal = document.getElementById('service-gallery-modal');
+            var mainImg = document.getElementById('service-modal-img');
+            var thumbBox = document.getElementById('service-modal-thumbs');
+            thumbBox.innerHTML = '';
+            mainImg.src = images[0];
+            images.forEach(function(src) {
+                var t = document.createElement('img');
+                t.src = src;
+                t.style = "width:70px; height:70px; border-radius:50%; border:2px solid #fff; cursor:pointer; object-fit:cover; margin:5px;";
+                t.onclick = function() { mainImg.src = src; };
+                thumbBox.appendChild(t);
+            });
+            modal.style.display = 'flex';
         }
-    });
 
-    // Tıklanan kartı aç/kapat (toggle)
-    element.classList.toggle('active');
-    
-    // Açılan kartı ekranın ortasına getir (opsiyonel)
-    if (element.classList.contains('active')) {
-        setTimeout(() => {
-            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 300);
-    }
-}
-</script>
-        
-</body>
-</html>
+        // 5. MOBİL HABER (ISKAMBIL) SİSTEMİ
+        function openStackCard(element) {
+            const allCards = document.querySelectorAll('.stack-card');
+            allCards.forEach(card => { if (card !== element) card.classList.remove('active'); });
+            element.classList.toggle('active');
+            if (element.classList.contains('active')) {
+                setTimeout(() => { element.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 300);
+            }
+        }
 
+        // 6. DİĞER YARDIMCI FONKSİYONLAR
+        function toggleReadMore() {
+            const text = document.getElementById('product-text');
+            const btn = document.getElementById('read-more-btn');
+            text.classList.toggle('expanded');
+            btn.innerText = text.classList.contains('expanded') ? 'Show Less' : 'Read More...';
+        }
+
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('productGallery');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.getElementById('thumbContainer').innerHTML = '';
+            }
+        });
+
+        // GALERİ OKLARI
+        const nextG = document.getElementById('galleryNext');
+        const prevG = document.getElementById('galleryPrev');
+        if(nextG) nextG.onclick = () => { currentImgIndex = (currentImgIndex + 1) % currentGalleryImages.length; updateGalleryImage(); };
+        if(prevG) prevG.onclick = () => { currentImgIndex = (currentImgIndex - 1 + currentGalleryImages.length) % currentGalleryImages.length; updateGalleryImage(); };
+    </script>
 </body>
 </html>
