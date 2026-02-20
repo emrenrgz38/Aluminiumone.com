@@ -1491,6 +1491,39 @@ function openStackCard(element) {
     allCards.forEach(card => { if (card !== element) card.classList.remove('active'); });
     element.classList.toggle('active');
 }
+
+
+    // Sayfa kaydırıldıkça adres çubuğunu (URL) güncelleme motoru
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.6 // Bölümün %60'ı göründüğünde adresi değiştir
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            // Sayfa zıplamadan (scroll tetiklemeden) sadece URL'deki # kısmını değiştirir
+            history.replaceState(null, null, `#${id}`);
+            
+            // Eğer varsa, menüdeki aktif linki de burada güncelleyebiliriz
+            updateActiveNav(id);
+        }
+    });
+}, observerOptions);
+
+// Takip edilecek bölümleri seç (Section'ların id'leri olmalı)
+document.querySelectorAll('section[id]').forEach((section) => {
+    observer.observe(section);
+});
+
+// Menüdeki aktiflik durumunu belirleme (Opsiyonel)
+function updateActiveNav(id) {
+    document.querySelectorAll('.side-menu a, .nav-links a').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+    });
+}
 </script>
     
 </body>
