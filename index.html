@@ -1021,68 +1021,52 @@
 
     </div>
 </section>
-   <section id="used-machines-section" style="position: relative; padding: 120px 0; background: url('world.jpg') no-repeat center center / cover; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden;">
     
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1;"></div>
+   <section id="used-machines-section" style="position: relative; padding: 120px 0; background: url('arka-plan.jpg') no-repeat center center / cover; font-family: 'Segoe UI', sans-serif; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.88); z-index: 1;"></div>
 
     <div style="position: relative; z-index: 2; max-width: 95%; margin: 0 auto;">
         
-        <div style="width: fit-content; margin: 0 auto 70px auto; padding: 18px 50px; background: #0a0a0a; border-radius: 12px; border: 1px solid #1a1a1a; box-shadow: 0 15px 35px rgba(0,0,0,0.9); text-align: center;">
+        <div style="width: fit-content; margin: 0 auto 70px auto; padding: 18px 50px; background: #0a0a0a; border-radius: 12px; border: 1px solid #1a1a1a; text-align: center;">
             <h2 style="color: #fff; font-size: 28px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 3px;">Used Machines Inventory</h2>
             <div style="width: 40px; height: 3px; background: #00aaff; margin: 12px auto 0; border-radius: 2px;"></div>
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 0; background: rgba(8, 8, 8, 0.9); border-radius: 40px; border: 1px solid #151515; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.9); backdrop-filter: blur(10px);">
+        <div style="display: flex; flex-wrap: wrap; background: rgba(8, 8, 8, 0.95); border-radius: 40px; border: 1px solid #151515; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.9);">
             
             <div style="flex: 1; min-width: 300px; padding: 40px; background: rgba(5, 5, 5, 0.5);">
-                <h4 style="color: #00aaff; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 30px; font-weight: 800;">Available Units</h4>
+                <h4 style="color: #00aaff; text-transform: uppercase; font-size: 13px; letter-spacing: 2px; margin-bottom: 30px; font-weight: 800;">Available Units</h4>
                 <ul id="machine-list" style="list-style: none; padding: 0; margin: 0;">
-                    <li onclick="showMachine(0)" style="padding: 20px; color: #fff; background: #111; border-radius: 15px; margin-bottom: 12px; cursor: pointer; border-left: 5px solid #00aaff; transition: 0.3s; font-weight: 600;">Aluminum Extrusion Press</li>
-                    <li onclick="showMachine(1)" style="padding: 20px; color: #666; background: transparent; border-radius: 15px; margin-bottom: 12px; cursor: pointer; border-left: 5px solid transparent; transition: 0.3s;" onmouseover="this.style.background='#0a0a0a'; this.style.color='#fff'">Billet Heating Furnace</li>
-                    <li onclick="showMachine(2)" style="padding: 20px; color: #666; background: transparent; border-radius: 15px; margin-bottom: 12px; cursor: pointer; border-left: 5px solid transparent; transition: 0.3s;" onmouseover="this.style.background='#0a0a0a'; this.style.color='#fff'">Aging Oven 20 Tons</li>
-                </ul>
+                    </ul>
             </div>
 
-            <div style="width: 2px; background: linear-gradient(180deg, transparent, #00aaff, transparent); align-self: stretch;"></div>
+            <div style="width: 2px; background: linear-gradient(180deg, transparent, #00aaff, transparent);"></div>
 
-            <div id="machine-details" style="flex: 4; min-width: 400px; padding: 50px;">
+            <div style="flex: 4; min-width: 400px; padding: 50px;">
                 <div style="display: flex; flex-wrap: wrap; gap: 60px;">
                     
                     <div style="flex: 1.2; min-width: 350px;">
                         <div style="position: relative; width: 100%; aspect-ratio: 16/10; background: #111; border-radius: 25px; overflow: hidden; border: 1px solid #222; cursor: pointer;" onclick="openMachineLightbox()">
-                            <img id="detail-img" src="machine1.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;">
+                            <img id="detail-img" src="" style="width: 100%; height: 100%; object-fit: cover; transition: 0.3s;">
                             <div style="position: absolute; bottom: 20px; right: 20px; background: rgba(0,170,255,0.8); color: #fff; padding: 10px; border-radius: 50%;"><span class="material-icons">zoom_in</span></div>
                         </div>
-                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px;">
-                            <div style="aspect-ratio: 1/1; background: #111; border-radius: 12px; border: 1px solid #333; cursor: pointer;"></div>
-                            <div style="aspect-ratio: 1/1; background: #111; border-radius: 12px; border: 1px solid #333; cursor: pointer;"></div>
-                            <div style="aspect-ratio: 1/1; background: #111; border-radius: 12px; border: 1px solid #333; cursor: pointer;"></div>
-                            <div style="aspect-ratio: 1/1; background: #111; border-radius: 12px; border: 1px solid #333; cursor: pointer;"></div>
-                        </div>
+                        
+                        <div id="thumb-container" style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 15px;">
+                            </div>
                     </div>
 
                     <div style="flex: 1.5;">
-                        <h3 id="detail-title" style="color: #fff; font-size: 36px; font-weight: 800; margin: 0 0 10px 0; letter-spacing: -1px;">Aluminum Extrusion Press</h3>
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
-                            <div style="width: 12px; height: 12px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88;"></div>
-                            <span style="color: #00ff88; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px;">Ready in Stock</span>
-                        </div>
+                        <h3 id="detail-title" style="color: #fff; font-size: 36px; font-weight: 800; margin: 0 0 10px 0;"></h3>
+                        <div id="status-badge" style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;"></div>
                         
-                        <div style="background: #0c0c0c; padding: 35px; border-radius: 25px; border: 1px solid #1a1a1a; margin-bottom: 30px;">
-                            <h5 style="color: #fff; margin: 0 0 20px 0; font-size: 16px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px;">Technical Specifications</h5>
-                            <div id="tech-specs" style="display: grid; gap: 12px; margin-bottom: 25px;">
-                                <div style="display: flex; justify-content: space-between;"><span style="color: #666;">Capacity:</span><span id="spec-cap" style="color: #fff; font-weight: 600;">1800 UST</span></div>
-                                <div style="display: flex; justify-content: space-between;"><span style="color: #666;">Production Year:</span><span id="spec-year" style="color: #fff; font-weight: 600;">2012</span></div>
-                                <div style="display: flex; justify-content: space-between;"><span style="color: #666;">Billet Diameter:</span><span id="spec-billet" style="color: #fff; font-weight: 600;">7 inch</span></div>
-                            </div>
-
-                            <h5 style="color: #00aaff; margin: 25px 0 15px 0; font-size: 14px; text-transform: uppercase; font-weight: 800;">Expert Evaluation & Details:</h5>
-                            <p id="detail-description" style="color: #999; font-size: 15px; line-height: 1.7; margin: 0;">
-                                This machine has been fully maintained and is in excellent working condition. All hydraulic systems were overhauled in 2021. Includes original control panel and automation software.
-                            </p>
+                        <div style="background: #0c0c0c; padding: 35px; border-radius: 25px; border: 1px solid #1a1a1a;">
+                            <h5 style="color: #fff; margin-bottom: 20px; text-transform: uppercase; font-size: 14px; border-bottom: 1px solid #222; padding-bottom: 10px;">Technical Specs</h5>
+                            <div id="tech-specs" style="display: grid; gap: 12px; margin-bottom: 25px;"></div>
+                            
+                            <h5 style="color: #00aaff; font-size: 13px; text-transform: uppercase; font-weight: 800; margin-top: 25px;">Expert Evaluation:</h5>
+                            <p id="detail-description" style="color: #999; font-size: 15px; line-height: 1.7;"></p>
                         </div>
-
-                        <a href="#contact" style="display: block; text-align: center; background: #00aaff; color: #fff; padding: 22px; border-radius: 18px; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 15px 35px rgba(0,170,255,0.3); transition: 0.3s;">Contact for Price</a>
+                        <a href="#contact" style="display: block; text-align: center; background: #00aaff; color: #fff; padding: 20px; border-radius: 15px; text-decoration: none; font-weight: 900; margin-top: 30px; text-transform: uppercase;">Contact for Price</a>
                     </div>
                 </div>
             </div>
@@ -1093,57 +1077,100 @@
 <div id="m-lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:99999; justify-content:center; align-items:center;">
     <span onclick="closeMLightbox()" style="position:absolute; top:30px; right:40px; color:#fff; font-size:50px; cursor:pointer;">&times;</span>
     <button onclick="mSlide(-1)" style="position:absolute; left:30px; background:none; border:none; color:#fff; font-size:60px; cursor:pointer;">&#10094;</button>
-    <img id="m-fullImg" src="" style="max-width:90%; max-height:85%; border-radius:10px; border:1px solid #333;">
+    <img id="m-fullImg" src="" style="max-width:90%; max-height:85%; border-radius:10px;">
     <button onclick="mSlide(1)" style="position:absolute; right:30px; background:none; border:none; color:#fff; font-size:60px; cursor:pointer;">&#10095;</button>
 </div>
 
 <script>
     const inventory = [
         { 
-            title: "Aluminum Extrusion Press", img: "prees.jpg", year: "2012", cap: "1800 UST", billet: "7 inch",
-            desc: "This machine has been fully maintained and is in excellent working condition. All hydraulic systems were overhauled in 2021. Includes original control panel and automation software."
+            title: "Aluminum Extrusion Press", 
+            gallery: ["prees.jpg", "press2.jpg", "press3.jpg", "press5.jpg"],
+            year: "2012", cap: "1800 UST", billet: "7 inch", status: "Ready",
+            desc: "Full maintenance completed in 2021. Excellent hydraulic performance."
         },
         { 
-            title: "Billet Heating Furnace", img: "furnace.jpg", year: "2015", cap: "2500 kg/h", billet: "Multi",
-            desc: "High efficiency billet heating furnace with advanced temperature control. Energy-saving insulation system recently updated. Low NOx burner technology included."
-        },
-        { 
-            title: "Aging Oven 20 Tons", img: "furnace6.jpg", year: "2018", cap: "20 Tons", billet: "N/A",
-            desc: "Large capacity aging oven with uniform heat distribution. Designed for 24/7 industrial production. Fully automated loading/unloading compatibility."
+            title: "Billet Heating Furnace", 
+            gallery: ["furnace1.jpg", "furnace2.jpg", "furnace3.jpg"],
+            year: "2015", cap: "2500 kg/h", billet: "Multi", status: "In Stock",
+            desc: "Energy efficient burners and high-grade insulation."
         }
     ];
-    let mIdx = 0;
+
+    let currentMachineIdx = 0;
+    let currentPhotoIdx = 0;
+
+    function init() {
+        const list = document.getElementById('machine-list');
+        inventory.forEach((m, i) => {
+            const li = document.createElement('li');
+            li.innerHTML = m.title;
+            li.style.cssText = "padding:20px; color:#666; margin-bottom:12px; cursor:pointer; border-radius:15px; transition:0.3s; font-weight:600;";
+            li.onclick = () => showMachine(i);
+            list.appendChild(li);
+        });
+        showMachine(0);
+    }
 
     function showMachine(index) {
-        mIdx = index;
+        currentMachineIdx = index;
+        currentPhotoIdx = 0;
         const m = inventory[index];
-        document.getElementById('detail-title').innerText = m.title;
-        document.getElementById('detail-img').src = m.img;
-        document.getElementById('spec-cap').innerText = m.cap;
-        document.getElementById('spec-year').innerText = m.year;
-        document.getElementById('spec-billet').innerText = m.billet;
-        document.getElementById('detail-description').innerText = m.desc;
         
+        // Yazıları Güncelle
+        document.getElementById('detail-title').innerText = m.title;
+        document.getElementById('detail-img').src = m.gallery[0];
+        document.getElementById('detail-description').innerText = m.desc;
+        document.getElementById('tech-specs').innerHTML = `
+            <div style="display:flex; justify-content:space-between;"><span style="color:#666">Year:</span><span style="color:#fff">${m.year}</span></div>
+            <div style="display:flex; justify-content:space-between;"><span style="color:#666">Capacity:</span><span style="color:#fff">${m.cap}</span></div>
+        `;
+        document.getElementById('status-badge').innerHTML = `
+            <div style="width:12px; height:12px; background:#00ff88; border-radius:50%; box-shadow:0 0 10px #00ff88;"></div>
+            <span style="color:#00ff88; font-weight:700; font-size:13px;">${m.status}</span>
+        `;
+
+        // Küçük Resimleri (Thumbnails) Güncelle
+        const thumbContainer = document.getElementById('thumb-container');
+        thumbContainer.innerHTML = '';
+        m.gallery.forEach((pic, pIdx) => {
+            const thumb = document.createElement('div');
+            thumb.style.cssText = `aspect-ratio:1/1; background:url('${pic}') center/cover; border-radius:10px; border:1px solid #333; cursor:pointer; opacity:0.6; transition:0.3s;`;
+            thumb.onclick = (e) => { 
+                e.stopPropagation(); // Lightbox'ı açma, sadece resmi değiştir
+                currentPhotoIdx = pIdx;
+                document.getElementById('detail-img').src = pic;
+                document.querySelectorAll('#thumb-container div').forEach(d => d.style.opacity = '0.6');
+                thumb.style.opacity = '1';
+                thumb.style.borderColor = '#00aaff';
+            };
+            if(pIdx === 0) { thumb.style.opacity = '1'; thumb.style.borderColor = '#00aaff'; }
+            thumbContainer.appendChild(thumb);
+        });
+
+        // Liste Aktiflik Durumu
         const items = document.querySelectorAll('#machine-list li');
         items.forEach((li, i) => {
-            if(i === index) {
-                li.style.background = "#111"; li.style.color = "#fff"; li.style.borderLeft = "5px solid #00aaff";
-            } else {
-                li.style.background = "transparent"; li.style.color = "#666"; li.style.borderLeft = "5px solid transparent";
-            }
+            li.style.background = (i === index) ? "#111" : "transparent";
+            li.style.color = (i === index) ? "#fff" : "#666";
+            li.style.borderLeft = (i === index) ? "5px solid #00aaff" : "5px solid transparent";
         });
     }
 
+    // Lightbox Fonksiyonları
     function openMachineLightbox() {
-        document.getElementById('m-fullImg').src = inventory[mIdx].img;
+        document.getElementById('m-fullImg').src = inventory[currentMachineIdx].gallery[currentPhotoIdx];
         document.getElementById('m-lightbox').style.display = 'flex';
     }
     function closeMLightbox() { document.getElementById('m-lightbox').style.display = 'none'; }
     function mSlide(step) {
-        mIdx = (mIdx + step + inventory.length) % inventory.length;
-        document.getElementById('m-fullImg').src = inventory[mIdx].img;
-        showMachine(mIdx); 
+        const photos = inventory[currentMachineIdx].gallery;
+        currentPhotoIdx = (currentPhotoIdx + step + photos.length) % photos.length;
+        document.getElementById('m-fullImg').src = photos[currentPhotoIdx];
+        document.getElementById('detail-img').src = photos[currentPhotoIdx]; // Arka planı da senkronize et
     }
+
+    window.onload = init;
 </script>
 </section>
     <section id="news">
