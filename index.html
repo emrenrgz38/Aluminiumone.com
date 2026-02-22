@@ -1024,54 +1024,54 @@
     
    <section id="used-machines-section" style="position: relative; padding: clamp(60px, 10vw, 120px) 0; background: url('world.jpg') no-repeat center center / cover; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; overflow: hidden;">
     
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); z-index: 1;"></div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.88); z-index: 1;"></div>
 
     <div style="position: relative; z-index: 2; max-width: 95%; margin: 0 auto;">
         
-        <div style="width: fit-content; margin: 0 auto 50px auto; padding: 15px clamp(30px, 5vw, 50px); background: #0a0a0a; border-radius: 12px; border: 1px solid #1a1a1a; box-shadow: 0 15px 35px rgba(0,0,0,0.9); text-align: center;">
+        <div style="width: fit-content; margin: 0 auto 70px auto; padding: 18px 50px; background: #0a0a0a; border-radius: 12px; border: 1px solid #1a1a1a; box-shadow: 0 15px 35px rgba(0,0,0,0.9); text-align: center;">
             <h2 style="color: #fff; font-size: clamp(20px, 4vw, 28px); font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 3px;">Used Machines</h2>
             <div style="width: 40px; height: 3px; background: #00aaff; margin: 12px auto 0; border-radius: 2px;"></div>
         </div>
 
-        <div style="display: flex; flex-direction: row; flex-wrap: wrap; background: rgba(8, 8, 8, 0.95); border-radius: clamp(20px, 5vw, 40px); border: 1px solid #151515; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.9); backdrop-filter: blur(15px);">
+        <div id="main-panel" style="display: flex; flex-wrap: wrap; gap: 0; background: rgba(8, 8, 8, 0.95); border-radius: 40px; border: 1px solid #151515; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.9); backdrop-filter: blur(15px);">
             
-            <div style="flex: 1; min-width: 100%; lg-min-width: 320px; padding: clamp(20px, 5vw, 40px); background: rgba(5, 5, 5, 0.4); box-sizing: border-box;">
-                <h4 style="color: #00aaff; text-transform: uppercase; font-size: 12px; letter-spacing: 2px; margin-bottom: 25px; font-weight: 800;">Available Units</h4>
-                <ul id="machine-list" style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px;">
-                    </ul>
+            <div id="list-side" style="flex: 1; min-width: 300px; padding: clamp(20px, 5vw, 40px); background: rgba(5, 5, 5, 0.4);">
+                <h4 style="color: #00aaff; text-transform: uppercase; font-size: 13px; letter-spacing: 2px; margin-bottom: 30px; font-weight: 800;">Available Units</h4>
+                <ul id="machine-list" style="list-style: none; padding: 0; margin: 0;">
+                    <li onclick="showMachine(0)" style="padding: 22px; color: #fff; background: #111; border-radius: 18px; margin-bottom: 12px; cursor: pointer; border-left: 6px solid #00aaff; transition: 0.3s; font-weight: 700;">Aluminum Extrusion Press</li>
+                    <li onclick="showMachine(1)" style="padding: 22px; color: #666; background: transparent; border-radius: 18px; margin-bottom: 12px; cursor: pointer; border-left: 6px solid transparent; transition: 0.3s;" onmouseover="this.style.color='#fff'">Billet Heating Furnace</li>
+                    <li onclick="showMachine(2)" style="padding: 22px; color: #666; background: transparent; border-radius: 18px; margin-bottom: 12px; cursor: pointer; border-left: 6px solid transparent; transition: 0.3s;" onmouseover="this.style.color='#fff'">Aging Oven 20 Tons</li>
+                </ul>
             </div>
 
-            <div class="divider" style="width: 100%; height: 2px; background: linear-gradient(90deg, transparent, #00aaff, transparent);"></div>
+            <div class="mavi-cizgi" style="background: linear-gradient(180deg, transparent, #00aaff, transparent);"></div>
 
-            <div id="machine-details" style="flex: 4; min-width: 100%; padding: clamp(20px, 5vw, 60px); box-sizing: border-box;">
-                <div style="display: flex; flex-direction: column; lg-flex-direction: row; gap: clamp(30px, 5vw, 60px);">
+            <div id="machine-details" style="flex: 4; min-width: 300px; padding: clamp(20px, 6vw, 60px);">
+                <div id="detail-flex-container" style="display: flex; flex-wrap: wrap; gap: clamp(30px, 5vw, 60px);">
                     
-                    <div style="width: 100%; max-width: 800px; margin: 0 auto;">
-                        <div style="position: relative; width: 100%; aspect-ratio: 16/10; background: #000; border-radius: clamp(15px, 3vw, 30px); overflow: hidden; border: 1px solid #222; cursor: pointer;" onclick="openMachineLightbox()">
-                            <img id="detail-img" src="" style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;">
-                            <div style="position: absolute; top: 15px; right: 15px; background: rgba(0,0,0,0.6); color: #00aaff; padding: 10px; border-radius: 50%; border: 1px solid #00aaff;"><span class="material-icons" style="font-size: 20px;">fullscreen</span></div>
+                    <div id="image-container-side" style="flex: 1.3; min-width: 280px;">
+                        <div style="position: relative; width: 100%; aspect-ratio: 16/10; background: #000; border-radius: 30px; overflow: hidden; border: 1px solid #222; cursor: pointer;" onclick="openMachineLightbox()">
+                            <img id="detail-img" src="press1.jpg" style="width: 100%; height: 100%; object-fit: cover; transition: 0.5s;">
+                            <div style="position: absolute; top: 20px; right: 20px; background: rgba(0,0,0,0.6); color: #00aaff; padding: 12px; border-radius: 50%; border: 1px solid #00aaff;"><span class="material-icons">fullscreen</span></div>
                         </div>
-                        
-                        <div id="thumb-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px;">
-                            </div>
+                        <div id="thumb-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-top: 20px;"></div>
                     </div>
 
-                    <div style="width: 100%;">
-                        <h3 id="detail-title" style="color: #fff; font-size: clamp(24px, 5vw, 42px); font-weight: 800; margin: 0 0 10px 0; letter-spacing: -1px;"></h3>
-                        <div id="status-container" style="display: flex; align-items: center; gap: 10px; margin-bottom: 30px;">
-                            <div style="width: 10px; height: 10px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88;"></div>
-                            <span style="color: #00ff88; font-weight: 800; text-transform: uppercase; font-size: 11px; letter-spacing: 1px;">In Stock / Ready</span>
+                    <div id="info-side" style="flex: 1; min-width: 280px;">
+                        <h3 id="detail-title" style="color: #fff; font-size: clamp(28px, 5vw, 42px); font-weight: 800; margin: 0 0 10px 0; letter-spacing: -1.5px;">Aluminium Extrusion Press</h3>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 35px;">
+                            <div style="width: 12px; height: 12px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 12px #00ff88;"></div>
+                            <span style="color: #00ff88; font-weight: 800; text-transform: uppercase; font-size: 12px; letter-spacing: 1px;">In Stock / Ready</span>
                         </div>
                         
-                        <div style="background: #0c0c0c; padding: clamp(20px, 4vw, 40px); border-radius: 25px; border: 1px solid #1a1a1a; margin-bottom: 30px;">
-                            <h5 style="color: #fff; margin: 0 0 20px 0; font-size: 14px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 15px;">Technical Specifications</h5>
-                            <div id="tech-specs" style="display: grid; gap: 15px; margin-bottom: 25px;"></div>
-
-                            <h5 style="color: #00aaff; margin: 25px 0 10px 0; font-size: 13px; text-transform: uppercase; font-weight: 800;">Expert Evaluation:</h5>
-                            <p id="detail-description" style="color: #888; font-size: 15px; line-height: 1.7; margin: 0;"></p>
+                        <div style="background: #0c0c0c; padding: clamp(20px, 4vw, 40px); border-radius: 30px; border: 1px solid #1a1a1a; margin-bottom: 30px;">
+                            <h5 style="color: #fff; margin: 0 0 25px 0; font-size: 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #222; padding-bottom: 15px;">Technical Specifications</h5>
+                            <div id="tech-specs" style="display: grid; gap: 18px; margin-bottom: 30px;"></div>
+                            <h5 style="color: #00aaff; margin: 30px 0 15px 0; font-size: 14px; text-transform: uppercase; font-weight: 800;">Expert Evaluation:</h5>
+                            <p id="detail-description" style="color: #888; font-size: 16px; line-height: 1.8; margin: 0;"></p>
                         </div>
 
-                        <a href="#contact" style="display: block; text-align: center; background: #00aaff; color: #fff; padding: 20px; border-radius: 15px; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 15px 30px rgba(0,170,255,0.25);">Get Quote & Information</a>
+                        <a href="#contact" style="display: block; text-align: center; background: #00aaff; color: #fff; padding: 24px; border-radius: 20px; text-decoration: none; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 20px 40px rgba(0,170,255,0.25);">Get Quote & Information</a>
                     </div>
                 </div>
             </div>
@@ -1079,24 +1079,33 @@
     </div>
 
     <style>
-        @media (min-width: 1024px) {
-            #used-machines-section .divider { width: 2px !important; height: auto !important; background: linear-gradient(180deg, transparent, #00aaff, transparent) !important; align-self: stretch; }
-            #used-machines-section > div > div { flex-wrap: nowrap !important; }
-            #machine-details > div { flex-direction: row !important; }
-            #machine-list { min-width: 320px !important; }
+        .mavi-cizgi { width: 2px; align-self: stretch; }
+        
+        @media (max-width: 1024px) {
+            .mavi-cizgi { 
+                width: 100%; 
+                height: 2px; 
+                background: linear-gradient(90deg, transparent, #00aaff, transparent) !important; 
+            }
+            #main-panel { border-radius: 25px; }
+            #machine-details { padding: 30px 20px !important; }
+        }
+
+        @media (max-width: 600px) {
+            #thumb-container { grid-template-columns: repeat(3, 1fr) !important; }
+            .mavi-cizgi { display: none; } /* Küçük ekranlarda çok kalabalık yapmasın */
         }
     </style>
 </section>
 
 <div id="m-lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.98); z-index:99999; justify-content:center; align-items:center;">
-    <span onclick="closeMLightbox()" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer;">&times;</span>
-    <button onclick="mSlide(-1)" style="position:absolute; left:15px; background:none; border:none; color:#fff; font-size:40px; cursor:pointer;">&#10094;</button>
-    <img id="m-fullImg" src="" style="max-width:95%; max-height:80%; border-radius:10px;">
-    <button onclick="mSlide(1)" style="position:absolute; right:15px; background:none; border:none; color:#fff; font-size:40px; cursor:pointer;">&#10095;</button>
+    <span onclick="closeMLightbox()" style="position:absolute; top:30px; right:40px; color:#fff; font-size:clamp(40px, 8vw, 60px); cursor:pointer;">&times;</span>
+    <button onclick="mSlide(-1)" style="position:absolute; left:20px; background:none; border:none; color:#fff; font-size:clamp(40px, 8vw, 60px); cursor:pointer;">&#10094;</button>
+    <img id="m-fullImg" src="" style="max-width:90%; max-height:85%; border-radius:15px; border: 1px solid #333;">
+    <button onclick="mSlide(1)" style="position:absolute; right:20px; background:none; border:none; color:#fff; font-size:clamp(40px, 8vw, 60px); cursor:pointer;">&#10095;</button>
 </div>
 
 <script>
-    // JS Mantığı aynı, sadece init kısmında listeyi temiz ve mobil uyumlu basıyoruz
     const inventory = [
         { 
             title: "Aluminum Extrusion Press", 
@@ -1106,58 +1115,46 @@
         },
         { 
             title: "Billet Heating Furnace", 
-            gallery: ["furnace5.jpg", "furnace9.jpg", "furnace4.jpg", "furnace6.jpg", "furnace1.jpg"],
+            gallery: ["furnace1.jpg", "furnace2.jpg"],
             specs: { "Capacity": "2500 kg/h", "Year": "2015", "Type": "Gas Fired" },
-            desc: "Energy efficient burners and high-grade insulation. Advanced PLC control system."
+            desc: "Energy efficient burners and high-grade insulation. Advanced PLC control system for precise temperature management."
         },
         { 
             title: "Aging Oven 20 Tons", 
-            gallery: ["furnace5.jpg", "furnace9.jpg", "furnace4.jpg", "furnace6.jpg", "furnace1.jpg"],
-            specs: { "Capacity": "2500 kg/h", "Year": "2015", "Type": "Gas Fired" },
-            desc: "Energy efficient burners and high-grade insulation. Advanced PLC control system."
+            gallery: ["furnace1.jpg", "furnace4.jpg", "furnace6.jpg"],
+            specs: { "Capacity": "20 Tons", "Year": "2018", "Heat Source": "Electric/Gas" },
+            desc: "Designed for high-capacity industrial aging. Uniform heat distribution with advanced air circulation technology."
         }
     ];
 
     let currentM = 0;
     let currentP = 0;
 
-    function initList() {
-        const list = document.getElementById('machine-list');
-        list.innerHTML = '';
-        inventory.forEach((m, i) => {
-            const li = document.createElement('li');
-            li.innerText = m.title;
-            li.style.cssText = "padding:18px; color:#666; background:transparent; border-radius:12px; cursor:pointer; border-left:5px solid transparent; transition:0.3s; font-weight:600; font-size:14px; list-style:none;";
-            li.onclick = () => showMachine(i);
-            list.appendChild(li);
-        });
-        showMachine(0);
-    }
-
     function showMachine(idx) {
         currentM = idx;
         currentP = 0;
         const m = inventory[idx];
+        
         document.getElementById('detail-title').innerText = m.title;
         document.getElementById('detail-img').src = m.gallery[0];
         document.getElementById('detail-description').innerText = m.desc;
 
         let specHtml = '';
         for (let s in m.specs) {
-            specHtml += `<div style="display:flex; justify-content:space-between; font-size:14px;"><span style="color:#666">${s}:</span><span style="color:#fff; font-weight:600">${m.specs[s]}</span></div>`;
+            specHtml += `<div style="display:flex; justify-content:space-between; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05);"><span style="color:#666">${s}:</span><span style="color:#fff; font-weight:600">${m.specs[s]}</span></div>`;
         }
         document.getElementById('tech-specs').innerHTML = specHtml;
 
         let thumbHtml = '';
         m.gallery.forEach((pic, pIdx) => {
-            thumbHtml += `<div onclick="changePhoto(event, ${pIdx})" style="aspect-ratio:1/1; background:url('${pic}') center/cover; border-radius:10px; border:2px solid ${pIdx===0?'#00aaff':'#222'}; cursor:pointer; opacity:${pIdx===0?'1':'0.5'}; transition:0.3s;"></div>`;
+            thumbHtml += `<div onclick="changePhoto(event, ${pIdx})" style="aspect-ratio:1/1; background:url('${pic}') center/cover; border-radius:12px; border:2px solid ${pIdx===0?'#00aaff':'#222'}; cursor:pointer; opacity:${pIdx===0?'1':'0.5'}; transition:0.3s;"></div>`;
         });
         document.getElementById('thumb-container').innerHTML = thumbHtml;
 
         const items = document.querySelectorAll('#machine-list li');
         items.forEach((li, i) => {
             li.style.background = (i===idx) ? "#111" : "transparent";
-            li.style.borderLeft = (i===idx) ? "5px solid #00aaff" : "5px solid transparent";
+            li.style.borderLeft = (i===idx) ? "6px solid #00aaff" : "6px solid transparent";
             li.style.color = (i===idx) ? "#fff" : "#666";
         });
     }
@@ -1184,8 +1181,9 @@
         document.getElementById('m-fullImg').src = photos[currentP];
     }
 
-    window.onload = initList;
+    window.onload = () => showMachine(0);
 </script>
+    
 </section>
     <section id="news">
     <div class="products-title-box">
