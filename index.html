@@ -1029,7 +1029,7 @@
     <div style="position: relative; z-index: 2; max-width: 95%; margin: 0 auto;">
         
         <div style="width: fit-content; margin: 0 auto 70px auto; padding: 18px 50px; background: #0a0a0a; border-radius: 12px; border: 1px solid #1a1a1a; box-shadow: 0 15px 35px rgba(0,0,0,0.9); text-align: center;">
-            <h2 style="color: #fff; font-size: 28px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 3px;">Used Machines Inventory</h2>
+            <h2 style="color: #fff; font-size: 28px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 3px;">Used Machines</h2>
             <div style="width: 40px; height: 3px; background: #00aaff; margin: 12px auto 0; border-radius: 2px;"></div>
         </div>
 
@@ -1094,17 +1094,24 @@
 <script>
     const inventory = [
         { 
-            title: "Aluminum Extrusion Press", 
+            title: "Aluminium Extrusion Press", 
             gallery: ["prees.jpg", "press2.jpg", "press3.jpg", "press4.jpg"],
             specs: { "Capacity": "1800 UST", "Year": "2012", "Billet": "7 inch" },
             desc: "This machine has been fully maintained. All hydraulic systems were overhauled in 2021. Excellent condition for immediate production."
         },
         { 
             title: "Billet Heating Furnace", 
-            gallery: ["furnace1.jpg", "furnace2.jpg"],
+            gallery: ["furnace1.jpg", "furnace2.jpg", "furnace5.jpg"],
             specs: { "Capacity": "2500 kg/h", "Year": "2015", "Type": "Gas Fired" },
             desc: "Energy efficient burners and high-grade insulation. Advanced PLC control system for precise temperature management."
-        }
+        },
+ { 
+            title: "Aging Oven 20 Tons", 
+            gallery: ["furnace4.jpg", "furnace6.jpg"],
+            specs: { "Capacity": "2500 kg/h", "Year": "2015", "Type": "Gas Fired" },
+            desc: "Energy efficient burners and high-grade insulation. Advanced PLC control system for precise temperature management."
+        },
+
     ];
 
     let currentM = 0;
