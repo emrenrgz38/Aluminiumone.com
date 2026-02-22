@@ -1253,12 +1253,12 @@
 
 <script>
     // Görsel Havuzu
-    const images = ["pres1.jpg", "pres2.jpg", "pres3.jpg", "pres4.jpg", "extra1.jpg", "extra2.jpg"];
+    const images = ["baski.jpg", "pres2.jpg", "pres3.jpg", "pres4.jpg", "extra1.jpg", "extra2.jpg"];
     let currentIdx = 0;
 
     // 1. Kutu İçinde Otomatik Değiştirme (3 saniyede bir)
     setInterval(() => {
-        const ids = ["img1", "img2", "img3", "img4"];
+        const ids = ["baski", "img2", "img3", "img4"];
         ids.forEach(id => {
             const randomImg = images[Math.floor(Math.random() * images.length)];
             document.getElementById(id).style.opacity = 0;
