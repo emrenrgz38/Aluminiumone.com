@@ -1261,11 +1261,15 @@
         const ids = ["img1", "img2", "img3", "img4"];
         ids.forEach(id => {
             const randomImg = images[Math.floor(Math.random() * images.length)];
-            document.getElementById(id).style.opacity = 0;
-            setTimeout(() => {
-                document.getElementById(id).src = randomImg;
-                document.getElementById(id).style.opacity = 1;
-            }, 1000);
+            const imgElement = document.getElementById(id);
+            
+            if (imgElement) {
+                imgElement.style.opacity = 0;
+                setTimeout(() => {
+                    imgElement.src = randomImg;
+                    imgElement.style.opacity = 1;
+                }, 1000);
+            }
         });
     }, 4000);
 
