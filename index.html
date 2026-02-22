@@ -1021,7 +1021,88 @@
 
     </div>
 </section>
-   
+   <section id="used-machines-section" style="padding: 100px 20px; background: #000; font-family: 'Segoe UI', sans-serif;">
+    <div style="max-width: 1500px; margin: 0 auto;">
+        
+        <div style="width: fit-content; margin: 0 auto 70px auto; padding: 18px 50px; background: #0a0a0a; border-radius: 12px; border: 1px solid #1a1a1a; box-shadow: 0 15px 35px rgba(0,0,0,0.9); text-align: center;">
+            <h2 style="color: #fff; font-size: 28px; font-weight: 800; margin: 0; text-transform: uppercase; letter-spacing: 3px;">Used Machines</h2>
+            <div style="width: 40px; height: 3px; background: #00aaff; margin: 12px auto 0; border-radius: 2px;"></div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; background: #080808; border-radius: 30px; border: 1px solid #151515; padding: 20px; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+            
+            <div style="flex: 1; min-width: 250px; border-right: 1px solid #1a1a1a; padding-right: 20px;">
+                <h4 style="color: #00aaff; text-transform: uppercase; font-size: 14px; letter-spacing: 2px; margin-bottom: 20px; padding-left: 10px;">Inventory List</h4>
+                <ul id="machine-list" style="list-style: none; padding: 0; margin: 0;">
+                    <li onclick="showMachine(0)" style="padding: 15px; color: #fff; background: #111; border-radius: 10px; margin-bottom: 10px; cursor: pointer; border-left: 4px solid #00aaff; transition: 0.3s;">Aluminum Extrusion Press</li>
+                    <li onclick="showMachine(1)" style="padding: 15px; color: #aaa; background: #050505; border-radius: 10px; margin-bottom: 10px; cursor: pointer; border-left: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="if(this.dataset.active!='true')this.style.color='#aaa'">Billet Heating Furnace</li>
+                    <li onclick="showMachine(2)" style="padding: 15px; color: #aaa; background: #050505; border-radius: 10px; margin-bottom: 10px; cursor: pointer; border-left: 4px solid transparent; transition: 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="if(this.dataset.active!='true')this.style.color='#aaa'">Aging Oven 20 Tons</li>
+                </ul>
+            </div>
+
+            <div id="machine-details" style="flex: 3; min-width: 350px; padding: 10px;">
+                <div style="display: flex; flex-wrap: wrap; gap: 40px;">
+                    
+                    <div style="flex: 1; min-width: 300px;">
+                        <div style="width: 100%; aspect-ratio: 4/3; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222;">
+                            <img id="detail-img" src="machine1.jpg" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 15px;">
+                            <div style="aspect-ratio: 1/1; background: #111; border-radius: 8px; border: 1px solid #333;"></div>
+                            <div style="aspect-ratio: 1/1; background: #111; border-radius: 8px; border: 1px solid #333;"></div>
+                            <div style="aspect-ratio: 1/1; background: #111; border-radius: 8px; border: 1px solid #333;"></div>
+                            <div style="aspect-ratio: 1/1; background: #111; border-radius: 8px; border: 1px solid #333;"></div>
+                        </div>
+                    </div>
+
+                    <div style="flex: 1.2;">
+                        <h3 id="detail-title" style="color: #fff; font-size: 28px; margin-top: 0;">Aluminum Extrusion Press</h3>
+                        <p style="color: #00aaff; font-weight: 700; text-transform: uppercase; font-size: 14px;">In Stock - Ready to Ship</p>
+                        
+                        <div style="margin: 30px 0; background: #040404; padding: 25px; border-radius: 20px; border: 1px solid #111;">
+                            <table style="width: 100%; color: #ccc; font-size: 15px; border-collapse: collapse;">
+                                <tr style="border-bottom: 1px solid #1a1a1a;"><td style="padding: 10px 0; font-weight: 700; color: #fff;">Capacity:</td><td>1800 UST</td></tr>
+                                <tr style="border-bottom: 1px solid #1a1a1a;"><td style="padding: 10px 0; font-weight: 700; color: #fff;">Year:</td><td>2012 (Retrofit 2021)</td></tr>
+                                <tr style="border-bottom: 1px solid #1a1a1a;"><td style="padding: 10px 0; font-weight: 700; color: #fff;">Billet Size:</td><td>7 inch</td></tr>
+                                <tr><td style="padding: 10px 0; font-weight: 700; color: #fff;">Condition:</td><td>Excellent / Working</td></tr>
+                            </table>
+                        </div>
+
+                        <a href="#contact" style="display: inline-block; background: #00aaff; color: #fff; padding: 18px 40px; border-radius: 15px; text-decoration: none; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px rgba(0,170,255,0.3);">Get Offer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const machineData = [
+            { title: "Aluminum Extrusion Press", img: "machine1.jpg", year: "2012", cap: "1800 UST", billet: "7 inch" },
+            { title: "Billet Heating Furnace", img: "machine2.jpg", year: "2015", cap: "2500 kg/h", billet: "Multiple" },
+            { title: "Aging Oven 20 Tons", img: "machine3.jpg", year: "2018", cap: "20.000 kg", billet: "N/A" }
+        ];
+
+        function showMachine(index) {
+            const m = machineData[index];
+            document.getElementById('detail-title').innerText = m.title;
+            document.getElementById('detail-img').src = m.img;
+            // Diğer bilgileri de benzer şekilde güncelleyebilirsin
+            
+            const listItems = document.querySelectorAll('#machine-list li');
+            listItems.forEach((li, i) => {
+                if(i === index) {
+                    li.style.background = "#111";
+                    li.style.color = "#fff";
+                    li.style.borderLeft = "4px solid #00aaff";
+                } else {
+                    li.style.background = "#050505";
+                    li.style.color = "#aaa";
+                    li.style.borderLeft = "4px solid transparent";
+                }
+            });
+        }
+    </script>
+</section>
     <section id="news">
     <div class="products-title-box">
         <h2 class="section-title" style="margin-bottom: 0; color: #00aaff; font-size: 2rem;">ONE's NEWS</h2>
