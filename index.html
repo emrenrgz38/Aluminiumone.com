@@ -1159,7 +1159,7 @@
         </div>
     </section>
     <section id="contact">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <section id="contact" style="padding: 100px 20px; background: #000; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <div style="max-width: 1400px; margin: 0 auto;">
@@ -1178,17 +1178,17 @@
                 </div>
                 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 35px;">
-                    <div style="aspect-ratio: 1/1; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222;">
-                        <img src="pres1.jpg" style="width:100%; height:100%; object-fit:cover;">
+                    <div class="live-box" onclick="openFull(0)" style="aspect-ratio: 1/1; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222; cursor: pointer; position: relative;">
+                        <img id="img1" src="pres1.jpg" style="width:100%; height:100%; object-fit:cover; transition: 1s ease-in-out;">
                     </div>
-                    <div style="aspect-ratio: 1/1; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222;">
-                        <img src="pres2.jpg" style="width:100%; height:100%; object-fit:cover;">
+                    <div class="live-box" onclick="openFull(1)" style="aspect-ratio: 1/1; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222; cursor: pointer;">
+                        <img id="img2" src="pres2.jpg" style="width:100%; height:100%; object-fit:cover; transition: 1s ease-in-out;">
                     </div>
-                    <div style="aspect-ratio: 1/1; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222;">
-                        <img src="pres3.jpg" style="width:100%; height:100%; object-fit:cover;">
+                    <div class="live-box" onclick="openFull(2)" style="aspect-ratio: 1/1; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222; cursor: pointer;">
+                        <img id="img3" src="pres3.jpg" style="width:100%; height:100%; object-fit:cover; transition: 1s ease-in-out;">
                     </div>
-                    <div style="aspect-ratio: 1/1; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222;">
-                        <img src="pres4.jpg" style="width:100%; height:100%; object-fit:cover;">
+                    <div class="live-box" onclick="openFull(3)" style="aspect-ratio: 1/1; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #222; cursor: pointer;">
+                        <img id="img4" src="pres4.jpg" style="width:100%; height:100%; object-fit:cover; transition: 1s ease-in-out;">
                     </div>
                 </div>
 
@@ -1204,7 +1204,7 @@
                 </div>
                 
                 <div style="width: 100%; height: 280px; background: #111; border-radius: 20px; overflow: hidden; margin-bottom: 35px; border: 1px solid #222; box-shadow: inset 0 0 20px #000;">
-                    <iframe src="http://googleusercontent.com/maps.google.com/3" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.51652391696!2d29.3000!3d40.8500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDUxJzAwLjAiTiAyOcKwMTgnMDAuMCJF!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str" width="100%" height="100%" style="border:0; contrast(1.2);" allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
                 <div style="background: #040404; padding: 30px; border-radius: 20px; border: 1px solid #111;">
@@ -1240,9 +1240,51 @@
                     </button>
                 </form>
             </div>
-
         </div>
     </div>
+</section>
+
+<div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; justify-content:center; align-items:center;">
+    <span onclick="closeFull()" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer;">&times;</span>
+    <button onclick="changeImg(-1)" style="position:absolute; left:20px; background:none; border:none; color:#fff; font-size:50px; cursor:pointer;">&#10094;</button>
+    <img id="fullImg" src="" style="max-width:90%; max-height:80%; border:2px solid #333; border-radius:10px;">
+    <button onclick="changeImg(1)" style="position:absolute; right:20px; background:none; border:none; color:#fff; font-size:50px; cursor:pointer;">&#10095;</button>
+</div>
+
+<script>
+    // Görsel Havuzu
+    const images = ["pres1.jpg", "pres2.jpg", "pres3.jpg", "pres4.jpg", "extra1.jpg", "extra2.jpg"];
+    let currentIdx = 0;
+
+    // 1. Kutu İçinde Otomatik Değiştirme (3 saniyede bir)
+    setInterval(() => {
+        const ids = ["img1", "img2", "img3", "img4"];
+        ids.forEach(id => {
+            const randomImg = images[Math.floor(Math.random() * images.length)];
+            document.getElementById(id).style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById(id).src = randomImg;
+                document.getElementById(id).style.opacity = 1;
+            }, 1000);
+        });
+    }, 4000);
+
+    // 2. Tıklayınca Büyük Açma ve Kaydırma
+    function openFull(index) {
+        currentIdx = index;
+        document.getElementById("fullImg").src = document.getElementById("img" + (index + 1)).src;
+        document.getElementById("lightbox").style.display = "flex";
+    }
+
+    function closeFull() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+
+    function changeImg(step) {
+        currentIdx = (currentIdx + step + images.length) % images.length;
+        document.getElementById("fullImg").src = images[currentIdx];
+    }
+</script>
 </section>
         
     <a href="https://wa.me/905433838060" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
