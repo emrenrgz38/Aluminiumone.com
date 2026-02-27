@@ -1141,32 +1141,21 @@
         currentM = idx;
         currentP = 0;
         const m = inventory[idx];
-        
         document.getElementById('detail-title').innerText = m.title;
         document.getElementById('detail-img').src = m.gallery[0];
         document.getElementById('detail-description').innerText = m.desc;
 
-        // Specs Tablosu
         let specHtml = '';
         for (let s in m.specs) {
-            specHtml += `<div style="display:flex; justify-content:space-between;"><span style="color:#666">${s}:</span><span style="color:#fff; font-weight:600">${m.specs[s]}</span></div>`;
+            specHtml += `<div style="display:flex; justify-content:space-between; border-bottom:1px solid #1a1a1a; padding-bottom:8px;"><span style="color:#666">${s}:</span><span style="color:#fff; font-weight:600">${m.specs[s]}</span></div>`;
         }
         document.getElementById('tech-specs').innerHTML = specHtml;
 
-        // Küçük Resimler (Her ürünün kendi resimleri)
         let thumbHtml = '';
         m.gallery.forEach((pic, pIdx) => {
-            thumbHtml += `<div onclick="changePhoto(event, ${pIdx})" style="aspect-ratio:1/1; background:url('${pic}') center/cover; border-radius:12px; border:2px solid ${pIdx===0?'#00aaff':'#222'}; cursor:pointer; opacity:${pIdx===0?'1':'0.5'}; transition:0.3s;"></div>`;
+            thumbHtml += `<div onclick="changePhoto(event, ${pIdx})" style="aspect-ratio:1/1; background:url('${pic}') center/cover; border-radius:10px; border:2px solid ${pIdx===0?'#00aaff':'#222'}; cursor:pointer; opacity:${pIdx===0?'1':'0.5'}; transition:0.3s;"></div>`;
         });
         document.getElementById('thumb-container').innerHTML = thumbHtml;
-
-        // Sol Liste Aktiflik
-        const items = document.querySelectorAll('#machine-list li');
-        items.forEach((li, i) => {
-            li.style.background = (i===idx) ? "#111" : "transparent";
-            li.style.borderLeft = (i===idx) ? "6px solid #00aaff" : "6px solid transparent";
-            li.style.color = (i===idx) ? "#fff" : "#666";
-        });
     }
 
     function changePhoto(e, pIdx) {
