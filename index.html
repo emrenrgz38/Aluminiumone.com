@@ -1324,61 +1324,90 @@
         </div>
     </section>
     
-   <section id="contact" style="width: 100vw; min-height: 100vh; background: #000; overflow: hidden; display: flex; flex-direction: column;">
+   <section id="contact" style="width: 100%; min-height: 100vh; background: #000; padding: 0; margin: 0; display: flex; flex-direction: column;">
     
-    <div style="width: 100%; border-left: 20px solid #00aaff; padding: 60px 80px; background: #000;">
-        <h2 style="font-size: 100px; font-weight: 950; text-transform: uppercase; letter-spacing: -8px; line-height: 0.8; margin: 0; color: #fff;">Contact Us</h2>
-        <p style="color: #444; text-transform: uppercase; letter-spacing: 10px; font-size: 14px; margin-top: 20px; font-weight: 900;">Global Infrastructure | 4-Block System</p>
+    <div style="border-left: 20px solid #00aaff; padding: 80px 5%; background: #000;">
+        <h2 style="font-size: clamp(50px, 10vw, 110px); font-weight: 950; text-transform: uppercase; letter-spacing: -6px; line-height: 0.8; margin: 0; color: #fff;">Contact</h2>
+        <p style="color: #444; text-transform: uppercase; letter-spacing: 8px; font-size: 14px; margin-top: 25px; font-weight: 900;">Global 4-Quadrant Infrastructure</p>
     </div>
 
-    <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #1a1a1a;">
+    <style>
+        .quad-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* SOL 2 - SAĞ 2 */
+            grid-template-rows: auto auto;   /* ÜST 2 - ALT 2 */
+            gap: 2px;
+            background: #1a1a1a;
+            width: 100%;
+            flex: 1;
+        }
+        @media (max-width: 992px) {
+            .quad-grid { grid-template-columns: 1fr; grid-template-rows: auto; } /* MOBİL UYUM */
+        }
+        .quad-box { background: #050505; min-height: 500px; padding: 60px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+        .quad-input { background: #000; border: 1px solid #222; padding: 20px; color: #fff; font-weight: 900; font-size: 12px; border-radius: 0; outline: none; margin-bottom: 15px; }
+        .quad-input:focus { border-color: #00aaff; }
+    </style>
+
+    <div class="quad-grid">
         
-        <div style="background: #050505; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;">
+        <div class="quad-box" style="justify-content: flex-end;">
             <div style="position: absolute; top:0; left:0; width:100%; height:100%; z-index:1;">
-                <img src="prees.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.7;">
+                <img src="prees.jpg" style="width:100%; height:100%; object-fit:cover; opacity:0.5;">
             </div>
             <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, transparent, #000); z-index:2;"></div>
-            <div style="position: relative; z-index:3; padding: 60px;">
-                <h4 style="font-size: 28px; font-weight: 950; text-transform: uppercase; color: #fff; letter-spacing: 3px;">01 / Assets</h4>
+            <div style="position: relative; z-index:3;">
+                <span style="color: #00aaff; font-size: 12px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase;">01 / Gallery</span>
+                <h4 style="font-size: 32px; font-weight: 950; text-transform: uppercase; color: #fff; margin-top: 15px;">Asset Vizyon</h4>
             </div>
         </div>
 
-        <div style="background: #0a0a0a; padding: 80px 60px; display: flex; flex-direction: column; justify-content: center;">
-            <h4 style="font-size: 28px; font-weight: 950; text-transform: uppercase; color: #fff; letter-spacing: 3px; margin-bottom: 40px;">02 / Inquiry</h4>
-            <form style="display: flex; flex-direction: column; gap: 20px;">
-                <input type="text" placeholder="NAME / COMPANY" style="background: #000; border: 1px solid #222; padding: 20px; color: #fff; font-weight: 900; font-size: 12px; border-radius:0;">
-                <input type="email" placeholder="EMAIL ADDRESS" style="background: #000; border: 1px solid #222; padding: 20px; color: #fff; font-weight: 900; font-size: 12px; border-radius:0;">
-                <textarea placeholder="PROJECT BRIEF" rows="4" style="background: #000; border: 1px solid #222; padding: 20px; color: #fff; font-weight: 900; font-size: 12px; border-radius:0; resize:none;"></textarea>
-                
-                <label style="border: 2px dashed #222; padding: 25px; text-align: center; cursor: pointer; background: #050505;">
-                    <span style="color: #444; font-size: 11px; font-weight: 950;">ADD TECHNICAL PROJECT (PDF)</span>
-                    <input type="file" style="display: none;">
-                </label>
-                
-                <button type="submit" style="background: #00aaff; color: #000; border: none; padding: 22px; font-weight: 950; text-transform: uppercase; letter-spacing: 4px; cursor: pointer;">Initialize Connection</button>
+        <div class="quad-box" style="background: #0a0a0a; justify-content: center;">
+            <span style="color: #00aaff; font-size: 12px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 40px;">02 / Connection</span>
+            <form action="mailto:one@aluminiumone.com" method="post" enctype="multipart/form-data">
+                <input type="text" placeholder="NAME / COMPANY" required class="quad-input" style="width: 100%;">
+                <input type="email" placeholder="CORPORATE EMAIL" required class="quad-input" style="width: 100%;">
+                <textarea placeholder="PROJECT BRIEF" rows="4" class="quad-input" style="width: 100%; resize: none;"></textarea>
+                <button type="submit" style="background: #fff; color: #000; border: none; padding: 22px; width: 100%; font-weight: 950; text-transform: uppercase; letter-spacing: 4px; cursor: pointer;">Send Proposal</button>
             </form>
         </div>
 
-        <div style="background: #050505; display: flex; flex-direction: column;">
-            <div style="flex: 1; filter: grayscale(1) invert(1) brightness(0.6);">
-                <iframe src="GOOGLE_MAPS_HEAD_OFFICE" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="quad-box" style="padding: 0;">
+            <div style="flex: 1; filter: grayscale(1) invert(1) brightness(0.7);">
+                <iframe src="GOOGLE_MAPS_LINK" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <div style="padding: 50px; background: #050505; border-top: 1px solid #1a1a1a;">
-                <h4 style="font-size: 24px; font-weight: 950; text-transform: uppercase; color: #fff; margin-bottom: 10px;">03 / Office</h4>
-                <p style="color: #444; font-size: 12px; font-weight: 900; letter-spacing: 1px;">Global Management Hub</p>
+                <span style="color: #00aaff; font-size: 12px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase;">03 / Office</span>
+                <h4 style="font-size: 24px; font-weight: 950; text-transform: uppercase; color: #fff; margin: 15px 0 5px;">Headquarters</h4>
+                <p style="color: #444; font-size: 13px; font-weight: 900; text-transform: uppercase; margin: 0;">[ SENİN ADRESİN BURAYA ]</p>
             </div>
         </div>
 
-        <div style="background: #0a0a0a; display: flex; flex-direction: column;">
-            <div style="flex: 1; filter: grayscale(1) invert(1) brightness(0.6);">
-                <iframe src="GOOGLE_MAPS_FACTORY" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <div class="quad-box" style="background: #0a0a0a; padding: 0;">
+            <div style="flex: 1; filter: grayscale(1) invert(1) brightness(0.7);">
+                <iframe src="GOOGLE_MAPS_LINK" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <div style="padding: 50px; background: #0a0a0a; border-top: 1px solid #1a1a1a;">
-                <h4 style="font-size: 24px; font-weight: 950; text-transform: uppercase; color: #fff; margin-bottom: 10px;">04 / Factory</h4>
-                <p style="color: #444; font-size: 12px; font-weight: 900; letter-spacing: 1px;">Machinery Production Center</p>
+                <span style="color: #00aaff; font-size: 12px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase;">04 / Factory</span>
+                <h4 style="font-size: 24px; font-weight: 950; text-transform: uppercase; color: #fff; margin: 15px 0 5px;">Production Base</h4>
+                <p style="color: #444; font-size: 13px; font-weight: 900; text-transform: uppercase; margin: 0;">[ SENİN ADRESİN BURAYA ]</p>
             </div>
         </div>
 
+    </div>
+
+    <div style="background: #000; padding: 80px 5%; border-top: 1px solid #1a1a1a; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 40px;">
+        <div style="display: flex; gap: 80px; flex-wrap: wrap;">
+            <div>
+                <span style="display:block; color: #222; font-size: 11px; font-weight: 950; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px;">Hotline</span>
+                <a href="tel:+905433838060" style="color: #fff; text-decoration: none; font-size: 32px; font-weight: 950; letter-spacing: -1px;">+90 543 383 80 60</a>
+            </div>
+            <div>
+                <span style="display:block; color: #222; font-size: 11px; font-weight: 950; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px;">Email</span>
+                <a href="mailto:one@aluminiumone.com" style="color: #fff; text-decoration: none; font-size: 32px; font-weight: 950; letter-spacing: -1px;">one@aluminiumone.com</a>
+            </div>
+        </div>
+        <div style="color: #111; font-weight: 950; letter-spacing: 15px; text-transform: uppercase; font-size: 28px;">ALUMINIUM ONE</div>
     </div>
 </section>
     <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; justify-content:center; align-items:center;">
