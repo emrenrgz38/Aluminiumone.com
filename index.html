@@ -1298,6 +1298,20 @@
     .card-content img { width: 100%; border-radius: 8px; margin-bottom: 15px; }
     .card-content p { color: #ccc; line-height: 1.6; margin: 0; }
 }
+
+    body, html { margin: 0; padding: 0; width: 100%; overflow-x: hidden; background: #000; color: #fff; font-family: 'Inter', sans-serif; }
+        
+        /* MOBİL UYUM VE GRID SİSTEMİ */
+        .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; min-height: 550px; }
+        @media (max-width: 1200px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { 
+            .contact-grid { grid-template-columns: 1fr; } 
+            .contact-col { border-right: none !important; border-bottom: 1px solid #ccc; padding: 40px 20px !important; }
+        }
+
+        /* GALERİ EFEKTLERİ */
+        .gallery-img { transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; filter: grayscale(0.5); }
+        .gallery-img:hover { filter: grayscale(0); transform: scale(1.08); }
 </style>
     
     <section id="references">
@@ -1323,71 +1337,55 @@
             <div class="logo-item"><img src="ref1.png" alt="Logo 1"></div>
         </div>
     </section>
-    <section id="contact" style="background: #f4f4f4; padding: 120px 0; font-family: 'Inter', sans-serif;">
+    <section id="contact" style="background: #f4f4f4; padding: 120px 0; color: #333;">
     <div style="max-width: 1750px; margin: 0 auto; padding: 0 40px;">
         
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; min-height: 550px; align-items: start;">
+        <div class="contact-grid">
             
-            <div style="padding-right: 40px; border-right: 1px solid #ccc; height: 100%;">
+            <div class="contact-col" style="padding-right: 40px; border-right: 1px solid #ccc;">
                 <h4 style="font-size: 22px; font-weight: 300; margin-bottom: 25px; border-left: 5px solid #00aaff; padding-left: 15px; color: #000; text-transform: uppercase; letter-spacing: 1px;">Photo Gallery</h4>
-                
                 <div id="gallery-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                    <div class="gallery-item" onclick="openLightbox(0)" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden; position: relative;">
-                        <img src="prees.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(1)" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
-                        <img src="termik.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(2)" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
-                        <img src="machine1.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
-                    </div>
-                    <div class="gallery-item" onclick="openLightbox(3)" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
-                        <img src="factory.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
-                    </div>
+                    <div class="gallery-item" onclick="openLightbox(0)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="prees.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="gallery-item" onclick="openLightbox(1)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="termik.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="gallery-item" onclick="openLightbox(2)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="machine1.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="gallery-item" onclick="openLightbox(3)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="factory.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
                 </div>
                 <p style="margin-top: 25px; font-size: 12px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Industrial Infrastructure Visualization</p>
             </div>
 
-            <div style="padding: 0 40px; border-right: 1px solid #ccc; height: 100%;">
+            <div class="contact-col" style="padding: 0 40px; border-right: 1px solid #ccc;">
                 <h4 style="font-size: 22px; font-weight: 300; margin-bottom: 20px; color: #000;">FACTORY</h4>
-                <p style="font-size: 12px; font-weight: 800; color: #555; margin-bottom: 20px; line-height: 1.8;">
-                    O.S.B. 9. CADDE NO:17<br>38070 KAYSERİ / TÜRKİYE
-                </p>
-                <div style="width: 100%; height: 260px; filter: grayscale(1) contrast(1.1); background: #ddd; border: 1px solid #eee;">
-                    <iframe src="MAP_LINK_1" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+                <p style="font-size: 11px; font-weight: 800; color: #555; margin-bottom: 20px; line-height: 1.8;">O.S.B. 9. CADDE NO:17<br>38070 KAYSERİ / TÜRKİYE</p>
+                <div style="width: 100%; height: 260px; filter: grayscale(1); border: 1px solid #eee;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.434444983088!2d35.347783!3d38.708891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152b1249231265dd%3A0xcf2e2018e99d6929!2sAluminium%20ONE!5e0!3m2!1str!2str!4v1710000000000" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
                 </div>
             </div>
 
-            <div style="padding: 0 40px; border-right: 1px solid #ccc; height: 100%;">
+            <div class="contact-col" style="padding: 0 40px; border-right: 1px solid #ccc;">
                 <h4 style="font-size: 22px; font-weight: 300; margin-bottom: 20px; color: #000;">Head Office</h4>
-                <p style="font-size: 12px; font-weight: 800; color: #555; margin-bottom: 20px; line-height: 1.8;">
-                    İstasyon Mah. Şehitler Cad. Eska Mare Sitesi A107 Blok No : 20 Tuzla<br>İSTANBUL / TÜRKİYE
-                </p>
-                <div style="width: 100%; height: 260px; filter: grayscale(1) contrast(1.1); background: #ddd; border: 1px solid #eee;">
-                    <iframe src="MAP_LINK_2" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+                <p style="font-size: 11px; font-weight: 800; color: #555; margin-bottom: 20px; line-height: 1.8;">İstasyon Mah. Şehitler Cad. Eska Mare Sitesi A107 Blok No : 20 Tuzla<br>İSTANBUL / TÜRKİYE</p>
+                <div style="width: 100%; height: 260px; filter: grayscale(1); border: 1px solid #eee;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.5165181818!2d29.3!3d40.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDDCsDQ4JzAwLjAiTiAyOcKwMTgnMDAuMCJF!5e0!3m2!1str!2str!4v1710000000000" width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
                 </div>
             </div>
 
-            <div style="padding-left: 40px;">
+            <div class="contact-col" style="padding-left: 40px;">
                 <h4 style="font-size: 22px; font-weight: 300; margin-bottom: 30px; color: #000;">Contact Us</h4>
                 <form style="display: flex; flex-direction: column; gap: 20px;">
-                    <input type="text" placeholder="NAME" style="background: transparent; border: none; border-bottom: 1px solid #aaa; padding: 12px 0; font-size: 12px; outline: none; font-weight: 700; color: #000;">
-                    <input type="email" placeholder="E-MAIL" style="background: transparent; border: none; border-bottom: 1px solid #aaa; padding: 12px 0; font-size: 12px; outline: none; font-weight: 700; color: #000;">
-                    <textarea placeholder="YOUR MESSAGE" rows="2" style="background: transparent; border: none; border-bottom: 1px solid #aaa; padding: 12px 0; font-size: 12px; outline: none; resize: none; font-weight: 700; color: #000;"></textarea>
-                    
+                    <input type="text" placeholder="NAME" style="background: transparent; border: none; border-bottom: 1px solid #aaa; padding: 10px 0; font-size: 12px; font-weight: 700; outline: none; color:#000;">
+                    <input type="email" placeholder="E-MAIL" style="background: transparent; border: none; border-bottom: 1px solid #aaa; padding: 10px 0; font-size: 12px; font-weight: 700; outline: none; color:#000;">
+                    <textarea placeholder="YOUR MESSAGE" rows="2" style="background: transparent; border: none; border-bottom: 1px solid #aaa; padding: 10px 0; font-size: 12px; outline: none; resize: none; font-weight: 700; color:#000;"></textarea>
                     <div style="margin-top: 15px; display: flex; align-items: center; justify-content: space-between;">
                         <a href="tel:+905433838060" style="color: #000; text-decoration: none; font-weight: 950; font-size: 18px; letter-spacing: -0.5px;">+90 543 383 80 60</a>
-                        <button type="submit" style="background: #000; color: #fff; border: none; padding: 15px 30px; font-size: 10px; font-weight: 900; text-transform: uppercase; cursor: pointer; letter-spacing: 2px;">SEND</button>
+                        <button type="submit" style="background: #000; color: #fff; border: none; padding: 15px 30px; font-size: 10px; font-weight: 900; text-transform: uppercase; cursor: pointer;">SEND</button>
                     </div>
                 </form>
-                
                 <div style="margin-top: 45px; display: flex; gap: 12px;">
                     <div style="width:34px; height:34px; border-radius:50%; border:1px solid #999; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; color:#333; cursor:pointer;">IN</div>
                     <div style="width:34px; height:34px; border-radius:50%; border:1px solid #999; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; color:#333; cursor:pointer;">IG</div>
                     <div style="width:34px; height:34px; border-radius:50%; border:1px solid #999; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; color:#333; cursor:pointer;">YT</div>
                 </div>
             </div>
-
         </div>
 
         <div style="margin-top: 100px; padding-top: 35px; border-top: 1px solid #ccc; display: flex; justify-content: space-between; font-size: 10px; font-weight: 900; color: #999; text-transform: uppercase; letter-spacing: 2px;">
@@ -1396,51 +1394,41 @@
         </div>
     </div>
 </section>
-
 <script>
-    let currentImgIdx = 0;
-    const allImages = document.querySelectorAll('.gallery-img');
+    let currentIdx = 0;
+    const galleryImages = document.querySelectorAll('.gallery-img');
 
     function openLightbox(index) {
-        currentImgIdx = index;
-        const imgSrc = allImages[currentImgIdx].src;
+        currentIdx = index;
+        const overlay = document.createElement('div');
+        overlay.id = "lb-overlay";
+        overlay.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; display:flex; align-items:center; justify-content:center; user-select:none;";
         
-        let overlay = document.createElement('div');
-        overlay.id = "active-lightbox";
-        overlay.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; display:flex; align-items:center; justify-content:center; cursor:default; user-select:none;";
-        
-        // Slider HTML yapısı (Oklar eklendi)
         overlay.innerHTML = `
-            <div onclick="changeImg(-1)" style="position:absolute; left:30px; color:#fff; font-size:60px; cursor:pointer; font-weight:100;">&#8249;</div>
-            <img id="lb-display-img" src="${imgSrc}" style="max-width:85%; max-height:85%; box-shadow: 0 0 50px rgba(0,0,0,0.8); border:1px solid #333;">
-            <div onclick="changeImg(1)" style="position:absolute; right:30px; color:#fff; font-size:60px; cursor:pointer; font-weight:100;">&#8250;</div>
-            <div onclick="closeLightbox()" style="position:absolute; top:30px; right:40px; color:#fff; font-size:40px; cursor:pointer;">&times;</div>
+            <div onclick="change(-1)" style="position:absolute; left:20px; color:#fff; font-size:60px; cursor:pointer; font-weight:100;">‹</div>
+            <img id="lb-img" src="${galleryImages[currentIdx].src}" style="max-width:85%; max-height:85%; border:1px solid #333; box-shadow: 0 0 50px rgba(0,0,0,0.5);">
+            <div onclick="change(1)" style="position:absolute; right:20px; color:#fff; font-size:60px; cursor:pointer; font-weight:100;">›</div>
+            <div onclick="closeLB()" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer;">×</div>
         `;
-
-        overlay.onclick = function(e) { if(e.target === overlay) closeLightbox(); };
         document.body.appendChild(overlay);
-        document.body.style.overflow = "hidden"; // Kaydırmayı engelle
+        document.body.style.overflow = "hidden";
     }
 
-    function changeImg(step) {
-        currentImgIdx = (currentImgIdx + step + allImages.length) % allImages.length;
-        document.getElementById('lb-display-img').src = allImages[currentImgIdx].src;
+    function change(step) {
+        currentIdx = (currentIdx + step + galleryImages.length) % galleryImages.length;
+        document.getElementById('lb-img').src = galleryImages[currentIdx].src;
     }
 
-    function closeLightbox() {
-        const lb = document.getElementById('active-lightbox');
-        if(lb) {
-            document.body.removeChild(lb);
-            document.body.style.overflow = "auto";
-        }
+    function closeLB() {
+        const lb = document.getElementById('lb-overlay');
+        if(lb) { document.body.removeChild(lb); document.body.style.overflow = "auto"; }
     }
 
-    // Klavye Desteği (ESC, Sağ, Sol)
-    document.addEventListener('keydown', function(e) {
-        if (!document.getElementById('active-lightbox')) return;
-        if (e.key === "ArrowRight") changeImg(1);
-        if (e.key === "ArrowLeft") changeImg(-1);
-        if (e.key === "Escape") closeLightbox();
+    document.addEventListener('keydown', (e) => {
+        if(!document.getElementById('lb-overlay')) return;
+        if(e.key === "ArrowRight") change(1);
+        if(e.key === "ArrowLeft") change(-1);
+        if(e.key === "Escape") closeLB();
     });
 </script>    
     <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; justify-content:center; align-items:center;">
