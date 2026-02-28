@@ -1300,18 +1300,22 @@
 }
 
     body, html { margin: 0; padding: 0; width: 100%; overflow-x: hidden; background: #000; color: #fff; font-family: 'Inter', sans-serif; }
-        
-        /* MOBİL UYUM VE GRID SİSTEMİ */
-        .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; min-height: 550px; }
-        @media (max-width: 1200px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { 
-            .contact-grid { grid-template-columns: 1fr; } 
-            .contact-col { border-right: none !important; border-bottom: 1px solid #ccc; padding: 40px 20px !important; }
-        }
+    
+    .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; min-height: 550px; }
+    
+    @media (max-width: 1200px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+    
+    @media (max-width: 768px) { 
+        .contact-grid { grid-template-columns: 1fr; } 
+        .contact-col { border-right: none !important; border-bottom: 1px solid #ccc; padding: 40px 20px !important; }
+    }
 
-        /* GALERİ EFEKTLERİ */
-        .gallery-img { transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; filter: grayscale(0.5); }
-        .gallery-img:hover { filter: grayscale(0); transform: scale(1.08); }
+    .gallery-img { transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1); cursor: pointer; filter: grayscale(0.5); }
+    .gallery-img:hover { filter: grayscale(0); transform: scale(1.08); }
+
+    /* 2. EKLEDİĞİMİZ 4 KUTU KURALI (TASARIMI BOZMAZ) */
+    .gallery-item { display: none; } /* Önce hepsini kapat */
+    .gallery-item:nth-child(-n+4) { display: block; } /* Sadece ilk 4'ü aç */
 </style>
     
     <section id="references">
@@ -1347,8 +1351,8 @@
                 <div id="gallery-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
                     <div class="gallery-item" onclick="openLightbox(0)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="prees.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
                     <div class="gallery-item" onclick="openLightbox(1)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="termik.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
-                    <div class="gallery-item" onclick="openLightbox(2)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="mstorage1.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
-                    <div class="gallery-item" onclick="openLightbox(3)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="quench-resim.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="gallery-item" onclick="openLightbox(2)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="storage1.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="gallery-item" onclick="openLightbox(3)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="furnace1.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
              <div class="gallery-item" onclick="openLightbox(3)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="quench-resim.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
              <div class="gallery-item" onclick="openLightbox(3)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="press3.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
              <div class="gallery-item" onclick="openLightbox(3)" style="aspect-ratio: 1; background: #000; overflow: hidden;"><img src="table1.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover;"></div>
@@ -1391,7 +1395,7 @@
                     <input type="email" placeholder="E-MAIL" style="background: transparent; border: none; border-bottom: 1px solid #aaa; padding: 10px 0; font-size: 12px; font-weight: 700; outline: none; color:#000;">
                     <textarea placeholder="YOUR MESSAGE" rows="2" style="background: transparent; border: none; border-bottom: 1px solid #aaa; padding: 10px 0; font-size: 12px; outline: none; resize: none; font-weight: 700; color:#000;"></textarea>
                     <div style="margin-top: 15px; display: flex; align-items: center; justify-content: space-between;">
-                        <a href="tel:+905433838060" style="color: #000; text-decoration: none; font-weight: 950; font-size: 18px; letter-spacing: -0.5px;">+90 543 383 80 60</a>
+                        
                         <button type="submit" style="background: #000; color: #fff; border: none; padding: 15px 30px; font-size: 10px; font-weight: 900; text-transform: uppercase; cursor: pointer;">SEND</button>
                     </div>
                 </form>
