@@ -1332,17 +1332,17 @@
                 <h4 style="font-size: 22px; font-weight: 300; margin-bottom: 25px; border-left: 5px solid #00aaff; padding-left: 15px; color: #000; text-transform: uppercase; letter-spacing: 1px;">Photo Gallery</h4>
                 
                 <div id="gallery-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-                    <div class="gallery-item" onclick="openLightbox('prees.jpg')" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden; position: relative;">
-                        <img src="prees.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+                    <div class="gallery-item" onclick="openLightbox(0)" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden; position: relative;">
+                        <img src="prees.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
                     </div>
-                    <div class="gallery-item" onclick="openLightbox('termik.jpg')" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
-                        <img src="termik.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+                    <div class="gallery-item" onclick="openLightbox(1)" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
+                        <img src="termik.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
                     </div>
-                    <div class="gallery-item" onclick="openLightbox('machine1.jpg')" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
-                        <img src="machine1.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+                    <div class="gallery-item" onclick="openLightbox(2)" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
+                        <img src="machine1.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
                     </div>
-                    <div class="gallery-item" onclick="openLightbox('factory.jpg')" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
-                        <img src="factory.jpg" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+                    <div class="gallery-item" onclick="openLightbox(3)" style="aspect-ratio: 1; background: #000; cursor: pointer; overflow: hidden;">
+                        <img src="factory.jpg" class="gallery-img" style="width:100%; height:100%; object-fit:cover; transition: 0.5s;" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
                     </div>
                 </div>
                 <p style="margin-top: 25px; font-size: 12px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Industrial Infrastructure Visualization</p>
@@ -1398,15 +1398,51 @@
 </section>
 
 <script>
-    function openLightbox(imgSrc) {
+    let currentImgIdx = 0;
+    const allImages = document.querySelectorAll('.gallery-img');
+
+    function openLightbox(index) {
+        currentImgIdx = index;
+        const imgSrc = allImages[currentImgIdx].src;
+        
         let overlay = document.createElement('div');
-        overlay.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9999; display:flex; align-items:center; justify-content:center; cursor:pointer;";
-        overlay.innerHTML = `<img src="${imgSrc}" style="max-width:90%; max-height:90%; box-shadow: 0 0 50px rgba(0,0,0,0.5);">`;
-        overlay.onclick = function() { document.body.removeChild(overlay); };
+        overlay.id = "active-lightbox";
+        overlay.style = "position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:9999; display:flex; align-items:center; justify-content:center; cursor:default; user-select:none;";
+        
+        // Slider HTML yapısı (Oklar eklendi)
+        overlay.innerHTML = `
+            <div onclick="changeImg(-1)" style="position:absolute; left:30px; color:#fff; font-size:60px; cursor:pointer; font-weight:100;">&#8249;</div>
+            <img id="lb-display-img" src="${imgSrc}" style="max-width:85%; max-height:85%; box-shadow: 0 0 50px rgba(0,0,0,0.8); border:1px solid #333;">
+            <div onclick="changeImg(1)" style="position:absolute; right:30px; color:#fff; font-size:60px; cursor:pointer; font-weight:100;">&#8250;</div>
+            <div onclick="closeLightbox()" style="position:absolute; top:30px; right:40px; color:#fff; font-size:40px; cursor:pointer;">&times;</div>
+        `;
+
+        overlay.onclick = function(e) { if(e.target === overlay) closeLightbox(); };
         document.body.appendChild(overlay);
+        document.body.style.overflow = "hidden"; // Kaydırmayı engelle
     }
-</script>
-    
+
+    function changeImg(step) {
+        currentImgIdx = (currentImgIdx + step + allImages.length) % allImages.length;
+        document.getElementById('lb-display-img').src = allImages[currentImgIdx].src;
+    }
+
+    function closeLightbox() {
+        const lb = document.getElementById('active-lightbox');
+        if(lb) {
+            document.body.removeChild(lb);
+            document.body.style.overflow = "auto";
+        }
+    }
+
+    // Klavye Desteği (ESC, Sağ, Sol)
+    document.addEventListener('keydown', function(e) {
+        if (!document.getElementById('active-lightbox')) return;
+        if (e.key === "ArrowRight") changeImg(1);
+        if (e.key === "ArrowLeft") changeImg(-1);
+        if (e.key === "Escape") closeLightbox();
+    });
+</script>    
     <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:10000; justify-content:center; align-items:center;">
         <span onclick="closeFull()" style="position:absolute; top:20px; right:30px; color:#fff; font-size:40px; cursor:pointer;">×</span>
         <button onclick="changeImg(-1)" style="position:absolute; left:20px; background:none; border:none; color:#fff; font-size:50px; cursor:pointer;">❮</button>
