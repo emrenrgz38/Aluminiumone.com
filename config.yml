@@ -1,0 +1,33 @@
+backend:
+  name: git-gateway
+  branch: main # Senin GitHub dalın (main/master kontrol et)
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "content"
+    label: "SAYFA İÇERİKLERİ"
+    files:
+      - file: "content/home.json"
+        label: "01. ANA SAYFA (HOME)"
+        fields:
+          - {label: "Ana Slogan", name: "hero_title", widget: "string"}
+          - {label: "Arkaplan Resmi", name: "bg_image", widget: "image"}
+
+      - file: "content/about.json"
+        label: "02. HAKKIMIZDA (ABOUT US)"
+        fields:
+          - {label: "Vizyon", name: "vision", widget: "text"}
+          - {label: "Misyon", name: "mission", widget: "text"}
+
+      - file: "content/used-machines.json"
+        label: "07. İKİNCİ EL (USED MACHINES)"
+        fields:
+          - label: "Makine Listesi"
+            name: "machines"
+            widget: "list"
+            fields:
+              - {label: "Model Adı", name: "model", widget: "string"}
+              - {label: "Teknik Detay", name: "detail", widget: "markdown"}
+              - {label: "Makine Fotoğrafı", name: "photo", widget: "image"}
