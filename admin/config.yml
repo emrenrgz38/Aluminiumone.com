@@ -9,23 +9,28 @@ collections:
   - name: "pages"
     label: "SAYFA İÇERİKLERİ"
     files:
-      - name: "home"
-        file: "content/home.json"
-        label: "01. ANA SAYFA (HOME)"
+      - {name: "home", file: "content/home.json", label: "01. ANA SAYFA (HOME)", fields: [{label: "Slogan", name: "hero_title", widget: "string"}, {label: "Kapak", name: "bg_image", widget: "image"}]}
+      - {name: "about", file: "content/about.json", label: "02. HAKKIMIZDA (ABOUT US)", fields: [{label: "İçerik", name: "content", widget: "markdown"}]}
+      - {name: "products", file: "content/products.json", label: "03. ÜRÜNLER (PRODUCTS)", fields: [{label: "Ürün Listesi", name: "list", widget: "list", fields: [{label: "Adı", name: "title", widget: "string"}, {label: "Görsel", name: "img", widget: "image"}]}]}
+      - {name: "projects", file: "content/projects.json", label: "04. PROJELER (PROJECTS)", fields: [{label: "Projeler", name: "list", widget: "list", fields: [{label: "Proje Adı", name: "title", widget: "string"}, {label: "Detay", name: "detail", widget: "markdown"}]}]}
+      - {name: "services", file: "content/services.json", label: "05. SERVİSLER (SERVICES)", fields: [{label: "Hizmetler", name: "list", widget: "list", fields: [{label: "Hizmet", name: "title", widget: "string"}]}]}
+      - {name: "news", file: "content/news.json", label: "06. HABERLER (NEWS)", fields: [{label: "Haberler", name: "list", widget: "list", fields: [{label: "Başlık", name: "title", widget: "string"}, {label: "Tarih", name: "date", widget: "datetime"}]}]}
+      - {name: "contact", file: "content/contact.json", label: "07. İLETİŞİM (CONTACT)", fields: [{label: "Adres", name: "address", widget: "text"}, {label: "Telefon", name: "phone", widget: "string"}]}
+      
+      - name: "references"
+        file: "content/references.json"
+        label: "08. REFERANSLAR (REFERENCES)"
         fields:
-          - {label: "Ana Slogan", name: "hero_title", widget: "string"}
-          - {label: "Arkaplan Resmi", name: "bg_image", widget: "image"}
-
-      - name: "about"
-        file: "content/about.json"
-        label: "02. HAKKIMIZDA (ABOUT US)"
-        fields:
-          - {label: "Vizyon", name: "vision", widget: "text"}
-          - {label: "Misyon", name: "mission", widget: "text"}
+          - label: "Müşteri Logoları"
+            name: "logos"
+            widget: "list"
+            fields:
+              - {label: "Şirket Adı", name: "company", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
 
       - name: "used-machines"
         file: "content/used-machines.json"
-        label: "07. İKİNCİ EL (USED MACHINES)"
+        label: "09. İKİNCİ EL (USED MACHINES)"
         fields:
           - label: "Makine Listesi"
             name: "machines"
