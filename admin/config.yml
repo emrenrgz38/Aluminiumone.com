@@ -6,16 +6,25 @@ media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
 collections:
-  - name: "content"
+  - name: "pages"
     label: "SAYFA İÇERİKLERİ"
     files:
-      - file: "content/home.json"
+      - name: "home"
+        file: "content/home.json"
         label: "01. ANA SAYFA (HOME)"
         fields:
           - {label: "Ana Slogan", name: "hero_title", widget: "string"}
           - {label: "Arkaplan Resmi", name: "bg_image", widget: "image"}
 
-      - file: "content/used-machines.json"
+      - name: "about"
+        file: "content/about.json"
+        label: "02. HAKKIMIZDA (ABOUT US)"
+        fields:
+          - {label: "Vizyon", name: "vision", widget: "text"}
+          - {label: "Misyon", name: "mission", widget: "text"}
+
+      - name: "used-machines"
+        file: "content/used-machines.json"
         label: "07. İKİNCİ EL (USED MACHINES)"
         fields:
           - label: "Makine Listesi"
