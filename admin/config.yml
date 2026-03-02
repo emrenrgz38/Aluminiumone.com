@@ -9,33 +9,116 @@ collections:
   - name: "pages"
     label: "SAYFA İÇERİKLERİ"
     files:
-      - {name: "home", file: "content/home.json", label: "01. ANA SAYFA (HOME)", fields: [{label: "Slogan", name: "hero_title", widget: "string"}, {label: "Kapak", name: "bg_image", widget: "image"}]}
-      - {name: "about", file: "content/about.json", label: "02. HAKKIMIZDA (ABOUT US)", fields: [{label: "İçerik", name: "content", widget: "markdown"}]}
-      - {name: "products", file: "content/products.json", label: "03. ÜRÜNLER (PRODUCTS)", fields: [{label: "Ürün Listesi", name: "list", widget: "list", fields: [{label: "Adı", name: "title", widget: "string"}, {label: "Görsel", name: "img", widget: "image"}]}]}
-      - {name: "projects", file: "content/projects.json", label: "04. PROJELER (PROJECTS)", fields: [{label: "Projeler", name: "list", widget: "list", fields: [{label: "Proje Adı", name: "title", widget: "string"}, {label: "Detay", name: "detail", widget: "markdown"}]}]}
-      - {name: "services", file: "content/services.json", label: "05. SERVİSLER (SERVICES)", fields: [{label: "Hizmetler", name: "list", widget: "list", fields: [{label: "Hizmet", name: "title", widget: "string"}]}]}
-      - {name: "news", file: "content/news.json", label: "06. HABERLER (NEWS)", fields: [{label: "Haberler", name: "list", widget: "list", fields: [{label: "Başlık", name: "title", widget: "string"}, {label: "Tarih", name: "date", widget: "datetime"}]}]}
-      - {name: "contact", file: "content/contact.json", label: "07. İLETİŞİM (CONTACT)", fields: [{label: "Adres", name: "address", widget: "text"}, {label: "Telefon", name: "phone", widget: "string"}]}
-      
+      # 01. HOME
+      - name: "home"
+        file: "content/home.json"
+        label: "01. ANA SAYFA (HOME)"
+        fields:
+          - {label: "Ana Slogan", name: "hero_title", widget: "string"}
+          - {label: "Kapak Görseli", name: "bg_image", widget: "image"}
+          - {label: "Alt Slogan", name: "hero_subtitle", widget: "string"}
+
+      # 02. ABOUT US (Vizyon, Misyon, HR ve Kurumsal Metin)
+      - name: "about"
+        file: "content/about.json"
+        label: "02. HAKKIMIZDA (ABOUT US)"
+        fields:
+          - {label: "Hakkımızda Ana Metin", name: "content", widget: "markdown"}
+          - label: "Kurumsal Kartlar (Vision/Mission/HR)"
+            name: "cards"
+            widget: "list"
+            fields:
+              - {label: "Kart Başlığı", name: "title", widget: "string"}
+              - {label: "İçerik", name: "text", widget: "text"}
+
+      # 03. PRODUCTS (Döküm, Pres, Yüzey İşlem vb.)
+      - name: "products"
+        file: "content/products.json"
+        label: "03. ÜRÜNLER (PRODUCTS)"
+        fields:
+          - label: "Ürün Grupları"
+            name: "list"
+            widget: "list"
+            fields:
+              - {label: "Ürün Adı", name: "title", widget: "string"}
+              - {label: "Markalar/Açıklama", name: "subtitle", widget: "string"}
+              - {label: "Görsel", name: "img", widget: "image"}
+
+      # 04. PROJECTS (Tamamlanan Projeler)
+      - name: "projects"
+        file: "content/projects.json"
+        label: "04. PROJELER (PROJECTS)"
+        fields:
+          - label: "Proje Listesi"
+            name: "list"
+            widget: "list"
+            fields:
+              - {label: "Proje Adı", name: "title", widget: "string"}
+              - {label: "Detaylar", name: "detail", widget: "markdown"}
+              - {label: "Görsel", name: "image", widget: "image"}
+
+      # 05. SERVICES (Foundry, Extrusion, Surface, Mechanical) - DOSYADAKİ ASIL TEKNİK KISIM
+      - name: "services"
+        file: "content/services.json"
+        label: "05. SERVİSLER / ÜRETİM (SERVICES)"
+        fields:
+          - label: "Üretim ve Servis Detayları"
+            name: "service_list"
+            widget: "list"
+            fields:
+              - {label: "Servis/Bölüm Adı", name: "title", widget: "string"}
+              - {label: "Teknik Açıklama (Tablo Düzeni)", name: "description", widget: "markdown"}
+              - {label: "Bölüm Görseli", name: "image", widget: "image"}
+
+      # 06. NEWS (Haber Kartları)
+      - name: "news"
+        file: "content/news.json"
+        label: "06. HABERLER (NEWS)"
+        fields:
+          - label: "Haberler"
+            name: "list"
+            widget: "list"
+            fields:
+              - {label: "Başlık", name: "title", widget: "string"}
+              - {label: "Özet", name: "summary", widget: "text"}
+              - {label: "Haber İçeriği", name: "content", widget: "markdown"}
+              - {label: "Görsel", name: "image", widget: "image"}
+
+      # 07. CONTACT (İletişim Bilgileri)
+      - name: "contact"
+        file: "content/contact.json"
+        label: "07. İLETİŞİM (CONTACT)"
+        fields:
+          - {label: "Adres", name: "address", widget: "text"}
+          - {label: "E-posta", name: "email", widget: "string"}
+          - {label: "Telefon", name: "phone", widget: "string"}
+          - {label: "Harita Linki", name: "map_url", widget: "string"}
+
+      # 08. REFERENCES (Logo Slider)
       - name: "references"
         file: "content/references.json"
         label: "08. REFERANSLAR (REFERENCES)"
         fields:
-          - label: "Müşteri Logoları"
+          - label: "Logolar"
             name: "logos"
             widget: "list"
             fields:
               - {label: "Şirket Adı", name: "company", widget: "string"}
               - {label: "Logo", name: "logo", widget: "image"}
 
+      # 09. USED MACHINES (Çoklu Resim ve Teknik Tablo)
       - name: "used-machines"
         file: "content/used-machines.json"
         label: "09. İKİNCİ EL (USED MACHINES)"
         fields:
-          - label: "Makine Listesi"
+          - label: "Makineler"
             name: "machines"
             widget: "list"
             fields:
-              - {label: "Model Adı", name: "model", widget: "string"}
-              - {label: "Teknik Detay", name: "detail", widget: "markdown"}
-              - {label: "Makine Fotoğrafı", name: "photo", widget: "image"}
+              - {label: "Makine Modeli", name: "model", widget: "string"}
+              - {label: "Teknik Özellikler (Mavi Çizgili Tablo)", name: "detail", widget: "markdown"}
+              - label: "Makine Galerisi"
+                name: "gallery"
+                widget: "list"
+                fields:
+                  - {label: "Fotoğraf", name: "photo", widget: "image"}
