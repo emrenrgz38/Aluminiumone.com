@@ -1,0 +1,12 @@
+{
+  "machines": [
+    {
+      "model": "Used 10 inch Press",
+      "detail": "Completely revised, 2018 model.",
+      "gallery": [
+        {"photo": "/assets/img/used1.jpg"},
+        {"photo": "/assets/img/used2.jpg"}
+      ]
+    }
+  ]
+}
